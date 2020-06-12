@@ -1,0 +1,83 @@
+.typeLink {
+  background: url(../images/icons/object.svg) no-repeat 0 0px;
+  background-size: 18px;
+  line-height: 1.4;
+  display: inline-block;
+  padding-left: 24px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.typeLink--argumentSet {
+  background-image: url(../images/icons/argument_set.svg);
+}
+
+.typeLink--lookupArgumentSet {
+  background-image: url(../images/icons/lookup_argument_set.svg);
+}
+
+.typeLink--enum {
+  background-image: url(../images/icons/enum.svg);
+}
+
+.typeLink--scalar.typeLink--string {
+  background-image: url(../images/icons/string.svg);
+}
+
+.typeLink--scalar.typeLink--date {
+  background-image: url(../images/icons/date.svg);
+}
+
+.typeLink--scalar.typeLink--integer,
+.typeLink--scalar.typeLink--decimal {
+  background-image: url(../images/icons/numbers.svg);
+}
+
+.typeLink--scalar.typeLink--unix_time {
+  background-image: url(../images/icons/time.svg);
+}
+
+.typeLink--scalar.typeLink--boolean {
+  background-image: url(../images/icons/boolean.svg);
+}
+
+.darkMode {
+  .typeLink {
+    background-image: url(../images/icons/dark/object.svg);
+  }
+
+  .typeLink--argumentSet {
+    background-image: url(../images/icons/dark/argument_set.svg);
+  }
+
+  .typeLink--lookupArgumentSet {
+    background-image: url(../images/icons/dark/lookup_argument_set.svg);
+  }
+
+  .typeLink--enum {
+    background-image: url(../images/icons/dark/enum.svg);
+  }
+
+  .typeLink--scalar.typeLink--string {
+    background-image: url(../images/icons/dark/string.svg);
+  }
+
+  .typeLink--scalar.typeLink--date {
+    background-image: url(../images/icons/dark/date.svg);
+  }
+
+  .typeLink--scalar.typeLink--integer,
+  .typeLink--scalar.typeLink--decimal {
+    background-image: url(../images/icons/dark/numbers.svg);
+  }
+
+  .typeLink--scalar.typeLink--unix_time {
+    background-image: url(../images/icons/dark/time.svg);
+  }
+
+  .typeLink--scalar.typeLink--boolean {
+    background-image: url(../images/icons/dark/boolean.svg);
+  }
+}

@@ -1,0 +1,46 @@
+- @active_nav = :welcome
+- @page_title = 'Welcome'
+%h1.page__preTitle= schema.api.name
+%h1.page__title API Documentation
+%p.page__titleText.u-margin
+  <b>Welcome to the documentation for #{schema.api.name}.</b> Using the options below
+  and in the menu on the left you should be able to discover everything you need to
+  know about interacting with this API.
+
+%ul.concepts
+  %li
+    = link_to '/authentication.html', class: 'concepts__link concepts__link--authentication' do
+      %p.concepts__title Authentication
+      %p.concepts__text How to authenticate requests to the API.
+  %li
+    = link_to '/arguments.html', class: 'concepts__link concepts__link--arguments' do
+      %p.concepts__title Passing Arguments
+      %p.concepts__text How to passing data/arguments to the API.
+  %li
+    = link_to '/fields.html', class: 'concepts__link concepts__link--fields' do
+      %p.concepts__title Receiving Data
+      %p.concepts__text How data is returned to you on each request.
+  %li
+    = link_to '/errors.html', class: 'concepts__link concepts__link--errors' do
+      %p.concepts__title Handling Errors
+      %p.concepts__text How to handle any errors which occur during a request.
+
+%h2.page__subTitle Browse Endpoints & Resources
+%p.page__subTitleText
+  This documentation provides detailed information about how each endpoint behaves and what is expected and what to expect. Choose
+  from any of the groups below to browse endpoints.
+
+%ul.groupList
+  - for group in schema.api.route_set.groups.values
+    %li.groupList__group
+      = link_to "/groups/#{group.id.gsub('.', '/')}.html", class: 'groupList__link' do
+        .groupList__details
+          %p.groupList__groupName= group.name || group.id
+          %p.groupList__routeQuantity
+            - if group.routes && group.routes.size.positive?
+              %span= pluralize group.routes.size, 'endpoint'
+            - if group.groups.size.positive?
+              %span= pluralize group.groups.size, 'group'
+
+        - if group.description
+          %p.groupList__groupDescription= add_full_stop group.description

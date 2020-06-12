@@ -1,0 +1,47 @@
+.groupList__link {
+  display: block;
+  background: var(--sidebarBackgroundColor);
+  border: 2px solid var(--sidebarBorderColor);
+  border-radius: 5px;
+  padding: 20px;
+  &:hover {
+    border-color: var(--accentColor);
+    background: var(--backgroundColor);
+  }
+}
+
+.groupList__group + .groupList__group {
+  margin-top: 25px;
+}
+
+.groupList__details {
+  display: flex;
+  align-items: center;
+}
+
+.groupList__groupName {
+  font-weight: 600;
+  font-size: 18px;
+  flex: 1 1 auto;
+}
+
+.groupList__routeQuantity {
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid var(--sidebarBorderColor);
+  color: var(--subTextColor);
+  padding: 6px 15px;
+  border-radius: 40px;
+
+  span + span {
+    margin-left: 8px;
+  }
+}
+
+.groupList__groupDescription {
+  line-height: 1.5;
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--subTextColor);
+}

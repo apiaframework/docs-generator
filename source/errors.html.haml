@@ -1,0 +1,30 @@
+- @active_nav = :errors
+- @page_title = 'Handling Errors'
+%h1.page__title Handling Errors
+%p.page__titleText
+  You will likely encounter errors are some point during your use of the API. This documentation
+  lists all the potential errors that can occur during a request.
+
+%h2.page__subTitle Error formatting
+%p.page__subTitleText
+  Errors will be returned, as with any request, JSON-encoded in the body of the response. All errors
+  follow a simple basic formatting. All errors that following this format will have a <code>X-API-Schema</code>
+  header with the value of <code>json-error</code>.
+
+%pre.json
+  :plain
+    <span class='json__comment'>{</span>
+      <span class='json__highlight'>"error"</span>: <span class='json__comment'>{</span>
+        <span class='json__highlight'>"code"</span>: "widget_not_found", <span class='json__annotation'>&larr; As specified in the docs</span>
+        <span class='json__highlight'>"description"</span>: "Widget was not found matching arguments",
+        <span class='json__highlight'>"detail"</span>: <span class='json__comment'>{</span>
+          <span class='json__comment'>... Any additional fields specified for the error ...</span>
+        <span class='json__comment'>}</span>
+      <span class='json__comment'>}</span>
+    <span class='json__comment'>}</span>
+
+%h2.page__subTitle Global errors
+%p.page__subTitleText The following errors are not documented on each request but you may encounter them.
+%ul.page__list
+  %li <code>route_not_found</code> - no route was found matching the path & request method provided.
+  %li <code>unhandled_exception</code> - an server-side error occurred which needs to be resolved by the development team. We have been notified.

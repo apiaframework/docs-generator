@@ -1,0 +1,44 @@
+.fields {
+  background: var(--boxBackgroundColor);
+  font-family: $monoFamily;
+  padding: 15px;
+  font-size: 14px;
+  color: #fff;
+  white-space: pre;
+  line-height: 1.5;
+  border-radius: 6px;
+
+  a {
+    background: none;
+    background-image: none !important;
+    padding: 0;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.fields__bracket {
+  color: var(--subTextColor);
+}
+
+.fields__type--scalar {
+  color: #61b0ff;
+}
+
+.fields__type--enum {
+  color: #2bedb6;
+}
+
+.fields__type--object {
+  color: #c38eff;
+}
+
+.fields__type--polymorph {
+  color: #fbecaf;
+}
+
+.fields__arrayBracket {
+  color: #ff9981;
+  font-weight: 700;
+}

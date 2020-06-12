@@ -1,0 +1,30 @@
+.json {
+  background: var(--boxBackgroundColor);
+  font-family: $monoFamily;
+  padding: 15px;
+  font-size: 14px;
+  color: #fff;
+  white-space: pre;
+  line-height: 1.5;
+  border-radius: 6px;
+}
+
+.json__comment {
+  color: var(--subTextColor);
+}
+
+.json__highlight {
+  color: #ffee78;
+}
+
+.json__highlight2 {
+  color: #ffa6db;
+}
+
+.json__annotation {
+  font-family: Overpass, sans-serif;
+  background: var(--accentColor);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 50px;
+}

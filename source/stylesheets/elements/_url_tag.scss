@@ -1,0 +1,12 @@
+.urlTag {
+  font-family: $monoFamily;
+}
+
+.urlTag--argument {
+  color: var(--accentColor);
+}
+
+.urlTag--host,
+.urlTag--namespace {
+  color: var(--subTextColor);
+}

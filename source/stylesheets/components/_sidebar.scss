@@ -1,0 +1,53 @@
+.sidebar {
+  flex: 0 0 auto;
+  min-height: 100%;
+  width: 250px;
+  background: var(--sidebarBackgroundColor);
+  border-right: 1px solid var(--sidebarBorderColor);
+}
+
+.sidebar__title {
+  margin: 25px 25px 10px 25px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--sidebarSubTextColor);
+  margin-bottom: 10px;
+}
+
+.sidebar__apiName {
+  margin: 0 25px 10px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.sidebar__subTitle {
+  margin: 30px 0 10px 0;
+  padding: 0 25px 8px 25px;
+  border-bottom: 1px solid var(--sidebarBorderColor);
+  color: var(--sidebarSubTextColor);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.sidebar__nav {
+  font-size: 14px;
+  li {
+    a {
+      display: block;
+      padding: 7px 25px;
+
+      &.is-active {
+        background-color: var(--sidebarActiveBackgroundColor);
+        color: var(--accentColor);
+        font-weight: 600;
+      }
+    }
+  }
+
+  li + li {
+    margin-top: 2px;
+  }
+}

@@ -1,0 +1,22 @@
+.routeURLBox {
+  background: var(--boxBackgroundColor);
+  padding: 20px 25px;
+  border-radius: 6px;
+  margin: 30px 0;
+
+  .urlTag--argument {
+    color: #ffee78;
+  }
+}
+
+.routeURLBox__method {
+  position: absolute;
+  margin-top: -35px;
+  margin-left: -10px;
+}
+
+.routeURLBox__url {
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.5;
+}

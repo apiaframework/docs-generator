@@ -1,0 +1,13 @@
+- @page_title = error.name
+
+%p.page__preTitle Error
+%h1.page__title= error.code
+- if error.description
+  %p.page__titleText= add_full_stop error.description
+
+%h2.page__subTitle HTTP status
+%p.page__subTitleText If this error is encountered a #{http_status_tag error.http_status} status will be returned.
+
+%h2.page__subTitle Additional information
+%p.page__subTitleText The additional information included below will be included in the error payload.
+= partial 'partials/field_list', locals: {fields: error.fields}

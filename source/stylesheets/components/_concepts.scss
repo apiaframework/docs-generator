@@ -1,0 +1,69 @@
+.concepts {
+  display: grid;
+  grid-template-columns: repeat(4, calc((100% - 72px) / 4));
+  grid-gap: 24px;
+  align-items: stretch;
+}
+
+.concepts__link {
+  display: block;
+  border: 1px solid var(--sidebarBorderColor);
+  background-color: var(--sidebarBackgroundColor);
+  background-image: url(../images/icons/authentication.svg);
+  background-size: 30px;
+  background-position: 15px 15px;
+  background-repeat: no-repeat;
+  border-radius: 6px;
+  padding: 70px 15px 15px 15px;
+  min-height: 100%;
+
+  &:hover {
+    border-color: var(--accentColor);
+    background-color: transparent;
+    .concepts__title {
+      color: var(--accentColor);
+    }
+  }
+}
+
+.concepts__title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.concepts__text {
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--subTextColor);
+}
+
+.concepts__link--errors {
+  background-image: url(../images/icons/errors.svg);
+  background-size: 32px;
+}
+
+.concepts__link--arguments {
+  background-image: url(../images/icons/arguments.svg);
+}
+.concepts__link--fields {
+  background-image: url(../images/icons/fields.svg);
+  background-size: 34px;
+}
+
+.darkMode {
+  .concepts__link--authentication {
+    background-image: url(../images/icons/dark/authentication.svg);
+  }
+
+  .concepts__link--errors {
+    background-image: url(../images/icons/dark/errors.svg);
+  }
+
+  .concepts__link--arguments {
+    background-image: url(../images/icons/dark/arguments.svg);
+  }
+  .concepts__link--fields {
+    background-image: url(../images/icons/dark/fields.svg);
+  }
+}

@@ -1,0 +1,38 @@
+.httpStatusTag {
+  background: #e1e8ef;
+  color: var(--subTextColor);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 100px;
+  vertical-align: middle;
+  display: inline-block;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.httpStatusTag--success {
+  color: #3fd6a1;
+  background-color: #e3f2ed;
+}
+
+.httpStatusTag--clientError,
+.httpStatusTag--serverError {
+  color: #e34040;
+  background-color: #f6e5e5;
+}
+
+.darkMode {
+  .httpStatusTag--success {
+    background: transparent;
+    border-color: #3fd6a1;
+    color: #3fd6a1;
+  }
+
+  .httpStatusTag--clientError,
+  .httpStatusTag--serverError {
+    background: transparent;
+    border-color: #e34040;
+    color: #e34040;
+  }
+}

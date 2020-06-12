@@ -1,0 +1,25 @@
+- @page_title = argument_set.name
+
+%p.page__preTitle
+  - if argument_set.is_a?(RapidSchemaParser::LookupArgumentSet)
+    Lookup
+  Argument Set
+%h1.page__title= argument_set.name
+- if argument_set.description
+  %p.page__titleText= add_full_stop argument_set.description
+
+%h2.page__subTitle Arguments
+%p.page__subTitleText
+  - if argument_set.is_a?(RapidSchemaParser::LookupArgumentSet)
+    Any one of the following arguments can be provided for this lookup argument set. An error will be raised
+    if none or more than one argument value is provided.
+  - else
+    The following arguments can be passed for this argument set.
+
+.u-margin= partial 'partials/argument_list', locals: { argument_set: argument_set }
+
+- if argument_set.is_a?(RapidSchemaParser::LookupArgumentSet)
+  %h2.page__subTitle Potential errors
+  %p.page__subTitleText
+    Any of the following errors may be encountered when looking up the object.
+  = partial 'partials/error_list', locals: { errors: argument_set.potential_errors }

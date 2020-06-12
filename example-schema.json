@@ -1,0 +1,5578 @@
+{
+  "schema_version": 1,
+  "host": "katapult.dev.adam.ac",
+  "namespace": "/api/core/v1",
+  "api": "CoreAPI/Base",
+  "objects": [
+    {
+      "type": "api",
+      "value": {
+        "id": "CoreAPI/Base",
+        "name": "Katapult Core API",
+        "description": null,
+        "authenticator": "CoreAPI/Authenticator",
+        "route_set": {
+          "routes": [
+            {
+              "path": "schema",
+              "request_method": "GET",
+              "controller": "Rapid/Schema/Controller",
+              "endpoint": "Rapid/Schema/Controller/SchemaEndpoint",
+              "group": null
+            },
+            {
+              "path": "data_centers",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DataCenters",
+              "endpoint": "CoreAPI/Controllers/DataCenters/ListEndpoint",
+              "group": "data_centers"
+            },
+            {
+              "path": "data_centers/:data_center",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DataCenters",
+              "endpoint": "CoreAPI/Controllers/DataCenters/InfoEndpoint",
+              "group": "data_centers"
+            },
+            {
+              "path": "organizations",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Organizations",
+              "endpoint": "CoreAPI/Controllers/Organizations/ListEndpoint",
+              "group": "organizations"
+            },
+            {
+              "path": "organizations/:organizations",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Organizations",
+              "endpoint": "CoreAPI/Controllers/Organizations/InfoEndpoint",
+              "group": "organizations"
+            },
+            {
+              "path": "organizations/:organization/managed",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/Organizations",
+              "endpoint": "CoreAPI/Controllers/Organizations/CreateManagedEndpoint",
+              "group": "organizations.managed"
+            },
+            {
+              "path": "organizations/:organization/virtual_machines",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/ListEndpoint",
+              "group": "virtual_machines"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/InfoEndpoint",
+              "group": "virtual_machines"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine",
+              "request_method": "DELETE",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/DeleteEndpoint",
+              "group": "virtual_machines"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine/package",
+              "request_method": "PATCH",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/ChangePackageEndpoint",
+              "group": "virtual_machines"
+            },
+            {
+              "path": "organizations/:organization/virtual_machines/build",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint",
+              "group": "virtual_machines.build"
+            },
+            {
+              "path": "organizations/:organization/virtual_machines/build_from_spec",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint",
+              "group": "virtual_machines.build"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine/start",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/StartEndpoint",
+              "group": "virtual_machines.power"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine/stop",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/StopEndpoint",
+              "group": "virtual_machines.power"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine/shutdown",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/ShutdownEndpoint",
+              "group": "virtual_machines.power"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine/reset",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/ResetEndpoint",
+              "group": "virtual_machines.power"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine/console_sessions",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/CreateConsoleSessionEndpoint",
+              "group": "virtual_machines.console"
+            },
+            {
+              "path": "organizations/:organization/dns/zones",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/ListEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "organizations/:organization/dns/zones",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/CreateEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/InfoEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone",
+              "request_method": "DELETE",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/DeleteEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone/verification_details",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone/verify",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/VerifyEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone/update_ttl",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone/records",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DNSRecords",
+              "endpoint": "CoreAPI/Controllers/DNSRecords/ListEndpoint",
+              "group": "dns.records"
+            },
+            {
+              "path": "dns/zones/:dns_zone/records",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/DNSRecords",
+              "endpoint": "CoreAPI/Controllers/DNSRecords/CreateEndpoint",
+              "group": "dns.records"
+            },
+            {
+              "path": "dns/records/:dns_record",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DNSRecords",
+              "endpoint": "CoreAPI/Controllers/DNSRecords/InfoEndpoint",
+              "group": "dns.records"
+            },
+            {
+              "path": "dns/records/:dns_record",
+              "request_method": "PATCH",
+              "controller": "CoreAPI/Controllers/DNSRecords",
+              "endpoint": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint",
+              "group": "dns.records"
+            },
+            {
+              "path": "dns/records/:dns_record",
+              "request_method": "DELETE",
+              "controller": "CoreAPI/Controllers/DNSRecords",
+              "endpoint": "CoreAPI/Controllers/DNSRecords/DeleteEndpoint",
+              "group": "dns.records"
+            }
+          ],
+          "groups": [
+            {
+              "id": "data_centers",
+              "name": "Data Centers",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "organizations",
+              "name": "Organizations",
+              "description": null,
+              "groups": [
+                {
+                  "id": "organizations.managed",
+                  "name": "Managed organizations",
+                  "description": null,
+                  "groups": []
+                }
+              ]
+            },
+            {
+              "id": "virtual_machines",
+              "name": "Virtual machines",
+              "description": null,
+              "groups": [
+                {
+                  "id": "virtual_machines.build",
+                  "name": "Build",
+                  "description": "Endpoints used for building or creating new virtual machines",
+                  "groups": []
+                },
+                {
+                  "id": "virtual_machines.power",
+                  "name": "Power Functions",
+                  "description": "Endpoints for performing power functions (i.e. start, stop etc...) on a virtual machine",
+                  "groups": []
+                },
+                {
+                  "id": "virtual_machines.console",
+                  "name": "Console",
+                  "description": "Endpoints for managing console access to a virtual machine",
+                  "groups": []
+                }
+              ]
+            },
+            {
+              "id": "dns",
+              "name": "DNS/Domains",
+              "description": null,
+              "groups": [
+                {
+                  "id": "dns.zones",
+                  "name": "DNS Zones",
+                  "description": "Endpoints for managing DNS zones/domains",
+                  "groups": []
+                },
+                {
+                  "id": "dns.records",
+                  "name": "DNS Records",
+                  "description": "Endpoints for managing DNS records beloning to existing DNS zones/domains",
+                  "groups": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "authenticator",
+      "value": {
+        "id": "CoreAPI/Authenticator",
+        "name": "API Token Authenticator",
+        "description": "Authenticates requests using an API token provided in the Authorization header",
+        "type": "bearer",
+        "potential_errors": [
+          "CoreAPI/Authenticator/MissingAPIToken",
+          "CoreAPI/Authenticator/InvalidAPIToken"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Authenticator/MissingAPIToken",
+        "name": null,
+        "description": "No API token was provided in the Authorization header. Ensure a token is provided prefixed with Bearer",
+        "code": "missing_api_token",
+        "http_status": 400,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Authenticator/InvalidAPIToken",
+        "name": null,
+        "description": "The API token provided was not valid (it may not exist or have expired)",
+        "code": "invalid_api_token",
+        "http_status": 403,
+        "fields": []
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/Integer",
+        "name": "Integer",
+        "description": null
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/String",
+        "name": "String",
+        "description": null
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/Boolean",
+        "name": "Boolean",
+        "description": null
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/DataCenters",
+        "name": "Data Centers",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/DataCenters/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/DataCenters/InfoEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DataCenters/ListEndpoint",
+        "name": "List data centers",
+        "description": "Provides a full list of all data centers",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DataCenters/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DataCenters/ListEndpoint/DataCentersField",
+            "name": "data_centers",
+            "description": null,
+            "type": "CoreAPI/Objects/DataCenter",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "id,name,permalink,country[id,name]"
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DataCenters/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DataCenter",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DataCenter/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DataCenter/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DataCenter/PermalinkField",
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DataCenter/CountryField",
+            "name": "country",
+            "description": null,
+            "type": "CoreAPI/Objects/Country",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Country",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Country/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Country/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Country/IsoCode2Field",
+            "name": "iso_code2",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Country/IsoCode3Field",
+            "name": "iso_code3",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Country/TimeZoneField",
+            "name": "time_zone",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Country/EuField",
+            "name": "eu",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DataCenters/InfoEndpoint",
+        "name": "Get data center",
+        "description": "Provide details for a specific data center",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DataCenters/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "data_center",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/DataCenterLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DataCenters/InfoEndpoint/DataCenterField",
+            "name": "data_center",
+            "description": null,
+            "type": "CoreAPI/Objects/DataCenter",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,permalink,country[id,name]"
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DataCenters/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "data_center",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/DataCenterLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DataCenterLookup",
+        "name": "Data Center Lookup",
+        "description": "Provides for data centers to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/DataCenterLookup/DataCenterNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DataCenterLookup/DataCenterNotFound",
+        "name": null,
+        "description": "No data centers was found matching any of the criteria provided in the arguments",
+        "code": "data_center_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/Organizations",
+        "name": "Organizations",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/Organizations/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/Organizations/InfoEndpoint"
+          },
+          {
+            "name": "create_managed",
+            "endpoint": "CoreAPI/Controllers/Organizations/CreateManagedEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Organizations/ListEndpoint",
+        "name": "List organizations",
+        "description": "This will return a list of all organizations the authenticated identity has access to",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Organizations/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Organizations/ListEndpoint/OrganizationsField",
+            "name": "organizations",
+            "description": null,
+            "type": "CoreAPI/Objects/Organization",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "id, name, sub_domain, personal, created_at, suspended"
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Organizations/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Organization",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Organization/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/SubDomainField",
+            "name": "sub_domain",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/InfrastructureDomainField",
+            "name": "infrastructure_domain",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/PersonalField",
+            "name": "personal",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/SuspendedField",
+            "name": "suspended",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/ManagedField",
+            "name": "managed",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/BillingNameField",
+            "name": "billing_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/Address1Field",
+            "name": "address1",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/Address2Field",
+            "name": "address2",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/Address3Field",
+            "name": "address3",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/Address4Field",
+            "name": "address4",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/PostcodeField",
+            "name": "postcode",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/VatNumberField",
+            "name": "vat_number",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/CurrencyField",
+            "name": "currency",
+            "description": null,
+            "type": "CoreAPI/Objects/Currency",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/CountryField",
+            "name": "country",
+            "description": null,
+            "type": "CoreAPI/Objects/Country",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Organization/CountryStateField",
+            "name": "country_state",
+            "description": null,
+            "type": "CoreAPI/Objects/CountryState",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/UnixTime",
+        "name": "Unix Timestamp",
+        "description": null
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Currency",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Currency/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Currency/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Currency/IsoCodeField",
+            "name": "iso_code",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Currency/SymbolField",
+            "name": "symbol",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Currency/DefaultField",
+            "name": "default",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/CountryState",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/CountryState/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/CountryState/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/CountryState/CodeField",
+            "name": "code",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/CountryState/CountryField",
+            "name": "country",
+            "description": null,
+            "type": "CoreAPI/Objects/Country",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Organizations/InfoEndpoint",
+        "name": "Get organization",
+        "description": "Returns information about a specific organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Organizations/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Organizations/InfoEndpoint/OrganizationField",
+            "name": "organization",
+            "description": null,
+            "type": "CoreAPI/Objects/Organization",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Organizations/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/OrganizationLookup",
+        "name": "Organization Lookup",
+        "description": "Provides for organizations to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "sub_domain",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/OrganizationLookup/OrganizationNotFound",
+          "CoreAPI/ArgumentSets/OrganizationLookup/OrganizationSuspended"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/OrganizationLookup/OrganizationNotFound",
+        "name": null,
+        "description": "No organization was foudning matching any of the criteria provided in the arguments",
+        "code": "organization_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/OrganizationLookup/OrganizationSuspended",
+        "name": null,
+        "description": "An organization was found from the arguments provided but it was suspended",
+        "code": "organization_suspended",
+        "http_status": 403,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Organizations/CreateManagedEndpoint",
+        "name": "Create managed organization",
+        "description": "Create a new managed organization within an existing organization",
+        "http_status": 201,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Organizations/CreateManagedEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "name",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "sub_domain",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Organizations/CreateManagedEndpoint/OrganizationField",
+            "name": "organization",
+            "description": null,
+            "type": "CoreAPI/Objects/Organization",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Controllers/Organizations/CreateManagedEndpoint/OrganizationLimitReached",
+          "CoreAPI/Errors/ValidationError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Organizations/CreateManagedEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "sub_domain",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/Organizations/CreateManagedEndpoint/OrganizationLimitReached",
+        "name": null,
+        "description": "The maxmium number of organizations that can be created has been reached",
+        "code": "organization_limit_reached",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Errors/ValidationError",
+        "name": null,
+        "description": "A validation error occurred with the object that was being created/updated/deleted",
+        "code": "validation_error",
+        "http_status": 422,
+        "fields": [
+          {
+            "id": "CoreAPI/Errors/ValidationError/ErrorsField",
+            "name": "errors",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines",
+        "name": "Virtual Machines",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/InfoEndpoint"
+          },
+          {
+            "name": "build",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint"
+          },
+          {
+            "name": "build_from_spec",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint"
+          },
+          {
+            "name": "start",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/StartEndpoint"
+          },
+          {
+            "name": "stop",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/StopEndpoint"
+          },
+          {
+            "name": "shutdown",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/ShutdownEndpoint"
+          },
+          {
+            "name": "reset",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/ResetEndpoint"
+          },
+          {
+            "name": "create_console_session",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/CreateConsoleSessionEndpoint"
+          },
+          {
+            "name": "delete",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/DeleteEndpoint"
+          },
+          {
+            "name": "change_package",
+            "endpoint": "CoreAPI/Controllers/VirtualMachines/ChangePackageEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/ListEndpoint",
+        "name": "List virtual machines",
+        "description": "Returns a list of all virtual machines for a given organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "20"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/ListEndpoint/VirtualMachinesField",
+            "name": "virtual_machines",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachine",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "id,name,fqdn,hostname,created_at,zone[id,name,permalink,data_center[id,name,permalink]],ip_addresses[address],package[name]"
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "20"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "Rapid/PaginationObject",
+        "name": "Pagination Details",
+        "description": "Provides information about how data has been paginated",
+        "fields": [
+          {
+            "id": "Rapid/PaginationObject/CurrentPageField",
+            "name": "current_page",
+            "description": "The current page",
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "Rapid/PaginationObject/TotalPagesField",
+            "name": "total_pages",
+            "description": "The total number of pages",
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "Rapid/PaginationObject/TotalField",
+            "name": "total",
+            "description": "The total number of items across all pages",
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "Rapid/PaginationObject/PerPageField",
+            "name": "per_page",
+            "description": "The number of items per page",
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "Rapid/PaginationObject/LargeSetField",
+            "name": "large_set",
+            "description": "Is this a large set and therefore the total number of records cannot be returned?",
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/VirtualMachine",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/HostnameField",
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/FqdnField",
+            "name": "fqdn",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/InitialRootPasswordField",
+            "name": "initial_root_password",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/StateField",
+            "name": "state",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachineStateEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/ZoneField",
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/OrganizationField",
+            "name": "organization",
+            "description": null,
+            "type": "CoreAPI/Objects/Organization",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/GroupField",
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachineGroup",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/PackageField",
+            "name": "package",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachinePackage",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/AttachedIsoField",
+            "name": "attached_iso",
+            "description": null,
+            "type": "CoreAPI/Objects/ISO",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/TagsField",
+            "name": "tags",
+            "description": null,
+            "type": "CoreAPI/Objects/Tag",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachine/IpAddressesField",
+            "name": "ip_addresses",
+            "description": null,
+            "type": "CoreAPI/Objects/IPAddress",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Objects/VirtualMachineStateEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "stopped",
+            "description": null
+          },
+          {
+            "name": "failed",
+            "description": null
+          },
+          {
+            "name": "started",
+            "description": null
+          },
+          {
+            "name": "starting",
+            "description": null
+          },
+          {
+            "name": "resetting",
+            "description": null
+          },
+          {
+            "name": "migrating",
+            "description": null
+          },
+          {
+            "name": "stopping",
+            "description": null
+          },
+          {
+            "name": "shutting_down",
+            "description": null
+          },
+          {
+            "name": "orphaned",
+            "description": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Zone",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Zone/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/PermalinkField",
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/DataCenterField",
+            "name": "data_center",
+            "description": null,
+            "type": "CoreAPI/Objects/DataCenter",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/VirtualMachineGroup",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/VirtualMachineGroup/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachineGroup/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachineGroup/SegregateField",
+            "name": "segregate",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachineGroup/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/VirtualMachinePackage",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/VirtualMachinePackage/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachinePackage/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachinePackage/PermalinkField",
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachinePackage/CpuCoresField",
+            "name": "cpu_cores",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachinePackage/Ipv4AddressesField",
+            "name": "ipv4_addresses",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachinePackage/MemoryInGbField",
+            "name": "memory_in_gb",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachinePackage/StorageInGbField",
+            "name": "storage_in_gb",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachinePackage/PrivacyField",
+            "name": "privacy",
+            "description": null,
+            "type": "CoreAPI/Objects/PrivacyTypesEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachinePackage/IconField",
+            "name": "icon",
+            "description": null,
+            "type": "CoreAPI/Objects/Attachment",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Objects/PrivacyTypesEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "public",
+            "description": "Public"
+          },
+          {
+            "name": "private",
+            "description": "Private"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Attachment",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Attachment/UrlField",
+            "name": "url",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Attachment/FileNameField",
+            "name": "file_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Attachment/FileTypeField",
+            "name": "file_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Attachment/FileSizeField",
+            "name": "file_size",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Attachment/DigestField",
+            "name": "digest",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Attachment/TokenField",
+            "name": "token",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/ISO",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/ISO/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/ISO/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/ISO/OperatingSystemField",
+            "name": "operating_system",
+            "description": null,
+            "type": "CoreAPI/Objects/OperatingSystem",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/OperatingSystem",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/OperatingSystem/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/OperatingSystem/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/OperatingSystem/BadgeField",
+            "name": "badge",
+            "description": null,
+            "type": "CoreAPI/Objects/Attachment",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Tag",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Tag/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Tag/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Tag/ColorField",
+            "name": "color",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Tag/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/IPAddress",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/IPAddress/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/IPAddress/AddressField",
+            "name": "address",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/IPAddress/ReverseDnsField",
+            "name": "reverse_dns",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/IPAddress/VipField",
+            "name": "vip",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/IPAddress/AddressWithMaskField",
+            "name": "address_with_mask",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/InfoEndpoint",
+        "name": "Get virtual machine",
+        "description": "Return information about a virtual machine",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/InfoEndpoint/VirtualMachineField",
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachine",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+        "name": "VirtualMachine Lookup",
+        "description": "Provides for virtual machines to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "fqdn",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ObjectInTrash",
+          "CoreAPI/ArgumentSets/VirtualMachineLookup/VirtualMachineNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Errors/ObjectInTrash",
+        "name": null,
+        "description": "The object found is in the trash and therefore cannot be manipulated through the API. It should be restored in order to run this operation.",
+        "code": "object_in_trash",
+        "http_status": 406,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/VirtualMachineLookup/VirtualMachineNotFound",
+        "name": null,
+        "description": "No virtual machine was found matching any of the criteria provided in the arguments",
+        "code": "virtual_machine_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint",
+        "name": "Build virtual machine",
+        "description": "Builds a new virtual machine based on the arguments provided to this endpoint.Virtual machines will be built in the background. This task will return an taskobject that will allow you to monitor the build process using the appropriate APIaction. This action only offers a small subset of the full functionality needed whenprovisioning virtual machines - see the `build_from_spec` action for a full advancedvirtual machine creation method.",
+        "http_status": 201,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "zone",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/ZoneLookup",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "data_center",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/DataCenterLookup",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "package",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/VirtualMachinePackageLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "disk_template",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/DiskTemplateLookup",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "disk_template_options",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/KeyValue",
+              "required": false,
+              "array": true,
+              "default": null
+            },
+            {
+              "name": "network",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/NetworkLookup",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "hostname",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint/TaskField",
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/Objects/Task",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint/BuildField",
+            "name": "build",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachineBuild",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,state"
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint/HostnameField",
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Controllers/VirtualMachines/BuildEndpoint/LocationRequired"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/ZoneLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "data_center",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/DataCenterLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "package",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachinePackageLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "disk_template",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/DiskTemplateLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "disk_template_options",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/KeyValue",
+            "required": false,
+            "array": true,
+            "default": null
+          },
+          {
+            "name": "network",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/NetworkLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/ZoneLookup",
+        "name": "Zone Lookup",
+        "description": "Provides for zones to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": ["CoreAPI/ArgumentSets/ZoneLookup/ZoneNotFound"]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/ZoneLookup/ZoneNotFound",
+        "name": null,
+        "description": "No zone was found matching any of the criteria provided in the arguments",
+        "code": "zone_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/VirtualMachinePackageLookup",
+        "name": "Virtual Machine Package Lookup",
+        "description": "Provides for virtual machine packages to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/VirtualMachinePackageLookup/VirtualMachinePackageNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/VirtualMachinePackageLookup/VirtualMachinePackageNotFound",
+        "name": null,
+        "description": "No package was found matching any of the criteria provided in the arguments",
+        "code": "package_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DiskTemplateLookup",
+        "name": "Disk Template Lookup",
+        "description": "Provides for disk templates to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/DiskTemplateLookup/DiskTemplateNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DiskTemplateLookup/DiskTemplateNotFound",
+        "name": null,
+        "description": "No disk template was found matching any of the criteria provided in the arguments",
+        "code": "disk_template_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/KeyValue",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "key",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "value",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/NetworkLookup",
+        "name": "Network Lookup",
+        "description": "Provides for networks to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/NetworkLookup/NetworkNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/NetworkLookup/NetworkNotFound",
+        "name": null,
+        "description": "No network was found matching any of the criteria provided in the arguments",
+        "code": "network_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Errors/PermissionDenied",
+        "name": null,
+        "description": "The authenticated identity is not permitted to perform this action",
+        "code": "permission_denied",
+        "http_status": 403,
+        "fields": [
+          {
+            "id": "CoreAPI/Errors/PermissionDenied/DetailsField",
+            "name": "details",
+            "description": "Additional information regarding the reason why permission was denied",
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint/LocationRequired",
+        "name": null,
+        "description": "A zone or a data_center argument must be provided",
+        "code": "location_required",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Task",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Task/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Task/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Task/StatusField",
+            "name": "status",
+            "description": null,
+            "type": "CoreAPI/Objects/TaskStatusEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Task/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Task/StartedAtField",
+            "name": "started_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Task/FinishedAtField",
+            "name": "finished_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Task/ProgressField",
+            "name": "progress",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Objects/TaskStatusEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "pending",
+            "description": "Pending"
+          },
+          {
+            "name": "running",
+            "description": "Running"
+          },
+          {
+            "name": "completed",
+            "description": "Completed"
+          },
+          {
+            "name": "failed",
+            "description": "Failed"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/VirtualMachineBuild",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/VirtualMachineBuild/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachineBuild/SpecXmlField",
+            "name": "spec_xml",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachineBuild/StateField",
+            "name": "state",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachineBuildStateEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachineBuild/VirtualMachineField",
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachine",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/VirtualMachineBuild/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Objects/VirtualMachineBuildStateEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "draft",
+            "description": null
+          },
+          {
+            "name": "failed",
+            "description": null
+          },
+          {
+            "name": "pending",
+            "description": null
+          },
+          {
+            "name": "complete",
+            "description": null
+          },
+          {
+            "name": "building",
+            "description": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint",
+        "name": "Build virtual machine (from spec)",
+        "description": "Builds a new virtual machine by receiving a virtual machine spec document",
+        "http_status": 201,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "xml",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint/TaskField",
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/Objects/Task",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint/BuildField",
+            "name": "build",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachineBuild",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,state"
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint/HostnameField",
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint/InvalidSpecXML"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "xml",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint/InvalidSpecXML",
+        "name": null,
+        "description": "The spec XML provided is invalid",
+        "code": "invalid_spec_xml",
+        "http_status": 400,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/StartEndpoint",
+        "name": "Start virtual machine",
+        "description": "Queues a task to start a virtual machine",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/StartEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/StartEndpoint/TaskField",
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/Objects/Task",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/TaskQueueingError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/StartEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Errors/TaskQueueingError",
+        "name": null,
+        "description": "This error means that a background task that was needed to complete your request could not be queued",
+        "code": "task_queueing_error",
+        "http_status": 406,
+        "fields": [
+          {
+            "id": "CoreAPI/Errors/TaskQueueingError/DetailsField",
+            "name": "details",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/StopEndpoint",
+        "name": "Stop virtual machine",
+        "description": "Queues a task to stop a virtual machine",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/StopEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/StopEndpoint/TaskField",
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/Objects/Task",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/TaskQueueingError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/StopEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/ShutdownEndpoint",
+        "name": "Shutdown virtual machine",
+        "description": "Queues a task to shutdown a virtual machine",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/ShutdownEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/ShutdownEndpoint/TaskField",
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/Objects/Task",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/TaskQueueingError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/ShutdownEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/ResetEndpoint",
+        "name": "Reset virtual machine",
+        "description": "Queues a task to reset a virtual machine",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/ResetEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/ResetEndpoint/TaskField",
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/Objects/Task",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/TaskQueueingError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/ResetEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/CreateConsoleSessionEndpoint",
+        "name": "Create console session",
+        "description": "Creates a new console session which can be opened in a browser",
+        "http_status": 201,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/CreateConsoleSessionEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/CreateConsoleSessionEndpoint/ConsoleSessionField",
+            "name": "console_session",
+            "description": null,
+            "type": "CoreAPI/Objects/ConsoleSession",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,url,expires_at,virtual_machine[id,hostname,fqdn,name,state]"
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Controllers/VirtualMachines/CreateConsoleSessionEndpoint/VirtualMachineMustBeStarted"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/CreateConsoleSessionEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/CreateConsoleSessionEndpoint/VirtualMachineMustBeStarted",
+        "name": null,
+        "description": "Virtual machines must be in a started state to create console sessions",
+        "code": "virtual_machine_must_be_started",
+        "http_status": 406,
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/CreateConsoleSessionEndpoint/VirtualMachineMustBeStarted/CurrentStateField",
+            "name": "current_state",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/ConsoleSession",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/ConsoleSession/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/ConsoleSession/UrlField",
+            "name": "url",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/ConsoleSession/ExpiresAtField",
+            "name": "expires_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/ConsoleSession/VirtualMachineField",
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachine",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/DeleteEndpoint",
+        "name": "Delete virtual machine",
+        "description": "Moves an existing virtual machine to the trash",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/DeleteEndpoint/TrashObjectField",
+            "name": "trash_object",
+            "description": null,
+            "type": "CoreAPI/Objects/TrashObject",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/TrashObject",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/TrashObject/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/TrashObject/KeepUntilField",
+            "name": "keep_until",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/ChangePackageEndpoint",
+        "name": "Change package",
+        "description": "Change a package for a virtual machine",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/VirtualMachines/ChangePackageEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "virtual_machine_package",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/VirtualMachinePackageLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/VirtualMachines/ChangePackageEndpoint/TaskField",
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/Objects/Task",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/TaskQueueingError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/VirtualMachines/ChangePackageEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "virtual_machine_package",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachinePackageLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones",
+        "name": "DNS Zones",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/DNSZones/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/DNSZones/InfoEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "CoreAPI/Controllers/DNSZones/CreateEndpoint"
+          },
+          {
+            "name": "verify",
+            "endpoint": "CoreAPI/Controllers/DNSZones/VerifyEndpoint"
+          },
+          {
+            "name": "verification_details",
+            "endpoint": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint"
+          },
+          {
+            "name": "update_ttl",
+            "endpoint": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint"
+          },
+          {
+            "name": "delete",
+            "endpoint": "CoreAPI/Controllers/DNSZones/DeleteEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/ListEndpoint",
+        "name": "List DNS zones",
+        "description": "Returns a list of all DNS zones for a given organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to return DNS zones for",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "20"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/DNSZones/ListEndpoint/DnsZonesField",
+            "name": "dns_zones",
+            "description": "The DNS zones for the provided organization",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to return DNS zones for",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "20"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSZone",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSZone/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSZone/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSZone/TtlField",
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSZone/VerifiedField",
+            "name": "verified",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSZone/InfrastructureZoneField",
+            "name": "infrastructure_zone",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/InfoEndpoint",
+        "name": "Get DNS zone",
+        "description": "Return information about a DNS zone",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to return information for",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/InfoEndpoint/DnsZoneField",
+            "name": "dns_zone",
+            "description": "The DNS zone object",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to return information for",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSZoneLookup",
+        "name": "DNS Zone Lookup",
+        "description": "Provides for DNS zones to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/DNSZoneLookup/DNSZoneNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSZoneLookup/DNSZoneNotFound",
+        "name": null,
+        "description": "No DNS zone was found matching any of the criteria provided in the arguments",
+        "code": "dns_zone_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/CreateEndpoint",
+        "name": "Create DNS zone",
+        "description": "Create a new DNS zone within an existing organization",
+        "http_status": 201,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to create the new DNS zone inside of",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "details",
+              "description": "The details for the new DNS zone",
+              "type": "CoreAPI/ArgumentSets/DNSZoneArguments",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/CreateEndpoint/DnsZoneField",
+            "name": "dns_zone",
+            "description": "The new DNS zone that has been created",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to create the new DNS zone inside of",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "details",
+            "description": "The details for the new DNS zone",
+            "type": "CoreAPI/ArgumentSets/DNSZoneArguments",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSZoneArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerifyEndpoint",
+        "name": "Verify DNS zone",
+        "description": "Attempt to verify a DNS zone",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/VerifyEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to attempt to verify",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/VerifyEndpoint/DnsZoneField",
+            "name": "dns_zone",
+            "description": "The DNS zone that has been verified",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Controllers/DNSZones/VerifyEndpoint/DNSZoneNotVerified",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerifyEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to attempt to verify",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerifyEndpoint/DNSZoneNotVerified",
+        "name": null,
+        "description": "The DNS zone could not be verified, please check the verification details and try again",
+        "code": "dns_zone_not_verified",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint",
+        "name": "Verification details",
+        "description": "Settings required before a DNS zone can be verified",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to get verification details for",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/TxtRecordField",
+            "name": "txt_record",
+            "description": "The TXT record that can be added to a DNS zone's existing DNS details",
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/NameserversField",
+            "name": "nameservers",
+            "description": "The nameservers that a domain should be configured with",
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/DNSZoneAlreadyVerified",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to get verification details for",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/DNSZoneAlreadyVerified",
+        "name": null,
+        "description": "This DNS zone is already verified, and does not require any verification details",
+        "code": "dns_zone_already_verified",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint",
+        "name": "Update TTL",
+        "description": "Update a DNS zone's TTL value",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to update the TTL for",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "ttl",
+              "description": "The new TTL value for the DNS zone",
+              "type": "Rapid/Scalars/Integer",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint/DnsZoneField",
+            "name": "dns_zone",
+            "description": "The DNS zone with the new TTL value",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to update the TTL for",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ttl",
+            "description": "The new TTL value for the DNS zone",
+            "type": "Rapid/Scalars/Integer",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/DeleteEndpoint",
+        "name": "Delete DNS zone",
+        "description": "Delete a DNS zone",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to destroy",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/DeleteEndpoint/DnsZoneField",
+            "name": "dns_zone",
+            "description": "The DNS zone that has been destroyed",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to destroy",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords",
+        "name": "DNS Records",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/DNSRecords/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/DNSRecords/InfoEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "CoreAPI/Controllers/DNSRecords/CreateEndpoint"
+          },
+          {
+            "name": "update",
+            "endpoint": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint"
+          },
+          {
+            "name": "delete",
+            "endpoint": "CoreAPI/Controllers/DNSRecords/DeleteEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/ListEndpoint",
+        "name": "List DNS records",
+        "description": "Provides a full list of all DNS records for a specific zone",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSRecords/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to find all DNS records for",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "20"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/ListEndpoint/DnsRecordsField",
+            "name": "dns_records",
+            "description": "The DNS records that belong to this DNS zone",
+            "type": "CoreAPI/Objects/DNSRecord",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "id,name,record_type,ttl,properties[name,ip,flags,property_type,property_value,host,priority,priority,weight,port,target,algorithm,fingerprint_type,fingerprint,data,virtual_machine[id,name,fqdn]]"
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to find all DNS records for",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "20"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecord",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecord/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecord/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecord/TtlField",
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecord/RecordTypeField",
+            "name": "record_type",
+            "description": null,
+            "type": "CoreAPI/Objects/DNSRecordTypeEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecord/PropertiesField",
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/Objects/DNSRecordProperties",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypeEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "a",
+            "description": null
+          },
+          {
+            "name": "aaaa",
+            "description": null
+          },
+          {
+            "name": "caa",
+            "description": null
+          },
+          {
+            "name": "cname",
+            "description": null
+          },
+          {
+            "name": "mx",
+            "description": null
+          },
+          {
+            "name": "ns",
+            "description": null
+          },
+          {
+            "name": "srv",
+            "description": null
+          },
+          {
+            "name": "ssfp",
+            "description": null
+          },
+          {
+            "name": "txt",
+            "description": null
+          },
+          {
+            "name": "virtual_machine",
+            "description": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "polymorph",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordProperties",
+        "name": null,
+        "description": null,
+        "options": [
+          {
+            "name": "A",
+            "type": "CoreAPI/Objects/DNSRecordTypes/A"
+          },
+          {
+            "name": "AAAA",
+            "type": "CoreAPI/Objects/DNSRecordTypes/AAAA"
+          },
+          {
+            "name": "CAA",
+            "type": "CoreAPI/Objects/DNSRecordTypes/CAA"
+          },
+          {
+            "name": "CNAME",
+            "type": "CoreAPI/Objects/DNSRecordTypes/CNAME"
+          },
+          {
+            "name": "MX",
+            "type": "CoreAPI/Objects/DNSRecordTypes/MX"
+          },
+          {
+            "name": "NS",
+            "type": "CoreAPI/Objects/DNSRecordTypes/NS"
+          },
+          {
+            "name": "SRV",
+            "type": "CoreAPI/Objects/DNSRecordTypes/SRV"
+          },
+          {
+            "name": "SSHFP",
+            "type": "CoreAPI/Objects/DNSRecordTypes/SSHFP"
+          },
+          {
+            "name": "TXT",
+            "type": "CoreAPI/Objects/DNSRecordTypes/TXT"
+          },
+          {
+            "name": "VirtualMachine",
+            "type": "CoreAPI/Objects/DNSRecordTypes/VirtualMachine"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/A",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/A/IpField",
+            "name": "ip",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/AAAA",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/AAAA/IpField",
+            "name": "ip",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/CAA",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/CAA/FlagsField",
+            "name": "flags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/CAA/PropertyTypeField",
+            "name": "property_type",
+            "description": null,
+            "type": "CoreAPI/Objects/DNSRecordTypes/PropertyTypeEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/CAA/PropertyValueField",
+            "name": "property_value",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/PropertyTypeEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "issue",
+            "description": null
+          },
+          {
+            "name": "issuewild",
+            "description": null
+          },
+          {
+            "name": "iodef",
+            "description": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/CNAME",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/CNAME/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/MX",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/MX/HostField",
+            "name": "host",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/MX/PriorityField",
+            "name": "priority",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/NS",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/NS/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/SRV",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SRV/PriorityField",
+            "name": "priority",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SRV/WeightField",
+            "name": "weight",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SRV/PortField",
+            "name": "port",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SRV/TargetField",
+            "name": "target",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/SSHFP",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SSHFP/AlgorithmField",
+            "name": "algorithm",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SSHFP/FingerprintTypeField",
+            "name": "fingerprint_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SSHFP/FingerprintField",
+            "name": "fingerprint",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/TXT",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/TXT/DataField",
+            "name": "data",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/VirtualMachine",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/VirtualMachine/VirtualMachineField",
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachine",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/InfoEndpoint",
+        "name": "Get DNS record",
+        "description": "Return information about a DNS record",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSRecords/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_record",
+              "description": "The DNS record to return information for",
+              "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/InfoEndpoint/DnsRecordField",
+            "name": "dns_record",
+            "description": "The DNS record details",
+            "type": "CoreAPI/Objects/DNSRecord",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,record_type,ttl,properties[name,ip,flags,property_type,property_value,host,priority,priority,weight,port,target,algorithm,fingerprint_type,fingerprint,data,virtual_machine[id,name,fqdn]]"
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_record",
+            "description": "The DNS record to return information for",
+            "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSRecordLookup",
+        "name": "DNS Record Lookup",
+        "description": "Provides for DNS records to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/DNSRecordLookup/DNSRecordNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSRecordLookup/DNSRecordNotFound",
+        "name": null,
+        "description": "No DNS record was found matching any of the criteria provided in the arguments",
+        "code": "dns_record_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/CreateEndpoint",
+        "name": "Create DNS record",
+        "description": "Create a DNS record with the provided details",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSRecords/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone that the new record will belong to",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "details",
+              "description": "The details for the new DNS record",
+              "type": "CoreAPI/ArgumentSets/DNSRecordArguments",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/CreateEndpoint/DnsRecordField",
+            "name": "dns_record",
+            "description": "The new DNS record that has been created",
+            "type": "CoreAPI/Objects/DNSRecord",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,record_type,ttl,properties[name,ip,flags,property_type,property_value,host,priority,priority,weight,port,target,algorithm,fingerprint_type,fingerprint,data,virtual_machine[id,name,fqdn]]"
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone that the new record will belong to",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "details",
+            "description": "The details for the new DNS record",
+            "type": "CoreAPI/ArgumentSets/DNSRecordArguments",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSRecordArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "record_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/DNSRecordPropertiesArguments",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSRecordPropertiesArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ip",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "flags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "property_type",
+            "description": null,
+            "type": "CoreAPI/Objects/DNSRecordTypes/PropertyTypeEnum",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "property_value",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "host",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "priority",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "weight",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "port",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "target",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "algorithm",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "fingerprint_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "fingerprint",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "data",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint",
+        "name": "Update DNS record",
+        "description": "Update a DNS record with new information",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_record",
+              "description": "The DNS record that should be updated",
+              "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "details",
+              "description": "The new details for the DNS record",
+              "type": "CoreAPI/ArgumentSets/DNSRecordArguments",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint/DnsRecordField",
+            "name": "dns_record",
+            "description": "The updated DNS record",
+            "type": "CoreAPI/Objects/DNSRecord",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,record_type,ttl,properties[name,ip,flags,property_type,property_value,host,priority,priority,weight,port,target,algorithm,fingerprint_type,fingerprint,data,virtual_machine[id,name,fqdn]]"
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_record",
+            "description": "The DNS record that should be updated",
+            "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "details",
+            "description": "The new details for the DNS record",
+            "type": "CoreAPI/ArgumentSets/DNSRecordArguments",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/DeleteEndpoint",
+        "name": "Delete DNS record",
+        "description": "Delete a DNS record",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSRecords/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_record",
+              "description": "The DNS record to destroy",
+              "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/DeleteEndpoint/DnsRecordField",
+            "name": "dns_record",
+            "description": "The DNS record that has been destroyed",
+            "type": "CoreAPI/Objects/DNSRecord",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,record_type,ttl,properties[name,ip,flags,property_type,property_value,host,priority,priority,weight,port,target,algorithm,fingerprint_type,fingerprint,data,virtual_machine[id,name,fqdn]]"
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_record",
+            "description": "The DNS record to destroy",
+            "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    }
+  ]
+}

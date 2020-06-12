@@ -1,0 +1,23 @@
+%table.table
+  %thead
+    %tr
+      %th{width: '45%'} Name
+      %th{width: '40%'} Type
+      %th{width: '15%'} Null?
+  %tbody
+    - if fields.empty?
+      %tr.table__empty
+        %td{colspan: 3} This object has no fields
+    - else
+      - for field in fields
+        %tr
+          %td
+            %p.table__monospaceText= field.name
+            - if field.description
+              %p.table__descriptionText= field.description
+          %td
+            = link_to_type field.type
+            - if field.array?
+              %span.lozenge Array
+          %td
+            = field.null? ? 'Optional' : ''

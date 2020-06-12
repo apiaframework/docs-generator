@@ -1,0 +1,22 @@
+.breadcrumbs {
+  display: flex;
+  border-bottom: 1px solid var(--sidebarBorderColor);
+  color: var(--subTextColor);
+  font-size: 14px;
+  padding-bottom: 10px;
+  margin-bottom: 35px;
+  li + li {
+    margin-left: 12px;
+    &:before {
+      content: "\2192";
+      margin-right: 12px;
+    }
+  }
+  li {
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

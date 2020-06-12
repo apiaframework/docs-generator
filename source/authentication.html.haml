@@ -1,0 +1,9 @@
+- @active_nav = :authentication
+- @page_title = 'Authenticating'
+%h1.page__title Authenticating to the API
+%p.page__titleText
+  When submitting requests that require authentication, you'll need to ensure that you provide appropriate credentials
+  with any requests.
+
+- authenticator = schema.api.authenticator
+= partial "partials/authenticators/#{authenticator.type}", locals: {authenticator: authenticator}

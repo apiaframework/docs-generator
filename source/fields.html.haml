@@ -1,0 +1,39 @@
+- @active_nav = :fields
+- @page_title = 'Receiving Data'
+%h1.page__title Receiving Data
+%p.page__titleText
+  In response to requests, you'll always receive a JSON object containing any number of potential fields.
+  Details for the fields that will be returned from any request are outlined in this documentation with
+  each endpoint.
+
+%h2.page__subTitle JSON
+%p.page__subTitleText
+  All responses will be a JSON-encoded and will be accompanied with an apprpriate content type header of <code>application/json</code>.
+  If you receive a request that does not have this header, it is likely a server issue and we will have been notified.
+
+%h2.page__subTitle Types
+%p.page__subTitleText
+  Each field has a specific type that lets you know what sort of data you can expect to receive. There are numerous types of
+  data available.
+%ul.page__list
+  %li <b>Scalars</b> - these are things like strings, integers, decimals, timestamps etc...
+  %li <b>Objects</b> - these are more complex structures where another object is returned with its own set of fields. In this documentation, you can always click on an object to see all the fields that are available within it.
+  %li <b>Enum</b> - these are usually strings in JSON but will always match a specific value from the associated list of options in the documentation.
+  %li <b>Polymorph</b> - these are similar to objects but occur when a field could return a variety of other objects. They let you know what type of object is being returned as well as the data within.
+
+%h2.page__subTitle Arrays
+%p.page__subTitleText
+  In some cases, the API will need to return an array. In these cases, the array will simply contain items of the type specified.
+
+%h2.page__subTitle Customizing returned fields
+%p.page__subTitleText
+  The API allows you to customise which fields are returned when you make a request. By default, you'll receive the fields shown
+  in the documentation however these can be expanded or contracted on a per-request basis to include more or less of the underlying objects.
+%ul.page__list
+  %li
+    To choose the fields returned in a request, you should include an <code>X-Field-Spec</code> header with your request. This header should be a string which conforms to this specification:
+    %ul.page__list
+      %li <code>id,title</code> - will only return the ID & title fields from the root of the request.
+      %li <code>id,user[name]</code> - will only return the ID and the name of the underlying user.
+      %li <code>title,user</code> - will only return the title and the full object representing the user.
+      %li <code>id,user[name,country[name]]</code> - will only return the ID, the user's name and the name of the user's associated country.

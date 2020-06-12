@@ -1,0 +1,18 @@
+%table.table
+  %thead
+    %tr
+      %th{width: '60%'} Details
+      %th{width: '40%'} HTTP status
+  %tbody
+    - if errors.empty?
+      %tr.table__empty
+        %td{colspan: 2} No errors
+    - else
+      - for error in errors.sort_by { |e| e.code.to_s.upcase }
+        %tr
+          %td
+            %p.table__monospaceText
+              = link_to error.code, "/errors/#{id_for_url(error.id)}.html"
+            - if error.description
+              %p.table__descriptionText= error.description
+          %td= http_status_tag error.http_status

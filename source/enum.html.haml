@@ -1,0 +1,25 @@
+- @page_title = enum.name
+
+%p.page__preTitle Enum
+%h1.page__title= enum.name
+- if enum.description
+  %p.page__titleText= add_full_stop enum.description
+
+%h2.page__subTitle Possible values
+%p.page__subTitleText The following values are possible for this enum value.
+%table.table
+  %thead
+    %tr
+      %th Option
+      %th Description
+  %tbody
+    - for value in enum.values
+      %tr
+        %td
+          %p.table__monospaceText= value.name
+        %td
+          - if value.description
+            = add_full_stop value.description
+          - else
+            %p.table__placeholder No description
+

@@ -1,0 +1,37 @@
+- @active_nav = :arguments
+- @page_title = 'Passing Arguments'
+%h1.page__title Passing Arguments
+%p.page__titleText
+  A key part of using the API is sending data to the requests that you wish to make. Each
+  endpoint implements arguments which are outlined in this documentation. This page explains
+  how you should submit data for these arguments with your requests. How you pass arguments
+  will depend on the request method.
+
+%h2.page__subTitle #{http_method_tag 'get'} requests
+%p.page__subTitleText
+  When you wish to provide arugments to a GET request, you should do so by providing them as querystring
+  parameters. For example:
+%pre.u-margin.json <span class='json__comment'>https://.../path</span>?<span class='json__highlight'>name</span>=Joe+Bloggs&<span class='json__highlight'>organization[id]</span>=org_abcdef123
+%ul.page__list
+  %li All values should be URL encoded as appropriate
+  %li If you wish to provide nested arguments, you should use square bracket notation (as shown above)
+  %li
+    All values provided through the querystring are strings but the API will attempt to coerce them to the
+    appropriate type based on the argument you are sending. For example, if the argument is an <b>Decimal</b>
+    a string value of <code>"12.34"</code> can be accepted.
+
+%h2.page__subTitle #{http_method_tag 'post'} #{http_method_tag 'patch'} #{http_method_tag 'put'} #{http_method_tag 'delete'} requests
+%p.page__subTitleText
+  Arguments for these types of requests must be provided as JSON in the body of the request. For example:
+%pre.u-margin.json
+  :plain
+    <span class='json__comment'>{</span>
+      <span class='json__highlight'>"name"</span>: "Joe Bloggs",
+      <span class='json__highlight'>"age"</span>: 38,
+      <span class='json__highlight'>"enabled"</span>: true,
+      <span class='json__highlight'>"organization"</span>: <span class='json__comment'>{</span>
+        <span class='json__highlight'>"id"</span>: "org_abcdef123"
+      <span class='json__comment'>}</span>
+    <span class='json__comment'>}</span>
+%ul.page__list
+  %li You must send a <code>Content-Type</code> header with the value of <code>application/json</code> if you are providing a JSON-encoded body.

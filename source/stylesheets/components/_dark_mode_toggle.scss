@@ -1,0 +1,31 @@
+.darkModeToggle {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.darkModeToggle__label {
+  border: 1px solid var(--sidebarBorderColor);
+  padding: 4px 10px;
+  color: var(--subTextColor);
+  border-radius: 4px;
+  font-size: 13px;
+  &:hover {
+    border-color: var(--accentColor);
+    color: var(--accentColor);
+  }
+}
+
+.darkModeToggle__label:before {
+  content: "Dark mode";
+}
+
+.darkModeToggle__input {
+  display: none;
+}
+
+.darkMode {
+  .darkModeToggle__label:before {
+    content: "Light mode";
+  }
+}

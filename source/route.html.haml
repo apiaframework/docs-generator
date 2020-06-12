@@ -1,0 +1,30 @@
+- @page_title = route.endpoint.name
+- @active_group = route.group&.id&.split('.')&.first
+
+
+- if route.group
+  = partial 'partials/group_breadcrumbs', locals: {groups: route.group.group_path, last: route.endpoint.name}
+
+.u-margin
+  %h1.page__title= route.endpoint.name
+  - if route.endpoint.description
+    %p.page__titleText= add_full_stop route.endpoint.description
+
+.routeURLBox
+  .routeURLBox__method= http_method_tag route.request_method
+  .routeURLBox__url= url_tag route.path, full: true
+%p.page__subTitleText If successful, this endpoint will return a #{http_status_tag route.endpoint.http_status} status.
+
+- unless route.endpoint.argument_set.arguments.empty?
+  %h2.page__subTitle Arguments
+  %p.page__subTitleText The following arguments are supported for this endpoint.
+  .u-margin= partial 'partials/argument_list', locals: { argument_set: route.endpoint.argument_set }
+
+- unless route.endpoint.all_potential_errors.empty?
+  %h2.page__subTitle Potential Errors
+  %p.page__subTitleText The following errors may occur during this request.
+  .u-margin= partial 'partials/error_list', locals: { errors: route.endpoint.all_potential_errors }
+
+%h2.page__subTitle Returned Object
+%p.page__subTitleText When the request is successful, you can expect an object matching the specification below to be returned.
+= fields_view(route.endpoint.fields)

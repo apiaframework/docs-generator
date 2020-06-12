@@ -1,0 +1,31 @@
+.httpMethodTag {
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 100px;
+  vertical-align: middle;
+  display: inline-block;
+  font-family: $monoFamily;
+}
+
+.httpMethodTag--post {
+  background-color: #39dbe5;
+}
+
+.httpMethodTag--get {
+  background-color: #3fd6a1;
+}
+
+.httpMethodTag--patch {
+  background-color: #67a8ef;
+}
+
+.httpMethodTag--put {
+  background-color: #a670ea;
+}
+
+.httpMethodTag--delete {
+  background-color: #eb3535;
+}

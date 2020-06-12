@@ -1,0 +1,19 @@
+.lozenge {
+  background: var(--lozengeBackgroundColor);
+  color: var(--lozengeTextColor);
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 100px;
+  vertical-align: middle;
+  margin-left: 4px;
+  border: 1px solid var(--lozengeBorderColor);
+  display: inline-block;
+}
+
+.lozenge--red {
+  background-color: var(--lozengeRedBackgroundColor);
+  border-color: var(--lozengeRedBorderColor);
+  color: var(--lozengeRedTextColor);
+}

@@ -1,0 +1,13 @@
+- auth_config = config.dig('authentication', 'bearer')
+- if auth_config && text = auth_config['obtaining_api_token']
+  %h2.page__subTitle Obtaining an API token
+  %p.page__subTitleText= text
+
+%h2.page__subTitle Authorization Header
+%p.page__subTitleText This API requires that you send your API token as a bearer token in the Authorization header. For example:
+%pre.json Authorization: Bearer {api-token}
+
+%h2.page__subTitle Potential errors
+%p.page__subTitleText
+  Any of the following errors may be raised on any request that requires authentication.
+= partial 'partials/error_list', locals: {errors: authenticator.potential_errors}

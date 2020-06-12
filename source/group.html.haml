@@ -1,0 +1,42 @@
+- @page_title = group.name
+- @active_group = group.id.split('.').first
+
+= partial 'partials/group_breadcrumbs', locals: {groups: group.group_path[0, group.group_path.size - 1], last: group.name}
+
+.u-margin
+
+  %h1.page__title= group.name
+  - if group.description
+    %h2.page__titleText= add_full_stop group.description
+
+- if group.routes && !group.routes.empty?
+  %ul.routeList.u-margin
+    - for route in group.routes
+      %li.routeList__route
+        = link_to route_path(route), class: 'routeList__link' do
+          - if route.endpoint.nil?
+            %p.routeList__endpointName Missing endpoint!
+          - else
+            %p.routeList__endpointName= route.endpoint.name || route.endpoint.id
+            - if route.endpoint.description
+              %p.routeList__endpointDescription= add_full_stop route.endpoint.description
+          %p.routeList__url
+            = http_method_tag route.request_method
+            = url_tag route.path
+
+- unless group.groups.empty?
+  %ul.groupList
+    - for group in group.groups.values
+      %li.groupList__group
+        = link_to "/groups/#{group.id.gsub('.', '/')}.html", class: 'groupList__link' do
+          .groupList__details
+            %p.groupList__groupName= group.name || group.id
+            %p.groupList__routeQuantity
+              - if group.routes && group.routes.size.positive?
+                %span= pluralize group.routes.size, 'endpoint'
+              - if group.groups.size.positive?
+                %span= pluralize group.groups.size, 'group'
+
+          - if group.description
+            %p.groupList__groupDescription= add_full_stop group.description
+

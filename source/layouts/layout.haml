@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{charset: 'utf-8'}
+    %meta{http_equiv: 'x-ua-compatible', content: 'ie=edge'}
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no'}
+    %title
+      = @page_title || current_page.data.title || "Untitled Page"
+      == - #{schema.api.name}
+    = stylesheet_link_tag 'style.css', relative: true
+    = javascript_include_tag 'site.js', relative: true
+  %body
+    .wrapper
+      .sidebar
+        %p.sidebar__title API Reference
+        %h2.sidebar__apiName= schema.api.name
+
+        %ul.sidebar__nav
+          %li= link_to "Welcome", "/index.html", class: @active_nav == :welcome ? 'is-active' : nil
+          %li= link_to "Authenticating", "/authentication.html", class: @active_nav == :authentication ? 'is-active' : nil
+          %li= link_to "Passing Arguments", "/arguments.html", class: @active_nav == :arguments ? 'is-active' : nil
+          %li= link_to "Receiving Data", "/fields.html", class: @active_nav == :fields ? 'is-active' : nil
+          %li= link_to "Handling Errors", "/errors.html", class: @active_nav == :errors ? 'is-active' : nil
+
+        %h3.sidebar__subTitle Resources & Endpoints
+        %ul.sidebar__nav
+          - for group in schema.api.route_set.groups.values.sort_by { |g| g.name.upcase }
+            %li= link_to group.name, "/groups/#{group.id}.html", class: @active_group == group.id ? 'is-active' : nil
+
+      .page
+        .darkModeToggle
+          %input{type: 'checkbox', id: 'darkModeToggler', class: 'darkModeToggle__input'}
+          %label{for: 'darkModeToggler', clasS:'darkModeToggle__label'}
+        = yield

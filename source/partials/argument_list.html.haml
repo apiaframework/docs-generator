@@ -1,0 +1,29 @@
+%table.table
+  %thead
+    %tr
+      %th{width: '40%'} Name
+      %th{width: '35%'} Type
+      %th{width: '25%'} Default Value
+  %tbody
+    - if argument_set.arguments.empty?
+      %tr.table__empty
+        %td{colspan: 3} No arguments
+    - else
+      - for argument in argument_set.arguments.values
+        %tr
+          %td
+            %p
+              %span.table__monospaceText= argument.name
+              - if argument.required?
+                %span.lozenge.lozenge--red Required
+            - if argument.description
+              %p.table__descriptionText= argument.description
+          %td
+            = link_to_type argument.type
+            - if argument.array?
+              %span.lozenge Array
+          %td
+            - if argument.default
+              = argument.default
+            - else
+              %span.table__placeholder None

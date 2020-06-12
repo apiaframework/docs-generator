@@ -1,0 +1,5 @@
+%ul.breadcrumbs
+  - for group in groups
+    %li= link_to_route_group group
+  - if defined?(last) && last
+    %li= last

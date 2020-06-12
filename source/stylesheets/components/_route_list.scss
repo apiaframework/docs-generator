@@ -1,0 +1,39 @@
+.routeList__link {
+  display: block;
+  background: var(--sidebarBackgroundColor);
+  border: 2px solid var(--sidebarBorderColor);
+  border-radius: 5px;
+  padding: 20px;
+  &:hover {
+    border-color: var(--accentColor);
+    background: var(--backgroundColor);
+  }
+}
+
+.routeList__route + .routeList__route {
+  margin-top: 25px;
+}
+
+.routeList__endpointName {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.routeList__endpointDescription {
+  line-height: 1.5;
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--subTextColor);
+}
+
+.routeList__url {
+  margin-top: 15px;
+  .httpMethodTag {
+    margin-right: 5px;
+  }
+}
+
+.routeList__urlText {
+  font-family: var(--monoFamily);
+  font-size: 14px;
+}

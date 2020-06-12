@@ -1,0 +1,31 @@
+- @page_title = polymorph.name
+
+%p.page__preTitle Polymorph
+%h1.page__title= polymorph.name
+- if polymorph.description
+  %p.page__titleText= polymorph.description
+
+%h2.page__subTitle Options
+%p.page__subTitleText The following values are possible for this polymorph value.
+%table.table
+  %thead
+    %tr
+      %th Option
+      %th Description
+  %tbody
+    - for option in polymorph.options
+      %tr
+        %td
+          %p.table__monospaceText= option.name
+        %td= link_to_type option.type
+
+%h2.page__subTitle Example output
+%p.page__subTitleText When you a polymorph is returned, it will be returned as an object containing the type along with the values for the object shown above. For example:
+%pre.json
+  :plain
+    {
+      "type":"#{polymorph.options.first.name}",
+      "object": {
+        <span class='json__comment'>... Fields for the object shown above...</span>
+      }
+    }

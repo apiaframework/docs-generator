@@ -1,0 +1,11 @@
+- @page_title = object.name
+
+.u-margin
+  %p.page__preTitle Object
+  %h1.page__title= object.name
+  - if object.description
+    %p.page__titleText= add_full_stop object.description
+
+%h2.page__subTitle Fields
+%p.page__subTitleText The following fields are available on this object as described below.
+= partial 'partials/field_list', locals: {fields: object.fields}

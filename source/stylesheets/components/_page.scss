@@ -1,0 +1,65 @@
+.page {
+  padding: 54px;
+  flex: 1 1 auto;
+}
+
+.page__title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.page__titleText {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-top: 10px;
+  color: var(--subTextColor);
+}
+
+.page__subTitle {
+  font-size: 600;
+  margin-top: 40px;
+  font-size: 22px;
+}
+
+.page__subTitleText {
+  color: var(--subTextColor);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  margin-top: 6px;
+  .httpStatusTag { margin:0 3px;}
+}
+
+.page__preTitle {
+  color: var(--accentColor);
+  font-size: 14px;
+  margin-bottom: 15px;
+  text-transform::uppercase;
+}
+
+.page__darkModeToggle {
+  position:absolute;
+  right:25px;
+  top:25px;
+}
+
+.page__paragraph {
+  line-height:1.5;
+  margin-top:15px
+}
+
+.page__list {
+  li {
+    line-height:1.5;
+    margin-left:25px;
+    list-style:square;
+    b {
+      color:var(--accentColor);
+    }
+    .page__list {
+      margin-top:15px;
+    }
+  }
+  li + li {
+    margin-top:15px;
+  }
+}

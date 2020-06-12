@@ -1,0 +1,81 @@
+$monoFamily: "Overpass Mono", "Courier New", fixed;
+
+@import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@400;700&family=Overpass:wght@200;400;600;900&display=swap");
+@import "global/reset";
+
+@import "components/wrapper";
+@import "components/sidebar";
+@import "components/page";
+@import "components/breadcrumbs";
+@import "components/table";
+
+@import "components/fields";
+@import "components/route_list";
+@import "components/group_list";
+@import "components/route_url_box";
+@import "components/dark_mode_toggle";
+@import "components/concepts";
+
+@import "elements/http_method_tag";
+@import "elements/http_status_tag";
+@import "elements/url_tag";
+@import "elements/lozenge";
+@import "elements/json";
+@import "elements/type_link";
+
+html {
+  --textColor: #b9c7d5;
+  --accentColor: #2193ff;
+  --subTextColor: #879eb3;
+
+  --sidebarBackgroundColor: #f9fbff;
+  --sidebarBorderColor: #e3e8f0;
+  --sidebarSubTextColor: #7ca2c6;
+  --sidebarActiveBackgroundColor: #dfe8fa;
+
+  --boxBackgroundColor: #405264;
+
+  --lozengeBorderColor: transparent;
+  --lozengeTextColor: #fff;
+  --lozengeBackgroundColor: var(--accentColor);
+
+  --lozengeRedBorderColor: transparent;
+  --lozengeRedTextColor: #fff;
+  --lozengeRedBackgroundColor: #e34040;
+
+  &.darkMode {
+    --backgroundColor: #1d242b;
+    --sidebarBackgroundColor: #11181f;
+    --sidebarActiveBackgroundColor: #314252;
+    --sidebarBorderColor: #27343d;
+    --boxBackgroundColor: #0e1115;
+    --subTextColor: #566878;
+
+    --lozengeBorderColor: var(--accentColor);
+    --lozengeTextColor: var(--accentColor);
+    --lozengeBackgroundColor: transparent;
+
+    --lozengeRedBorderColor: #e34040;
+    --lozengeRedTextColor: #e34040;
+    --lozengeRedBackgroundColor: transparent;
+
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+  }
+}
+
+body {
+  font-size: 16px;
+  font-family: "Overpass", sans-serif;
+}
+
+.u-margin {
+  margin-bottom: 25px;
+}
+
+code {
+  font-family: $monoFamily;
+  font-size: 90%;
+  font-weight: 700;
+  color: var(--accentColor);
+}
