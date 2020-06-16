@@ -13,3 +13,11 @@ The best way to generate some docs is to use the Docker image.
 ## Building the image
 
 The actual Docker image is configured to automatically build to the `latest` tag whenever this repository is pushed to therefore you shouldn't need to do much assuming Buddy is running.
+
+## Developing
+
+To develop locally, you can just run up the middleman server via. Procodile which will use the example data. You might want to replace `example-schema.json` with a newer/different schema.
+
+```
+procodile start -f
+```
