@@ -100,7 +100,7 @@ helpers do
     when RapidSchemaParser::LookupArgumentSet
       link_to name, "/argument_sets/#{id_for_url(type.id)}.html", class: 'typeLink typeLink--lookupArgumentSet'
     when RapidSchemaParser::ArgumentSet
-      link_to name, "/argument_sets/#{id_for_url(type.id)}.html'>#{name}</a>", class: 'typeLink typeLink--argumentSet'
+      link_to name, "/argument_sets/#{id_for_url(type.id)}.html", class: 'typeLink typeLink--argumentSet'
     when RapidSchemaParser::Object
       link_to name, "/objects/#{id_for_url(type.id)}.html", class: 'typeLink typeLink--object'
     when RapidSchemaParser::Enum
