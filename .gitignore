@@ -4,5 +4,7 @@
 .sass-cache
 Procfile.local
 *-test-schema.json
+node_modules/
 build/
 tmp/
+.tmp/

@@ -63,17 +63,17 @@ $schema.objects.values.each do |object|
   id = Digest::MD5.hexdigest(object.id)[0, 10]
   case object
   when RapidSchemaParser::Scalar
-    proxy "/scalars/#{id}.html", 'scalar.html', locals: {scalar: object}, layout: 'layout'
+    proxy "/scalars/#{id}.html", 'scalar.html', locals: { scalar: object }, layout: 'layout'
   when RapidSchemaParser::Enum
-    proxy "/enums/#{id}.html", 'enum.html', locals: {enum: object}, layout: 'layout'
+    proxy "/enums/#{id}.html", 'enum.html', locals: { enum: object }, layout: 'layout'
   when RapidSchemaParser::Object
-    proxy "/objects/#{id}.html", 'object.html', locals: {object: object}, layout: 'layout'
+    proxy "/objects/#{id}.html", 'object.html', locals: { object: object }, layout: 'layout'
   when RapidSchemaParser::Polymorph
-    proxy "/polymorphs/#{id}.html", 'polymorph.html', locals: {polymorph: object}, layout: 'layout'
+    proxy "/polymorphs/#{id}.html", 'polymorph.html', locals: { polymorph: object }, layout: 'layout'
   when RapidSchemaParser::ArgumentSet
-    proxy "/argument_sets/#{id}.html", 'argument_set.html', locals: {argument_set: object}, layout: 'layout'
+    proxy "/argument_sets/#{id}.html", 'argument_set.html', locals: { argument_set: object }, layout: 'layout'
   when RapidSchemaParser::Error
-    proxy "/errors/#{id}.html", 'error.html', locals: {error: object}, layout: 'layout'
+    proxy "/errors/#{id}.html", 'error.html', locals: { error: object }, layout: 'layout'
   end
 end
 
@@ -133,16 +133,16 @@ helpers do
   end
 
   def http_status_tag(status)
-    case status
-    when 200..299
-      klass = 'httpStatusTag--success'
-    when 400..499
-      klass = 'httpStatusTag--clientError'
-    when 500..599
-      klass = 'httpStatusTag--serverError'
-    else
-      klass = ''
-    end
+    klass = case status
+            when 200..299
+              'httpStatusTag--success'
+            when 400..499
+              'httpStatusTag--clientError'
+            when 500..599
+              'httpStatusTag--serverError'
+            else
+              ''
+            end
 
     require 'rack/utils'
     name = ::Rack::Utils::HTTP_STATUS_CODES[status]
@@ -174,14 +174,16 @@ helpers do
     string
   end
 
-  def field_output(field, spec: nil,  path: [])
+  def field_output(field, spec: nil, path: [])
     path += [field]
     ids = path.map(&:name)
 
     include = false
     include = true if spec == :all
     include = true if !include && spec.is_a?(Rapid::FieldSpec) && path.size == 1
-    include = true if !include && spec.is_a?(Rapid::FieldSpec) && spec.include?(*ids[1..])
+    if !include && spec.is_a?(Rapid::FieldSpec) && spec.include?(*ids[1..])
+      include = true
+    end
 
     return '' unless include
 
@@ -193,15 +195,13 @@ helpers do
     string << "<span class='fields__arrayBracket'>[</span> " if field.array?
     string << "<span class='fields__type fields__type--#{type_type}'>"
     string << link_to_type(field.type)
-    if field.null?
-      string << "?"
-    end
+    string << '?' if field.null?
     string << '</span>'
 
     if field.type.is_a?(RapidSchemaParser::Object)
       string << " <span class='fields__bracket'>{</span>"
       string << "\n"
-      field.type.fields.each_with_index do |f, i|
+      field.type.fields.each_with_index do |f, _i|
         string << field_output(f, spec: spec, path: path)
       end
       string << "#{spacer}<span class='fields__bracket'>}</span>"
@@ -217,13 +217,21 @@ helpers do
     return nil if text.nil?
     return text if text =~ /\.\z/
 
-    text + "."
+    text + '.'
   end
 end
 
 activate :directory_indexes
 
+activate :external_pipeline,
+         name: :webpack,
+         command: build? ?
+         'node ./node_modules/webpack/bin/webpack.js --bail -p' :
+         'node ./node_modules/webpack/bin/webpack.js --watch -d --progress --color',
+         source: '.tmp/dist/source',
+         latency: 1
+
 configure :build do
   activate :minify_css
-  #activate :minify_javascript
+  # activate :minify_javascript
 end
