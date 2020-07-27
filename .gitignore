@@ -2,5 +2,7 @@
 .cache
 .DS_Store
 .sass-cache
+Procfile.local
+*-test-schema.json
 build/
 tmp/
