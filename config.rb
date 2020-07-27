@@ -221,6 +221,10 @@ helpers do
   end
 end
 
+configure :server do
+  activate :livereload
+end
+
 activate :directory_indexes
 
 activate :external_pipeline,
