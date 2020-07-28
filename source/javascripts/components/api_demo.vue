@@ -1,12 +1,16 @@
 <template lang="pug">
-  div Hello world
+  div {{testVal}}
 </template>
 <script>
 export default {
-  name: "Hello",
+  props: {
+    test: {
+      type: String,
+    },
+  },
   data: function() {
     return {
-      testVal: "Hello world",
+      testVal: this.test,
     };
   },
 };
