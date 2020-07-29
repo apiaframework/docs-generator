@@ -219,6 +219,23 @@ helpers do
 
     text + '.'
   end
+
+  def demo_arguments(argument_set)
+    args = argument_set.arguments.values
+
+    args.map do |argument|
+      arg = {
+        name: argument.name,
+        boolean: argument.type.name == 'Boolean',
+        array: argument.array?
+      }
+      if argument.type.is_a?(RapidSchemaParser::ArgumentSet)
+        arg[:arguments] =  demo_arguments(argument.type)
+      end
+
+      arg
+    end
+  end
 end
 
 configure :server do
