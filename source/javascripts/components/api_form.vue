@@ -20,6 +20,8 @@ export default {
       args.forEach((arg) => {
         if (arg.arguments) {
           vals[arg.name] = this.emptyValues(arg.arguments);
+        } else if (arg.array) {
+          vals[arg.name] = [];
         } else {
           vals[arg.name] = "";
         }
