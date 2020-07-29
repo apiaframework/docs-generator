@@ -221,20 +221,14 @@ helpers do
   end
 
   def demo_arguments(argument_set)
-    args = argument_set.arguments.values
-
-    args.map do |argument|
-      arg = {
+    argument_set.arguments.values.map do |argument|
+      {
         name: argument.name,
         boolean: argument.type.name == 'Boolean',
         array: argument.array?,
-        required: argument.required?
+        required: argument.required?,
+        arguments: argument.type.is_a?(RapidSchemaParser::ArgumentSet) ? demo_arguments(argument.type) : nil
       }
-      if argument.type.is_a?(RapidSchemaParser::ArgumentSet)
-        arg[:arguments] = demo_arguments(argument.type)
-      end
-
-      arg
     end
   end
 end
