@@ -1,9 +1,15 @@
 <template lang="pug">
-  div
-    div(v-for="arg in args") {{arg}}
+  form(v-on:submit="submitForm")
+    APIArgument(v-for="arg in args" v-bind:arg="arg" :value="values[arg.name]" v-on:change="argsChanged")
+    div {{values}}
 </template>
 <script>
+import APIArgument from "./api_argument";
+
 export default {
+  components: {
+    APIArgument: APIArgument,
+  },
   props: {
     args: {
       type: Array,
@@ -27,6 +33,14 @@ export default {
         }
       });
       return vals;
+    },
+    argsChanged: function(newValues) {
+      this.values[newValues.name] = newValues.value;
+    },
+    submitForm: function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.$emit("submit", values);
     },
   },
 };
