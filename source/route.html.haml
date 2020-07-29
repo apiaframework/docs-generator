@@ -32,4 +32,4 @@
 %h2.page__subTitle Demo
 %p.page__subTitleText Try out this endpoint with your own API key and data.
 #api-demo
-  %property{name: 'test'} testVal
+  %property{name: 'args', type: 'json'}= demo_arguments(route.endpoint.argument_set).to_json

@@ -8,7 +8,11 @@ window.addEventListener("load", () => {
     let props = {};
 
     node.querySelectorAll("property").forEach((propNode) => {
-      props[propNode.getAttribute("name")] = propNode.textContent;
+      if (propNode.getAttribute("type") === "json") {
+        props[propNode.getAttribute("name")] = JSON.parse(propNode.textContent);
+      } else {
+        props[propNode.getAttribute("name")] = propNode.textContent;
+      }
     });
 
     new Vue({
