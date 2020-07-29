@@ -227,10 +227,11 @@ helpers do
       arg = {
         name: argument.name,
         boolean: argument.type.name == 'Boolean',
-        array: argument.array?
+        array: argument.array?,
+        required: argument.required?
       }
       if argument.type.is_a?(RapidSchemaParser::ArgumentSet)
-        arg[:arguments] =  demo_arguments(argument.type)
+        arg[:arguments] = demo_arguments(argument.type)
       end
 
       arg
