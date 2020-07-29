@@ -1,5 +1,7 @@
 <template lang="pug">
-  APIForm(v-bind:args="this.args")
+  div
+    span {{method}}
+    APIForm(v-bind:args="this.args")
 </template>
 <script>
 import APIForm from "./api_form.vue";
@@ -11,6 +13,9 @@ export default {
   props: {
     args: {
       type: Array,
+    },
+    method: {
+      type: String,
     },
   },
 };
