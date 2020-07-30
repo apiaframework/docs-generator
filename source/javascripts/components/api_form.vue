@@ -30,7 +30,7 @@ export default {
         } else if (arg.array) {
           vals[arg.name] = [];
         } else {
-          vals[arg.name] = "";
+          vals[arg.name] = null;
         }
       });
       return vals;
