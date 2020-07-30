@@ -3,9 +3,7 @@
     div.demo__argument(v-if="!arg.arguments")
       label.demo__argumentLabel(:for="arg.name" v-if="arg.required") {{arg.name}} (required)
       label.demo__argumentLabel(:for="arg.name" v-else) {{arg.name}}
-      select.demo__argumentInput(v-if="arg.boolean" :name="arg.name" v-on:change="booleanChanged")
-        option(:value="0") No
-        option(:value="1") Yes
+      DemoBooleanInput(v-if="arg.boolean" :arg="arg" :value="value" v-on:change="booleanChanged")
       input.demo__argumentInput(v-else :name="arg.name" v-on:input="inputChanged")
     div(v-else)
       span.demo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
@@ -13,8 +11,13 @@
       DemoArgument(v-for="subArg in arg.arguments" v-bind:arg="subArg" :value="value[subArg.name]" v-on:change="subArgChanged($event, subArg.name)")
 </template>
 <script>
+import DemoBooleanInput from "./demo_boolean_input";
+
 export default {
   name: "DemoArgument",
+  components: {
+    DemoBooleanInput: DemoBooleanInput,
+  },
   props: {
     arg: {
       type: Object,
@@ -25,10 +28,7 @@ export default {
   },
   methods: {
     booleanChanged: function(e) {
-      this.$emit("change", {
-        name: this.arg.name,
-        value: e.target.value === "1" ? true : false,
-      });
+      this.$emit("change", e);
     },
     inputChanged: function(e) {
       this.$emit("change", { name: this.arg.name, value: e.target.value });
