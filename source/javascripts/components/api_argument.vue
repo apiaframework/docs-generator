@@ -3,7 +3,10 @@
     div.apiDemo__argument(v-if="!arg.arguments")
       label.apiDemo__argumentLabel(:for="arg.name" v-if="arg.required") {{arg.name}} (required)
       label.apiDemo__argumentLabel(:for="arg.name" v-else) {{arg.name}}
-      input.apiDemo__argumentInput(:name="arg.name" v-on:input="inputChanged")
+      select.apiDemo__argumentInput(v-if="arg.boolean" :name="arg.name" v-on:change="booleanChanged")
+        option(:value="0") No
+        option(:value="1") Yes
+      input.apiDemo__argumentInput(v-else :name="arg.name" v-on:input="inputChanged")
     div(v-else)
       span.apiDemo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
       span.apiDemo__argumentSetTitle(v-else) {{arg.name}}
@@ -17,10 +20,16 @@ export default {
       type: Object,
     },
     value: {
-      type: [Object, String],
+      type: [Object, String, Boolean, Array],
     },
   },
   methods: {
+    booleanChanged: function(e) {
+      this.$emit("change", {
+        name: this.arg.name,
+        value: e.target.value === "1" ? true : false,
+      });
+    },
     inputChanged: function(e) {
       this.$emit("change", { name: this.arg.name, value: e.target.value });
     },
