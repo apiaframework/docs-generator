@@ -40,7 +40,7 @@ export default {
     submitForm: function(e) {
       e.preventDefault();
       e.stopPropagation();
-      this.$emit("submit", values);
+      this.$emit("submit", this.values);
     },
   },
 };
