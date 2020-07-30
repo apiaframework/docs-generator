@@ -1,5 +1,7 @@
 <template lang="pug">
-  pre.json(v-bind:class="{ demo__responseError: error }" v-html="formattedResponse")
+  div
+    h2.page__subTitle.demo__responseTitle Response
+    pre.json(v-bind:class="{ demo__responseError: error }" v-html="formattedResponse")
 </template>
 <script>
 export default {
