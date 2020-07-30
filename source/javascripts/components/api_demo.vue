@@ -63,7 +63,24 @@ export default {
         }
       });
 
-      return `${this.protocol}://${this.url.host}${this.url.namespace}/${pathWithArgs}`;
+      const baseURL = `${this.protocol}://${this.url.host}${this.url.namespace}/${pathWithArgs}`;
+      if (this.method === "GET") {
+        return `${baseURL}?${new URLSearchParams(
+          this.cleanValues(values)
+        ).toString()}`;
+      } else {
+        return baseURL;
+      }
+    },
+    cleanValues: function(values) {
+      Object.keys(values).forEach((key) => {
+        if (values[key] && typeof values[key] === "object") {
+          cleanValues(values[key]);
+        } else if (!values[key]) {
+          delete values[key];
+        }
+      });
+      return values;
     },
   },
 };
