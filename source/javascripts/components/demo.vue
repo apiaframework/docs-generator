@@ -92,7 +92,7 @@ export default {
     cleanValues: function(values) {
       Object.keys(values).forEach((key) => {
         if (values[key] && typeof values[key] === "object") {
-          cleanValues(values[key]);
+          this.cleanValues(values[key]);
         } else if (!values[key]) {
           delete values[key];
         }
