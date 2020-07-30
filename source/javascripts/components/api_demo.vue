@@ -32,7 +32,7 @@ export default {
         method: this.method,
         body: this.method === "GET" ? null : JSON.stringify(values),
         headers: {
-          "Content-type": "application/json",
+          "Content-type": this.method === "GET" ? null : "application/json",
           Authorization: token ? `Bearer ${token}` : null,
         },
       })
