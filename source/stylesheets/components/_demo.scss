@@ -9,8 +9,13 @@
   }
 }
 
+.demo__argumentSet {
+  border-left: 4px solid;
+  color: var(--subTextColor);
+}
+
 .demo__argumentContainer {
-  margin-left: 10px;
+  margin-left: 14px;
   width: 400px;
 }
 
@@ -29,6 +34,7 @@
 }
 
 .demo__argumentSetTitle {
+  color: var(--textColor);
   font-weight: 600;
   font-size: 20px;
 }

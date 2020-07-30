@@ -9,7 +9,8 @@
     div(v-else)
       span.demo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
       span.demo__argumentSetTitle(v-else) {{arg.name}}
-      DemoArgument(v-for="subArg in arg.arguments" v-bind:arg="subArg" :value="value[subArg.name]" v-on:change="subArgChanged($event, subArg.name)")
+      .demo__argumentSet
+        DemoArgument(v-for="subArg in arg.arguments" v-bind:arg="subArg" :value="value[subArg.name]" v-on:change="subArgChanged($event, subArg.name)")
 </template>
 <script>
 import DemoBooleanInput from "./demo_boolean_input";
