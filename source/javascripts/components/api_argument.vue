@@ -3,7 +3,7 @@
     div.apiDemo__argument(v-if="!arg.arguments")
       label.apiDemo__argumentLabel(:for="arg.name" v-if="arg.required") {{arg.name}} (required)
       label.apiDemo__argumentLabel(:for="arg.name" v-else) {{arg.name}}
-      input.apiDemo__argumentInput(:name="arg.name" v-on:change="inputChanged")
+      input.apiDemo__argumentInput(:name="arg.name" v-on:input="inputChanged")
     div(v-else)
       span.apiDemo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
       span.apiDemo__argumentSetTitle(v-else) {{arg.name}}
