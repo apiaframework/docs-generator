@@ -4,6 +4,7 @@
 </template>
 <script>
 import APIForm from "./api_form.vue";
+import cloneDeep from "lodash.clonedeep";
 
 export default {
   components: {
@@ -25,7 +26,8 @@ export default {
     },
   },
   methods: {
-    formSubmitted: function(values) {
+    formSubmitted: function(formValues) {
+      let values = cloneDeep(formValues);
       const token = values.token;
       delete values.token;
       fetch(this.generateURL(values), {
