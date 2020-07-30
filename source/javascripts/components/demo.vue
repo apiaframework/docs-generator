@@ -58,6 +58,11 @@ export default {
         .then((json) => {
           this.response = json;
           console.log(json);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          this.response = "Error: Unable to perform API Query.";
+          this.responseError = true;
         });
     },
     generateURL: function(values) {

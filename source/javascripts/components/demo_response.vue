@@ -7,7 +7,7 @@
 export default {
   props: {
     response: {
-      type: Object,
+      type: [Object, String],
       default: () => {},
     },
     error: {
@@ -17,7 +17,11 @@ export default {
   },
   computed: {
     formattedResponse: function() {
-      return JSON.stringify(this.response, null, 4);
+      if (typeof this.response === "object") {
+        return JSON.stringify(this.response, null, 4);
+      } else {
+        return this.response;
+      }
     },
   },
 };
