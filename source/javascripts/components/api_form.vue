@@ -1,5 +1,6 @@
 <template lang="pug">
   form(v-on:submit="submitForm")
+    APIArgument(v-bind:arg="{name: 'token'}" value="" v-on:change="argsChanged")
     APIArgument(v-for="arg in args" v-bind:arg="arg" :value="values[arg.name]" v-on:change="argsChanged")
     div {{values}}
 </template>
@@ -22,7 +23,7 @@ export default {
   },
   methods: {
     emptyValues: function(args) {
-      let vals = {};
+      let vals = { token: "" };
       args.forEach((arg) => {
         if (arg.arguments) {
           vals[arg.name] = this.emptyValues(arg.arguments);
