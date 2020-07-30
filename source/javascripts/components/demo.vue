@@ -1,14 +1,14 @@
 <template lang="pug">
   div
-    APIForm(v-bind:args="this.args" v-on:submit="formSubmitted")
+    DemoForm(v-bind:args="this.args" v-on:submit="formSubmitted")
 </template>
 <script>
-import APIForm from "./api_form.vue";
+import DemoForm from "./demo_form.vue";
 import cloneDeep from "lodash.clonedeep";
 
 export default {
   components: {
-    APIForm: APIForm,
+    DemoForm: DemoForm,
   },
   props: {
     args: {

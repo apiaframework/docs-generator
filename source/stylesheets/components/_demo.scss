@@ -1,5 +1,5 @@
-.apiDemo__form {
-  & > .apiDemo__argumentContainer {
+.demo__form {
+  & > .demo__argumentContainer {
     margin-left: 0 !important;
     padding: 8px 0;
 
@@ -9,26 +9,26 @@
   }
 }
 
-.apiDemo__argumentContainer {
+.demo__argumentContainer {
   margin-left: 10px;
   width: 400px;
 }
 
-.apiDemo__argument {
+.demo__argument {
   display: flex;
   margin: 10px 0;
 }
 
-.apiDemo__argumentLabel {
+.demo__argumentLabel {
   width: 40%;
   color: var(--subTextColor);
 }
 
-.apiDemo__argumentInput {
+.demo__argumentInput {
   width: 60%;
 }
 
-.apiDemo__argumentSetTitle {
+.demo__argumentSetTitle {
   font-weight: 600;
   font-size: 20px;
 }

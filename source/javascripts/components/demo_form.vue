@@ -1,15 +1,15 @@
 <template lang="pug">
-  form.apiDemo__form(v-on:submit="submitForm")
-    APIArgument(v-bind:arg="{name: 'token'}" value="" v-on:change="argsChanged")
-    APIArgument(v-for="arg in args" v-bind:arg="arg" :value="values[arg.name]" v-on:change="argsChanged")
+  form.demo__form(v-on:submit="submitForm")
+    DemoArgument(v-bind:arg="{name: 'token'}" value="" v-on:change="argsChanged")
+    DemoArgument(v-for="arg in args" v-bind:arg="arg" :value="values[arg.name]" v-on:change="argsChanged")
     input(type="submit" value="Send")
 </template>
 <script>
-import APIArgument from "./api_argument";
+import DemoArgument from "./demo_argument";
 
 export default {
   components: {
-    APIArgument: APIArgument,
+    DemoArgument: DemoArgument,
   },
   props: {
     args: {

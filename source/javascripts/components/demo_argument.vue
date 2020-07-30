@@ -1,20 +1,20 @@
 <template lang="pug">
-  div.apiDemo__argumentContainer
-    div.apiDemo__argument(v-if="!arg.arguments")
-      label.apiDemo__argumentLabel(:for="arg.name" v-if="arg.required") {{arg.name}} (required)
-      label.apiDemo__argumentLabel(:for="arg.name" v-else) {{arg.name}}
-      select.apiDemo__argumentInput(v-if="arg.boolean" :name="arg.name" v-on:change="booleanChanged")
+  div.demo__argumentContainer
+    div.demo__argument(v-if="!arg.arguments")
+      label.demo__argumentLabel(:for="arg.name" v-if="arg.required") {{arg.name}} (required)
+      label.demo__argumentLabel(:for="arg.name" v-else) {{arg.name}}
+      select.demo__argumentInput(v-if="arg.boolean" :name="arg.name" v-on:change="booleanChanged")
         option(:value="0") No
         option(:value="1") Yes
-      input.apiDemo__argumentInput(v-else :name="arg.name" v-on:input="inputChanged")
+      input.demo__argumentInput(v-else :name="arg.name" v-on:input="inputChanged")
     div(v-else)
-      span.apiDemo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
-      span.apiDemo__argumentSetTitle(v-else) {{arg.name}}
-      APIArgument(v-for="subArg in arg.arguments" v-bind:arg="subArg" :value="value[subArg.name]" v-on:change="subArgChanged($event, subArg.name)")
+      span.demo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
+      span.demo__argumentSetTitle(v-else) {{arg.name}}
+      DemoArgument(v-for="subArg in arg.arguments" v-bind:arg="subArg" :value="value[subArg.name]" v-on:change="subArgChanged($event, subArg.name)")
 </template>
 <script>
 export default {
-  name: "APIArgument",
+  name: "DemoArgument",
   props: {
     arg: {
       type: Object,

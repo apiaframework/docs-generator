@@ -1,8 +1,8 @@
 import Vue from "vue";
-import APIDemo from "./api_demo.vue";
+import Demo from "./demo.vue";
 
 window.addEventListener("load", () => {
-  const node = document.querySelector("#api-demo");
+  const node = document.querySelector("#demo");
 
   if (node) {
     let props = {};
@@ -18,7 +18,7 @@ window.addEventListener("load", () => {
     new Vue({
       el: node,
       render: (c) =>
-        c(APIDemo, {
+        c(Demo, {
           props: props,
         }),
     });
