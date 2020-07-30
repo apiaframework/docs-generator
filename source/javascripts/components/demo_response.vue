@@ -1,5 +1,5 @@
 <template lang="pug">
-  pre.json(v-html="formattedResponse")
+  pre.json(v-bind:class="{ demo__responseError: error }" v-html="formattedResponse")
 </template>
 <script>
 export default {
