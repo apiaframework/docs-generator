@@ -19,11 +19,29 @@ export default {
     url: {
       type: Object,
     },
+    protocol: {
+      type: String,
+      default: "https",
+    },
   },
   methods: {
     formSubmitted: function(values) {
-      const url = this.generateURL(values);
-      console.log(values);
+      const token = values.token;
+      delete values.token;
+      fetch(this.generateURL(values), {
+        method: this.method,
+        body: this.method === "GET" ? null : JSON.stringify(values),
+        headers: {
+          "Content-type": "application/json",
+          Authorization: token ? `Bearer ${token}` : null,
+        },
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          console.log(json);
+        });
     },
     generateURL: function(values) {
       let pathWithArgs = this.url.path;
@@ -45,7 +63,7 @@ export default {
         }
       });
 
-      return `https://${this.url.host}${this.url.namespace}/${pathWithArgs}`;
+      return `${this.protocol}://${this.url.host}${this.url.namespace}/${pathWithArgs}`;
     },
   },
 };
