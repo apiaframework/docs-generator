@@ -23,6 +23,7 @@ export default {
   methods: {
     formSubmitted: function(values) {
       const url = this.generateURL(values);
+      console.log(values);
     },
     generateURL: function(values) {
       let pathWithArgs = this.url.path;
@@ -32,13 +33,16 @@ export default {
       );
       const urlArgs = matches.forEach((urlArg) => {
         const argName = urlArg.substr(1);
-        let argValue = "";
+        let argValue = null;
         Object.values(values[argName]).forEach((val) => {
           if (val) {
             argValue = val;
           }
         });
-        pathWithArgs = pathWithArgs.replace(urlArg, argValue);
+        if (argValue) {
+          pathWithArgs = pathWithArgs.replace(urlArg, argValue);
+          delete values[argName];
+        }
       });
 
       return `https://${this.url.host}${this.url.namespace}/${pathWithArgs}`;
