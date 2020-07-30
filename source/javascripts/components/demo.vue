@@ -1,14 +1,17 @@
 <template lang="pug">
   div
     DemoForm(v-bind:args="this.args" v-on:submit="formSubmitted")
+    DemoResponse(v-if="response" :response="response" :error="responseError")
 </template>
 <script>
 import DemoForm from "./demo_form.vue";
+import DemoResponse from "./demo_response.vue";
 import cloneDeep from "lodash.clonedeep";
 
 export default {
   components: {
     DemoForm: DemoForm,
+    DemoResponse: DemoResponse,
   },
   props: {
     args: {
@@ -25,6 +28,12 @@ export default {
       default: "https",
     },
   },
+  data: function() {
+    return {
+      response: null,
+      responseError: false,
+    };
+  },
   methods: {
     formSubmitted: function(formValues) {
       let values = cloneDeep(formValues);
@@ -39,9 +48,15 @@ export default {
         },
       })
         .then((response) => {
+          if (!response.ok) {
+            this.responseError = true;
+          } else {
+            this.responseError = false;
+          }
           return response.json();
         })
         .then((json) => {
+          this.response = json;
           console.log(json);
         });
     },
