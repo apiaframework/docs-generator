@@ -3,7 +3,8 @@
     div.demo__argument(v-if="!arg.arguments")
       label.demo__argumentLabel(:for="arg.name" v-if="arg.required") {{arg.name}} (required)
       label.demo__argumentLabel(:for="arg.name" v-else) {{arg.name}}
-      DemoBooleanInput(v-if="arg.boolean" :arg="arg" :value="value" v-on:change="booleanChanged")
+      DemoBooleanInput(v-if="arg.boolean" :arg="arg" :value="value" v-on:change="componentChanged")
+      DemoArrayInput(v-else-if="arg.array" :name="arg.name" :values="value" v-on:change="componentChanged")
       input.demo__argumentInput(v-else :name="arg.name" v-on:input="inputChanged")
     div(v-else)
       span.demo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
@@ -12,11 +13,13 @@
 </template>
 <script>
 import DemoBooleanInput from "./demo_boolean_input";
+import DemoArrayInput from "./demo_array_input";
 
 export default {
   name: "DemoArgument",
   components: {
     DemoBooleanInput: DemoBooleanInput,
+    DemoArrayInput: DemoArrayInput,
   },
   props: {
     arg: {
@@ -27,7 +30,7 @@ export default {
     },
   },
   methods: {
-    booleanChanged: function(e) {
+    componentChanged: function(e) {
       this.$emit("change", e);
     },
     inputChanged: function(e) {
