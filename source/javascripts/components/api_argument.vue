@@ -1,10 +1,12 @@
 <template lang="pug">
   div.apiDemo__argumentContainer
     div.apiDemo__argument(v-if="!arg.arguments")
-      label.apiDemo__argumentLabel(:for="arg.name") {{arg.name}}
+      label.apiDemo__argumentLabel(:for="arg.name" v-if="arg.required") {{arg.name}} (required)
+      label.apiDemo__argumentLabel(:for="arg.name" v-else) {{arg.name}}
       input.apiDemo__argumentInput(:name="arg.name" v-on:change="inputChanged")
     div(v-else)
-      span.apiDemo__argumentSetTitle {{arg.name}}
+      span.apiDemo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
+      span.apiDemo__argumentSetTitle(v-else) {{arg.name}}
       APIArgument(v-for="subArg in arg.arguments" v-bind:arg="subArg" :value="value[subArg.name]" v-on:change="subArgChanged($event, subArg.name)")
 </template>
 <script>
