@@ -20,11 +20,11 @@ export default {
   },
   methods: {
     inputChanged: function(e) {
-      this.$emit("change", e.target.value);
+      this.$emit("change", { name: this.arg.name, value: e.target.value });
     },
     subArgChanged: function(e, argName) {
       let newVals = this.value;
-      newVals[argName] = e;
+      newVals[argName] = e.value;
       this.$emit("change", { name: this.arg.name, value: newVals });
     },
   },
