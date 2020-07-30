@@ -1,0 +1,34 @@
+.apiDemo__form {
+  & > .apiDemo__argumentContainer {
+    margin-left: 0 !important;
+    padding: 8px 0;
+
+    &:first-child {
+      margin-top: 0 !important;
+    }
+  }
+}
+
+.apiDemo__argumentContainer {
+  margin-left: 10px;
+  width: 400px;
+}
+
+.apiDemo__argument {
+  display: flex;
+  margin: 10px 0;
+}
+
+.apiDemo__argumentLabel {
+  width: 40%;
+  color: var(--subTextColor);
+}
+
+.apiDemo__argumentInput {
+  width: 60%;
+}
+
+.apiDemo__argumentSetTitle {
+  font-weight: 600;
+  font-size: 20px;
+}
