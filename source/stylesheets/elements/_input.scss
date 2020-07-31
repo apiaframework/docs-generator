@@ -31,10 +31,13 @@
   .input {
     color: var(--textColor);
   }
+  select.input {
+    background-image: image-url("images/icons/dark/select-arrow.svg");
+  }
 }
 
 select.input {
-  // background-image: image-url("select-arrow-#{$scheme}.svg");
+  background-image: image-url("images/icons/select-arrow.svg");
   background-position: right 12px top 50%;
   background-size: 16px 16px;
   background-repeat: no-repeat;
