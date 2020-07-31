@@ -22,10 +22,21 @@ export default {
   },
   data: function() {
     return {
-      values: {},
+      values: this.emptyValues(this.args),
     };
   },
   methods: {
+    emptyValues: function(args) {
+      let vals = { token: "" };
+      args.forEach((arg) => {
+        if (arg.arguments) {
+          vals[arg.name] = this.emptyValues(arg.arguments);
+        } else {
+          vals[arg.name] = null;
+        }
+      });
+      return vals;
+    },
     argsChanged: function(newValues) {
       this.values[newValues.name] = newValues.value;
     },

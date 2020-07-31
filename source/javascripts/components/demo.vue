@@ -38,7 +38,7 @@ export default {
   methods: {
     formSubmitted: function(formValues) {
       this.loading = true;
-      let values = cloneDeep(formValues);
+      let values = this.cleanValues(cloneDeep(formValues));
       const token = values.token;
       delete values.token;
       console.log(values);
@@ -102,6 +102,9 @@ export default {
       Object.keys(values).forEach((key) => {
         if (values[key] && typeof values[key] === "object") {
           this.cleanValues(values[key]);
+          if (Object.keys(values[key]).length === 0) {
+            delete values[key];
+          }
         } else if (!values[key]) {
           delete values[key];
         }
