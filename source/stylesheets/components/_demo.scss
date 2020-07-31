@@ -60,6 +60,15 @@
   &:hover {
     background-color: var(--boxColor);
   }
+
+  &.loading {
+    background-image: image-url("spinner.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    opacity: 1;
+    color: transparent !important;
+  }
 }
 
 .darkMode {

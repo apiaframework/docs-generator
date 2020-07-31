@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    DemoForm(v-bind:args="this.args" v-on:submit="formSubmitted")
+    DemoForm(:loading="loading" v-bind:args="this.args" v-on:submit="formSubmitted")
     DemoResponse(v-if="response" :response="response" :error="responseError")
 </template>
 <script>
@@ -32,10 +32,12 @@ export default {
     return {
       response: null,
       responseError: false,
+      loading: false,
     };
   },
   methods: {
     formSubmitted: function(formValues) {
+      this.loading = true;
       let values = cloneDeep(formValues);
       const token = values.token;
       delete values.token;
@@ -57,12 +59,13 @@ export default {
         })
         .then((json) => {
           this.response = json;
-          console.log(json);
+          this.loading = false;
         })
         .catch((error) => {
           console.error("Error:", error);
           this.response = "Error: Unable to perform API Query.";
           this.responseError = true;
+          this.loading = false;
         });
     },
     generateURL: function(values) {
