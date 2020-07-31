@@ -34,7 +34,7 @@
 }
 
 .demo__argumentInput {
-  max-width: 70%;
+  width: 70% !important;
 }
 
 .demo__argumentSetTitle {
@@ -71,8 +71,30 @@
   }
 }
 
+.demo__addButton {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--sidebarBackgroundColor);
+  font-size: 12px;
+  padding: 6px 12px;
+  font-weight: 600;
+  line-height: 1;
+  border: 1px solid var(--sidebarBorderColor);
+  border-radius: 4px;
+
+  &:hover {
+    background-color: var(--boxColor);
+  }
+}
+
 .darkMode {
   .demo__submitButton {
     color: var(--textColor);
   }
+}
+
+.demo__arrayInput {
+  display: block;
+  margin-bottom: 6px;
+  width: 100%;
 }

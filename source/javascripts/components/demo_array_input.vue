@@ -1,7 +1,7 @@
 <template lang="pug">
   div.demo__argumentInput
-    button(type="button" v-on:click="addValue") Add
-    input.input(v-for="(val, index) in currentValues" :value="val" v-on:input="valueInput($event, index)")
+    input.input.demo__arrayInput(v-for="(val, index) in currentValues" :value="val" v-on:input="valueInput($event, index)")
+    button.demo__addButton(type="button" v-on:click="addValue") Add
 </template>
 <script>
 export default {
