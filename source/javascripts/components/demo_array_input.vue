@@ -1,6 +1,8 @@
 <template lang="pug">
   div.demo__argumentInput
-    input.input.demo__arrayInput(v-for="(val, index) in currentValues" :value="val" v-on:input="valueInput($event, index)")
+    div(v-for="(val, index) in currentValues")
+      input.input.demo__arrayInput(v-if="index === 0" :id="id" :value="val" v-on:input="valueInput($event, index)")
+      input.input.demo__arrayInput(v-else :value="val" v-on:input="valueInput($event, index)")
     button.demo__addButton(type="button" v-on:click="addValue") Add
 </template>
 <script>
@@ -12,6 +14,10 @@ export default {
     values: {
       type: Array,
       default: () => [""],
+    },
+    id: {
+      type: String,
+      default: "",
     },
   },
   data: function() {

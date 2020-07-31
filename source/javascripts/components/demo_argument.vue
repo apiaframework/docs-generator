@@ -1,11 +1,11 @@
 <template lang="pug">
   div.demo__argumentContainer
     div.demo__argument(v-if="!arg.arguments")
-      label.demo__argumentLabel(:for="arg.name" v-if="arg.required") {{arg.name}} (required)
-      label.demo__argumentLabel(:for="arg.name" v-else) {{arg.name}}
-      DemoBooleanInput(v-if="arg.boolean" :arg="arg" :value="value" v-on:change="componentChanged")
-      DemoArrayInput(v-else-if="arg.array" :name="arg.name" :values="value" v-on:change="componentChanged")
-      input.input.demo__argumentInput(v-else :name="arg.name" v-on:input="inputChanged")
+      label.demo__argumentLabel(:for="inputID" v-if="arg.required") {{arg.name}} (required)
+      label.demo__argumentLabel(:for="inputID" v-else) {{arg.name}}
+      DemoBooleanInput(v-if="arg.boolean" :id="inputID" :arg="arg" :value="value" v-on:change="componentChanged")
+      DemoArrayInput(v-else-if="arg.array" :id="inputID" :name="arg.name" :values="value" v-on:change="componentChanged")
+      input.input.demo__argumentInput(v-else :id="inputID" :name="arg.name" v-on:input="inputChanged")
     div(v-else)
       span.demo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
       span.demo__argumentSetTitle(v-else) {{arg.name}}
@@ -28,6 +28,11 @@ export default {
     },
     value: {
       type: [Object, String, Boolean, Array],
+    },
+  },
+  computed: {
+    inputID: function() {
+      return `${this.arg.name}-${Math.random()}`;
     },
   },
   methods: {
