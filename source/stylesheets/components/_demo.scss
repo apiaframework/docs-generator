@@ -50,75 +50,15 @@
   color: var(--lozengeRedTextColor) !important;
 }
 
-.demo__submitButton {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: var(--sidebarBackgroundColor);
-  font-size: 15px;
-  padding: 12px 22px;
-  font-weight: 600;
-  line-height: 1;
-  border: 1px solid var(--sidebarBorderColor);
-  border-radius: 4px;
-
-  &:hover {
-    background-color: var(--boxColor);
-  }
-
-  &.loading {
-    background-image: image-url("spinner.gif");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 25px;
-    opacity: 1;
-    color: transparent !important;
-  }
-}
-
-.demo__addButton {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: var(--sidebarBackgroundColor);
-  font-size: 12px;
-  padding: 6px 12px;
-  font-weight: 600;
-  line-height: 1;
-  border: 1px solid var(--sidebarBorderColor);
-  border-radius: 4px;
-
-  &:hover {
-    background-color: var(--boxColor);
-  }
-}
-
 .demo__removeButton {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border: none;
   position: absolute;
   right: 10px;
   top: 10px;
-  background-color: transparent;
-
-  width: 20px;
-  height: 20px;
 
   background-image: image-url("icons/delete.svg");
-  background-size: 20px;
-
-  opacity: 0.7;
-
-  &:hover {
-    opacity: 1;
-  }
 }
 
 .darkMode {
-  .demo__submitButton,
-  .demo__addButton {
-    color: var(--textColor);
-  }
-
   .demo__removeButton {
     background-image: image-url("icons/dark/delete.svg");
   }

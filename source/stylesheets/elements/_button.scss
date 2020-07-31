@@ -1,0 +1,58 @@
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--sidebarBackgroundColor);
+  font-size: 15px;
+  padding: 12px 22px;
+  font-weight: 600;
+  line-height: 1;
+  border: 1px solid var(--sidebarBorderColor);
+  border-radius: 4px;
+
+  &:hover {
+    background-color: var(--boxColor);
+  }
+
+  &:focus {
+    border-color: var(--accentColor) !important;
+  }
+
+  &.loading {
+    background-image: image-url("spinner.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    opacity: 1;
+    color: transparent !important;
+  }
+}
+
+.button__small {
+  font-size: 12px;
+  padding: 6px 12px;
+
+  &:hover {
+    background-color: var(--boxColor);
+  }
+}
+
+.button__icon {
+  border: none;
+  background-color: transparent;
+
+  width: 20px;
+  height: 20px;
+  background-size: 20px;
+
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.darkMode {
+  .button {
+    color: var(--textColor);
+  }
+}
