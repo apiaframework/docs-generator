@@ -23,7 +23,7 @@ export default {
   },
   data: function() {
     return {
-      currentValues: this.values.length > 0 ? this.values : [""],
+      currentValues: this.values ? this.values : [""],
     };
   },
   methods: {
