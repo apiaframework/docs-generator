@@ -2,7 +2,7 @@
   form.demo__form(v-on:submit="submitForm")
     DemoArgument(v-bind:arg="{name: 'token'}" value="" v-on:change="argsChanged")
     DemoArgument(v-for="arg in args" v-bind:arg="arg" :value="values[arg.name]" v-on:change="argsChanged")
-    input(type="submit" value="Send")
+    input.demo__submitButton(type="submit" value="Send")
 </template>
 <script>
 import DemoArgument from "./demo_argument";
