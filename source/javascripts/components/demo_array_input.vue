@@ -1,9 +1,10 @@
 <template lang="pug">
   div.demo__argumentInput
-    div(v-for="(val, index) in currentValues")
+    div.demo__arrayArgument(v-for="(val, index) in currentValues")
       input.input.demo__arrayInput(v-if="index === 0" :id="id" :value="val" v-on:input="valueInput($event, index)")
       input.input.demo__arrayInput(v-else :value="val" v-on:input="valueInput($event, index)")
-    button.demo__addButton(type="button" v-on:click="addValue") Add
+      button.demo__removeButton(v-if="index !== 0 || currentValues.length > 1" type="button" v-on:click="removeValue(index)")
+    button.demo__addButton(type="button" v-on:click="addValue") +
 </template>
 <script>
 export default {
@@ -32,6 +33,9 @@ export default {
     },
     addValue: function() {
       this.currentValues.push("");
+    },
+    removeValue: function(index) {
+      this.currentValues.splice(index, 1);
     },
   },
 };
