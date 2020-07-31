@@ -9,12 +9,11 @@
   border: 1px solid var(--sidebarBorderColor);
   border-radius: 4px;
 
-  &:hover {
-    background-color: var(--boxColor);
-  }
-
+  &:hover,
   &:focus {
+    background-color: var(--boxColor);
     border-color: var(--accentColor) !important;
+    color: var(--accentColor);
   }
 
   &.loading {
