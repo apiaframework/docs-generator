@@ -41,6 +41,7 @@ export default {
       let values = cloneDeep(formValues);
       const token = values.token;
       delete values.token;
+      console.log(values);
       fetch(this.generateURL(values), {
         method: this.method,
         body: this.method === "GET" ? null : JSON.stringify(values),
