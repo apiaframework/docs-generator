@@ -5,7 +5,7 @@
       label.demo__argumentLabel(:for="arg.name" v-else) {{arg.name}}
       DemoBooleanInput(v-if="arg.boolean" :arg="arg" :value="value" v-on:change="componentChanged")
       DemoArrayInput(v-else-if="arg.array" :name="arg.name" :values="value" v-on:change="componentChanged")
-      input.demo__argumentInput(v-else :name="arg.name" v-on:input="inputChanged")
+      input.input.demo__argumentInput(v-else :name="arg.name" v-on:input="inputChanged")
     div(v-else)
       span.demo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
       span.demo__argumentSetTitle(v-else) {{arg.name}}

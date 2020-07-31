@@ -1,5 +1,5 @@
 <template lang="pug">
-  select.demo__argumentInput(:name="arg.name" v-on:change="booleanChanged")
+  select.input.demo__argumentInput(:name="arg.name" v-on:change="booleanChanged")
     option(:value="0") No
     option(:value="1") Yes
 </template>

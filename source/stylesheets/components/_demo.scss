@@ -11,11 +11,12 @@
 
 .demo__argumentSet {
   border-left: 4px solid;
+  border-color: var(--sidebarBorderColor);
 }
 
 .demo__argumentContainer {
   margin-left: 14px;
-  width: 400px;
+  width: 600px;
 }
 
 .demo__argument {
@@ -28,12 +29,13 @@
 }
 
 .demo__argumentLabel {
+  font-family: $monoFamily;
   width: 40%;
-  color: var(--subTextColor);
+  padding-top: 13px;
 }
 
 .demo__argumentInput {
-  width: 60%;
+  max-width: 60%;
 }
 
 .demo__argumentSetTitle {

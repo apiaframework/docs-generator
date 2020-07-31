@@ -1,0 +1,43 @@
+.input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  border: 1px solid var(--sidebarBorderColor) !important;
+  background-color: var(--sidebarBackgroundColor) !important;
+  border-radius: 4px !important;
+  font-size: 15px;
+  padding: 8px 11px;
+  font-weight: 600;
+  width: 100%;
+  font-family: $monoFamily;
+  min-width: 0;
+
+  &:focus {
+    outline: none;
+    border: 1px solid var(--accentColor) !important;
+  }
+
+  &::placeholder {
+    font-style: italic;
+    color: var(--subTextColor);
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.darkMode {
+  .input {
+    color: var(--textColor);
+  }
+}
+
+select.input {
+  // background-image: image-url("select-arrow-#{$scheme}.svg");
+  background-position: right 12px top 50%;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  padding-right: 28px;
+}
