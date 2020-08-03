@@ -34,4 +34,5 @@
 #demo
   %property{name: 'args', type: 'json'}= demo_arguments(route.endpoint.argument_set).to_json
   %property{name: 'method'}= route.request_method
+  %property{name: 'protocol'} http
   %property{name: 'url', type: 'json'}= { host: schema.host, namespace: schema.namespace, path: route.path }.to_json
