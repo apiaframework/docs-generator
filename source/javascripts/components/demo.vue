@@ -39,6 +39,10 @@ export default {
     formSubmitted: function(formValues) {
       this.loading = true;
       let values = this.cleanValues(cloneDeep(formValues));
+      if (Object.keys(values).length === 0) {
+        this.loading = false;
+        return;
+      }
       const token = values.token;
       delete values.token;
       console.log(values);
