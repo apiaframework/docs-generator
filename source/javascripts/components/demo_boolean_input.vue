@@ -1,5 +1,5 @@
 <template lang="pug">
-  select.input.demo__argumentInput(:name="arg.name" v-on:change="booleanChanged")
+  select.input.demo__argumentInput(:name="name" v-on:change="booleanChanged")
     option(:value="null") null
     option(:value="0") No
     option(:value="1") Yes
@@ -12,6 +12,10 @@ export default {
     },
     value: {
       type: Boolean,
+    },
+    name: {
+      type: String,
+      default: "",
     },
   },
   methods: {

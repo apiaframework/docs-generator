@@ -1,16 +1,16 @@
 <template lang="pug">
   div.demo__argumentContainer
     div.demo__argument(v-if="!arg.arguments")
-      label.demo__argumentLabel(:for="inputID" v-if="arg.required") {{arg.name}} (required)
-      label.demo__argumentLabel(:for="inputID" v-else) {{arg.name}}
-      DemoBooleanInput(v-if="arg.boolean" :id="inputID" :arg="arg" :value="value" v-on:change="componentChanged")
-      DemoArrayInput(v-else-if="arg.array" :id="inputID" :name="arg.name" :values="value" v-on:change="componentChanged")
-      input.input.demo__argumentInput(v-else :autocomplete="inputAutocomplete" :id="inputID" :name="arg.name" v-on:input="inputChanged")
+      label.demo__argumentLabel(:for="argFullName" v-if="arg.required") {{arg.name}} (required)
+      label.demo__argumentLabel(:for="argFullName" v-else) {{arg.name}}
+      DemoBooleanInput(v-if="arg.boolean" :id="argFullName" :name="argFullName" :arg="arg" :value="value" v-on:change="componentChanged")
+      DemoArrayInput(v-else-if="arg.array" :id="argFullName" :name="argFullName" :values="value" v-on:change="componentChanged")
+      input.input.demo__argumentInput(v-else :autocomplete="inputAutocomplete" :id="argFullName" :name="argFullName" v-on:input="inputChanged")
     div(v-else)
       span.demo__argumentSetTitle(v-if="arg.required") {{arg.name}} (required)
       span.demo__argumentSetTitle(v-else) {{arg.name}}
       .demo__argumentSet
-        DemoArgument(v-for="subArg in arg.arguments" v-bind:arg="subArg" :value="subValue(subArg.name)" v-on:change="subArgChanged($event, subArg.name)")
+        DemoArgument(v-for="subArg in arg.arguments" :fullName="argFullName"  v-bind:arg="subArg" :value="subValue(subArg.name)" v-on:change="subArgChanged($event, subArg.name)")
 </template>
 <script>
 import DemoBooleanInput from "./demo_boolean_input";
@@ -29,13 +29,22 @@ export default {
     value: {
       type: [Object, String, Boolean, Array],
     },
+    fullName: {
+      type: String,
+      default: "",
+    },
   },
   computed: {
-    inputID: function() {
-      return `${this.arg.name}-${Math.random()}`;
-    },
     inputAutocomplete: function() {
       return this.arg.name === "token" ? "off" : "on";
+    },
+    argFullName: function() {
+      let name = "";
+      if (this.fullName) {
+        name += `${this.fullName}.`;
+      }
+      name += this.arg.name;
+      return name;
     },
   },
   methods: {
