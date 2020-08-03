@@ -1,7 +1,7 @@
 <template lang="pug">
   div.demo__argumentInput
     div.demo__arrayArgument(v-for="(val, index) in currentValues")
-      input.input.demo__arrayInput(v-if="index === 0" :id="id" :name="name" :value="val" v-on:input="valueInput($event, index)")
+      input.input.demo__arrayInput(v-if="index === 0" :id="name" :name="name" :value="val" v-on:input="valueInput($event, index)")
       input.input.demo__arrayInput(v-else :value="val" :name="name" v-on:input="valueInput($event, index)")
       button.button__icon.demo__removeButton(v-if="index !== 0 || currentValues.length > 1" type="button" v-on:click="removeValue(index)")
     button.button.button__small(type="button" v-on:click="addValue") +
@@ -15,10 +15,6 @@ export default {
     values: {
       type: Array,
       default: () => [""],
-    },
-    id: {
-      type: String,
-      default: "",
     },
   },
   data: function() {
