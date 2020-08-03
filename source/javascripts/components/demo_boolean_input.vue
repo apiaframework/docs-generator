@@ -1,8 +1,8 @@
 <template lang="pug">
   select.input.demo__argumentInput(:name="name" :id="name" v-on:change="booleanChanged")
     option(:value="null")
-    option(:value="0") No
     option(:value="1") Yes
+    option(:value="0") No
 </template>
 <script>
 export default {
