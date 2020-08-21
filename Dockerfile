@@ -11,4 +11,4 @@ RUN BUNDLE_RUBYGEMS__PKG__GITHUB__COM=$github_package_key bundle install -j 4 --
 ENV RAPID_SCHEMA_PATH /config/schema.json
 ENV CONFIG_PATH /config/config.yaml
 COPY . .
-CMD ["bundle", "exec", "middleman", "build", "--build-dir=/output"]
+CMD ["bundle", "exec", "middleman", "build", "--build-dir=/output", "--verbose"]
