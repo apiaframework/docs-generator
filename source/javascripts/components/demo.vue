@@ -1,7 +1,11 @@
 <template lang="pug">
-  div
-    DemoForm(:loading="loading" v-bind:args="this.args" v-on:submit="formSubmitted")
-    DemoResponse(v-if="response" :response="response" :error="responseError")
+div
+  DemoForm(
+    :loading="loading",
+    v-bind:args="this.args",
+    v-on:submit="formSubmitted"
+  )
+  DemoResponse(v-if="response", :response="response", :error="responseError")
 </template>
 <script>
 import DemoForm from "./demo_form.vue";
@@ -28,7 +32,7 @@ export default {
       default: "https",
     },
   },
-  data: function() {
+  data: function () {
     return {
       response: null,
       responseError: false,
@@ -36,7 +40,7 @@ export default {
     };
   },
   methods: {
-    formSubmitted: function(formValues) {
+    formSubmitted: function (formValues) {
       this.loading = true;
       let values = this.cleanValues(cloneDeep(formValues));
       if (Object.keys(values).length === 0) {
@@ -73,7 +77,7 @@ export default {
           this.loading = false;
         });
     },
-    generateURL: function(values) {
+    generateURL: function (values) {
       let pathWithArgs = this.url.path;
       const matches = Array.from(
         this.url.path.matchAll(/\:(\w+)/g),
@@ -82,14 +86,16 @@ export default {
       const urlArgs = matches.forEach((urlArg) => {
         const argName = urlArg.substr(1);
         let argValue = null;
-        Object.values(values[argName]).forEach((val) => {
-          if (val) {
-            argValue = val;
+        if (values[argName]) {
+          Object.values(values[argName]).forEach((val) => {
+            if (val) {
+              argValue = val;
+            }
+          });
+          if (argValue) {
+            pathWithArgs = pathWithArgs.replace(urlArg, argValue);
+            delete values[argName];
           }
-        });
-        if (argValue) {
-          pathWithArgs = pathWithArgs.replace(urlArg, argValue);
-          delete values[argName];
         }
       });
 
@@ -102,7 +108,7 @@ export default {
         return baseURL;
       }
     },
-    cleanValues: function(values) {
+    cleanValues: function (values) {
       Object.keys(values).forEach((key) => {
         if (values[key] && typeof values[key] === "object") {
           this.cleanValues(values[key]);
