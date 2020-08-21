@@ -86,16 +86,9 @@ export default {
       const urlArgs = matches.forEach((urlArg) => {
         const argName = urlArg.substr(1);
         let argValue = null;
-        if (values[argName]) {
-          Object.values(values[argName]).forEach((val) => {
-            if (val) {
-              argValue = val;
-            }
-          });
-          if (argValue) {
-            pathWithArgs = pathWithArgs.replace(urlArg, argValue);
-            delete values[argName];
-          }
+        if (values[argName] && values[argName].id) {
+          pathWithArgs = pathWithArgs.replace(urlArg, values[argName]["id"]);
+          delete values[argName];
         }
       });
 
