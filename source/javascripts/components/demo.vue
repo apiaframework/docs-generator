@@ -94,8 +94,10 @@ export default {
 
       const baseURL = `${this.protocol}://${this.url.host}${this.url.namespace}/${pathWithArgs}`;
       if (this.method === "GET") {
+        let cleaned = this.cleanValues(values);
+
         return `${baseURL}?${new URLSearchParams(
-          this.cleanValues(values)
+          this.prepareGetArguments(cleaned)
         ).toString()}`;
       } else {
         return baseURL;
@@ -113,6 +115,9 @@ export default {
         }
       });
       return values;
+    },
+    prepareGetArguments: function (values) {
+      return { _arguments: JSON.stringify(values) };
     },
   },
 };
