@@ -181,7 +181,7 @@ helpers do
     include = false
     include = true if spec == :all
     include = true if !include && spec.is_a?(Rapid::FieldSpec) && path.size == 1
-    include = true if !include && spec.is_a?(Rapid::FieldSpec) && spec.include?(*ids[1..])
+    include = true if !include && spec.is_a?(Rapid::FieldSpec) && spec.include_field?(ids[1..].join('.'))
 
     return '' unless include
 
