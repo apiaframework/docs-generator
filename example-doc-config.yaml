@@ -2,6 +2,7 @@ support_address: support@katapult.io
 scope_prefix: "core:"
 authentication:
   bearer:
+    placeholder: api-token
     obtaining_api_token: |
       You can generate a service API token through the Katapult Console. Once you have generated this token, you can use it as described below.
       At present, it is not possible to authenticate to the API as a specific user but this functionality will be coming shortly (at which point
