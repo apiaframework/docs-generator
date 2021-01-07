@@ -35,6 +35,13 @@
               "group": "data_centers"
             },
             {
+              "path": "data_centers/:data_center/default_network",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DataCenters",
+              "endpoint": "CoreAPI/Controllers/DataCenters/DefaultNetworkEndpoint",
+              "group": "data_centers"
+            },
+            {
               "path": "organizations",
               "request_method": "GET",
               "controller": "CoreAPI/Controllers/Organizations",
@@ -63,6 +70,27 @@
               "group": "disk_templates"
             },
             {
+              "path": "disk_templates/:disk_template",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DiskTemplates",
+              "endpoint": "CoreAPI/Controllers/DiskTemplates/InfoEndpoint",
+              "group": "disk_templates"
+            },
+            {
+              "path": "disk_templates/:disk_template/versions",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DiskTemplateVersions",
+              "endpoint": "CoreAPI/Controllers/DiskTemplateVersions/ListEndpoint",
+              "group": "disk_template_versions"
+            },
+            {
+              "path": "disk_template_versions/:disk_template_version",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DiskTemplateVersions",
+              "endpoint": "CoreAPI/Controllers/DiskTemplateVersions/InfoEndpoint",
+              "group": "disk_template_versions"
+            },
+            {
               "path": "organizations/:organization/virtual_machines",
               "request_method": "GET",
               "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachines",
@@ -74,6 +102,13 @@
               "request_method": "GET",
               "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachines",
               "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/InfoEndpoint",
+              "group": "virtual_machines"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine",
+              "request_method": "PATCH",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/UpdateEndpoint",
               "group": "virtual_machines"
             },
             {
@@ -357,6 +392,13 @@
               "group": "networks"
             },
             {
+              "path": "networks/:network",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Networks",
+              "endpoint": "CoreAPI/Controllers/Networks/InfoEndpoint",
+              "group": "networks"
+            },
+            {
               "path": "organizations/:organization/certificates",
               "request_method": "GET",
               "controller": "CoreAPI/Certificates/Controllers/Certificates",
@@ -439,6 +481,272 @@
               "controller": "CoreAPI/LoadBalancers/Controllers/LoadBalancerRules",
               "endpoint": "CoreAPI/LoadBalancers/Controllers/LoadBalancerRules/DeleteEndpoint",
               "group": "load_balancers.rules"
+            },
+            {
+              "path": "organizations/:organization/ip_addresses",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/IPAddresses",
+              "endpoint": "CoreAPI/Controllers/IPAddresses/ListEndpoint",
+              "group": "ip_addresses"
+            },
+            {
+              "path": "organizations/:organization/ip_addresses",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/IPAddresses",
+              "endpoint": "CoreAPI/Controllers/IPAddresses/CreateEndpoint",
+              "group": "ip_addresses"
+            },
+            {
+              "path": "ip_addresses/:ip_address",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/IPAddresses",
+              "endpoint": "CoreAPI/Controllers/IPAddresses/InfoEndpoint",
+              "group": "ip_addresses"
+            },
+            {
+              "path": "ip_addresses/:ip_address",
+              "request_method": "PATCH",
+              "controller": "CoreAPI/Controllers/IPAddresses",
+              "endpoint": "CoreAPI/Controllers/IPAddresses/UpdateEndpoint",
+              "group": "ip_addresses"
+            },
+            {
+              "path": "ip_addresses/:ip_address",
+              "request_method": "DELETE",
+              "controller": "CoreAPI/Controllers/IPAddresses",
+              "endpoint": "CoreAPI/Controllers/IPAddresses/ReleaseEndpoint",
+              "group": "ip_addresses"
+            },
+            {
+              "path": "ip_addresses/:ip_address/unallocate",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/IPAddresses",
+              "endpoint": "CoreAPI/Controllers/IPAddresses/UnallocateEndpoint",
+              "group": "ip_addresses"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine/network_interfaces",
+              "request_method": "GET",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ListEndpoint",
+              "group": "virtual_machine_network_interfaces"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine/networks/:network/interface",
+              "request_method": "GET",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ForNetworkEndpoint",
+              "group": "virtual_machine_network_interfaces"
+            },
+            {
+              "path": "virtual_machine_network_interfaces/:virtual_machine_network_interface",
+              "request_method": "GET",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/InfoEndpoint",
+              "group": "virtual_machine_network_interfaces"
+            },
+            {
+              "path": "virtual_machine_network_interfaces/:virtual_machine_network_interface/available_ips/:address_version",
+              "request_method": "GET",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/IpsAvailableForAllocationEndpoint",
+              "group": "virtual_machine_network_interfaces"
+            },
+            {
+              "path": "virtual_machine_network_interfaces/:virtual_machine_network_interface/allocate_ip",
+              "request_method": "POST",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateIpEndpoint",
+              "group": "virtual_machine_network_interfaces"
+            },
+            {
+              "path": "virtual_machine_network_interfaces/:virtual_machine_network_interface/allocate_new_ip",
+              "request_method": "POST",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateNewIpEndpoint",
+              "group": "virtual_machine_network_interfaces"
+            },
+            {
+              "path": "organizations/:organization/tags",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Tags",
+              "endpoint": "CoreAPI/Controllers/Tags/ListEndpoint",
+              "group": "tags"
+            },
+            {
+              "path": "organizations/:organization/tags",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/Tags",
+              "endpoint": "CoreAPI/Controllers/Tags/CreateEndpoint",
+              "group": "tags"
+            },
+            {
+              "path": "tags/:tag",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Tags",
+              "endpoint": "CoreAPI/Controllers/Tags/InfoEndpoint",
+              "group": "tags"
+            },
+            {
+              "path": "tags/:tag",
+              "request_method": "PATCH",
+              "controller": "CoreAPI/Controllers/Tags",
+              "endpoint": "CoreAPI/Controllers/Tags/UpdateEndpoint",
+              "group": "tags"
+            },
+            {
+              "path": "tags/:tag",
+              "request_method": "DELETE",
+              "controller": "CoreAPI/Controllers/Tags",
+              "endpoint": "CoreAPI/Controllers/Tags/DeleteEndpoint",
+              "group": "tags"
+            },
+            {
+              "path": "organizations/:organization/virtual_machine_groups",
+              "request_method": "GET",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/ListEndpoint",
+              "group": "virtual_machine_groups"
+            },
+            {
+              "path": "organizations/:organization/virtual_machine_groups",
+              "request_method": "POST",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/CreateEndpoint",
+              "group": "virtual_machine_groups"
+            },
+            {
+              "path": "virtual_machine_groups/:virtual_machine_group",
+              "request_method": "GET",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/InfoEndpoint",
+              "group": "virtual_machine_groups"
+            },
+            {
+              "path": "virtual_machine_groups/:virtual_machine_group",
+              "request_method": "PATCH",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/UpdateEndpoint",
+              "group": "virtual_machine_groups"
+            },
+            {
+              "path": "virtual_machine_groups/:virtual_machine_group",
+              "request_method": "DELETE",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/DeleteEndpoint",
+              "group": "virtual_machine_groups"
+            },
+            {
+              "path": "operating_systems",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/OperatingSystems",
+              "endpoint": "CoreAPI/Controllers/OperatingSystems/ListEndpoint",
+              "group": "operating_systems"
+            },
+            {
+              "path": "operating_systems/:operating_system",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/OperatingSystems",
+              "endpoint": "CoreAPI/Controllers/OperatingSystems/InfoEndpoint",
+              "group": "operating_systems"
+            },
+            {
+              "path": "organizations/:organization/trash_objects",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/TrashObjects",
+              "endpoint": "CoreAPI/Controllers/TrashObjects/ListEndpoint",
+              "group": "trash_objects"
+            },
+            {
+              "path": "organizations/:organization/trash_objects/purge_all",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/TrashObjects",
+              "endpoint": "CoreAPI/Controllers/TrashObjects/PurgeAllEndpoint",
+              "group": "trash_objects"
+            },
+            {
+              "path": "trash_objects/:trash_object",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/TrashObjects",
+              "endpoint": "CoreAPI/Controllers/TrashObjects/InfoEndpoint",
+              "group": "trash_objects"
+            },
+            {
+              "path": "trash_objects/:trash_object",
+              "request_method": "DELETE",
+              "controller": "CoreAPI/Controllers/TrashObjects",
+              "endpoint": "CoreAPI/Controllers/TrashObjects/PurgeEndpoint",
+              "group": "trash_objects"
+            },
+            {
+              "path": "trash_objects/:trash_object/restore",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/TrashObjects",
+              "endpoint": "CoreAPI/Controllers/TrashObjects/RestoreEndpoint",
+              "group": "trash_objects"
+            },
+            {
+              "path": "zones",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Zones",
+              "endpoint": "CoreAPI/Controllers/Zones/ListEndpoint",
+              "group": "zones"
+            },
+            {
+              "path": "zones/:zone",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Zones",
+              "endpoint": "CoreAPI/Controllers/Zones/InfoEndpoint",
+              "group": "zones"
+            },
+            {
+              "path": "countries",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Countries",
+              "endpoint": "CoreAPI/Controllers/Countries/ListEndpoint",
+              "group": "countries"
+            },
+            {
+              "path": "countries/:country",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Countries",
+              "endpoint": "CoreAPI/Controllers/Countries/InfoEndpoint",
+              "group": "countries"
+            },
+            {
+              "path": "countries/:country/country_states",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/CountryStates",
+              "endpoint": "CoreAPI/Controllers/CountryStates/ListEndpoint",
+              "group": "country_states"
+            },
+            {
+              "path": "country_states/:country_state",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/CountryStates",
+              "endpoint": "CoreAPI/Controllers/CountryStates/InfoEndpoint",
+              "group": "country_states"
+            },
+            {
+              "path": "currencies",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Currencies",
+              "endpoint": "CoreAPI/Controllers/Currencies/ListEndpoint",
+              "group": "currencies"
+            },
+            {
+              "path": "currencies/:currency",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Currencies",
+              "endpoint": "CoreAPI/Controllers/Currencies/InfoEndpoint",
+              "group": "currencies"
+            },
+            {
+              "path": "tasks/:task",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Tasks",
+              "endpoint": "CoreAPI/Controllers/Tasks/InfoEndpoint",
+              "group": "tasks"
             }
           ],
           "groups": [
@@ -464,6 +772,12 @@
             {
               "id": "disk_templates",
               "name": "Disk templates",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "disk_template_versions",
+              "name": "Disk template versions",
               "description": null,
               "groups": []
             },
@@ -560,9 +874,153 @@
                   "groups": []
                 }
               ]
+            },
+            {
+              "id": "ip_addresses",
+              "name": "IP Addresses",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "virtual_machine_network_interfaces",
+              "name": "Virtual Machine Network Interfaces",
+              "description": null,
+              "groups": []
+            },
+            { "id": "tags", "name": "Tags", "description": null, "groups": [] },
+            {
+              "id": "virtual_machine_groups",
+              "name": "Virtual machine groups",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "operating_systems",
+              "name": "Operating Systems",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "trash_objects",
+              "name": "Trash objects",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "zones",
+              "name": "Zones",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "countries",
+              "name": "Countries",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "country_states",
+              "name": "Country States",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "currencies",
+              "name": "Currencies",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "tasks",
+              "name": "Tasks",
+              "description": null,
+              "groups": []
             }
           ]
-        }
+        },
+        "scopes": [
+          {
+            "name": "disk_backup_policies",
+            "description": "Manage disk backup policies"
+          },
+          {
+            "name": "disk_backup_policies:read",
+            "description": "Read-only access to disk backup policies"
+          },
+          {
+            "name": "certificates:read",
+            "description": "Read-only access to certificates"
+          },
+          { "name": "disk_templates", "description": "Manage disk templates" },
+          {
+            "name": "disk_templates:read",
+            "description": "Read-only access to disk templates"
+          },
+          { "name": "ip_addresses", "description": "Manage IP addresses" },
+          {
+            "name": "ip_addresses:read",
+            "description": "Read-only access to IP addresses"
+          },
+          { "name": "organizations:read", "description": "View organizations" },
+          {
+            "name": "managed_organizations",
+            "description": "Manage managed organizations"
+          },
+          { "name": "tags", "description": "Manage tags" },
+          { "name": "tags:read", "description": "Read-only access to tags" },
+          { "name": "tasks:read", "description": "View tasks" },
+          {
+            "name": "trash_objects:read",
+            "description": "View objects in the trash"
+          },
+          {
+            "name": "trash_objects:purge",
+            "description": "Purge items from the trash"
+          },
+          {
+            "name": "trash_objects:restore",
+            "description": "Restore items from the trash"
+          },
+          { "name": "dns", "description": "Manage DNS zones/records" },
+          {
+            "name": "dns:read",
+            "description": "Read-only access to DNS zones/records"
+          },
+          { "name": "firewalls", "description": "Manage firewalls" },
+          {
+            "name": "firewalls:read",
+            "description": "Read-only access to firewalls"
+          },
+          { "name": "load_balancers", "description": "Manage load balancers" },
+          {
+            "name": "load_balancers:read",
+            "description": "Read-only access to load balancers"
+          },
+          {
+            "name": "virtual_machines",
+            "description": "Manage virtual machines"
+          },
+          {
+            "name": "virtual_machines:read",
+            "description": "Read-only access to virtual machines"
+          },
+          {
+            "name": "virtual_machines:power_actions",
+            "description": "Start \u0026 stop virtual machines"
+          },
+          {
+            "name": "virtual_machines:console",
+            "description": "Access virtual machine consoles"
+          },
+          {
+            "name": "virtual_machine_groups",
+            "description": "Manage virtual machine groups"
+          },
+          {
+            "name": "virtual_machine_groups:read",
+            "description": "Read-only access to virtual machine groups"
+          }
+        ]
       }
     },
     {
@@ -574,8 +1032,10 @@
         "type": "bearer",
         "potential_errors": [
           "CoreAPI/Authenticator/MissingAPIToken",
+          "CoreAPI/Authenticator/UnauthorizedNetworkForAPIToken",
           "CoreAPI/Authenticator/InvalidAPIToken",
-          "CoreAPI/Errors/RateLimitReached"
+          "CoreAPI/Errors/RateLimitReached",
+          "Rapid/ScopeNotGrantedError"
         ]
       }
     },
@@ -593,12 +1053,51 @@
     {
       "type": "error",
       "value": {
+        "id": "CoreAPI/Authenticator/UnauthorizedNetworkForAPIToken",
+        "name": null,
+        "description": "Network is not allowed to access the API with this API token",
+        "code": "unauthorized_network_for_api_token",
+        "http_status": 403,
+        "fields": [
+          {
+            "id": "CoreAPI/Authenticator/UnauthorizedNetworkForAPIToken/IpAddressField",
+            "name": "ip_address",
+            "description": "The IP address the request was received from",
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/String",
+        "name": "String",
+        "description": null
+      }
+    },
+    {
+      "type": "error",
+      "value": {
         "id": "CoreAPI/Authenticator/InvalidAPIToken",
         "name": null,
         "description": "The API token provided was not valid (it may not exist or have expired)",
         "code": "invalid_api_token",
         "http_status": 403,
-        "fields": []
+        "fields": [
+          {
+            "id": "CoreAPI/Authenticator/InvalidAPIToken/DetailsField",
+            "name": "details",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
       }
     },
     {
@@ -631,11 +1130,24 @@
       }
     },
     {
-      "type": "scalar",
+      "type": "error",
       "value": {
-        "id": "Rapid/Scalars/String",
-        "name": "String",
-        "description": null
+        "id": "Rapid/ScopeNotGrantedError",
+        "name": null,
+        "description": "The scope required for this endpoint has not been granted to the authenticating identity",
+        "code": "scope_not_granted",
+        "http_status": 403,
+        "fields": [
+          {
+            "id": "Rapid/ScopeNotGrantedError/ScopesField",
+            "name": "scopes",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
       }
     },
     {
@@ -644,6 +1156,34 @@
         "id": "Rapid/Scalars/Boolean",
         "name": "Boolean",
         "description": null
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "Rapid/Schema/ScopeType",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "Rapid/Schema/ScopeType/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "Rapid/Schema/ScopeType/DescriptionField",
+            "name": "description",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
       }
     },
     {
@@ -661,6 +1201,10 @@
           {
             "name": "info",
             "endpoint": "CoreAPI/Controllers/DataCenters/InfoEndpoint"
+          },
+          {
+            "name": "default_network",
+            "endpoint": "CoreAPI/Controllers/DataCenters/DefaultNetworkEndpoint"
           }
         ]
       }
@@ -693,7 +1237,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": []
       }
     },
     {
@@ -852,7 +1397,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": []
       }
     },
     {
@@ -914,6 +1460,111 @@
       }
     },
     {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DataCenters/DefaultNetworkEndpoint",
+        "name": "Get default network of data center",
+        "description": "Provide details of default network for a data center",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DataCenters/DefaultNetworkEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "data_center",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/DataCenterLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DataCenters/DefaultNetworkEndpoint/NetworkField",
+            "name": "network",
+            "description": "The details for the requested network",
+            "type": "CoreAPI/Objects/Network",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,permalink,data_center[id,name,permalink]"
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DataCenters/DefaultNetworkEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "data_center",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/DataCenterLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Network",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Network/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/Network/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/Network/PermalinkField",
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/Network/DataCenterField",
+            "name": "data_center",
+            "description": null,
+            "type": "CoreAPI/Objects/DataCenter",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
+      }
+    },
+    {
       "type": "controller",
       "value": {
         "id": "CoreAPI/Controllers/Organizations",
@@ -964,7 +1615,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["organizations:read"]
       }
     },
     {
@@ -1282,7 +1934,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["organizations:read"]
       }
     },
     {
@@ -1408,7 +2061,8 @@
         "potential_errors": [
           "CoreAPI/Controllers/Organizations/CreateManagedEndpoint/OrganizationLimitReached",
           "CoreAPI/Errors/ValidationError"
-        ]
+        ],
+        "scopes": ["managed_organizations"]
       }
     },
     {
@@ -1488,6 +2142,10 @@
           {
             "name": "list",
             "endpoint": "CoreAPI/Controllers/DiskTemplates/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/DiskTemplates/InfoEndpoint"
           }
         ]
       }
@@ -1507,7 +2165,7 @@
           "arguments": [
             {
               "name": "organization",
-              "description": null,
+              "description": "The organization to find disk templates for",
               "type": "CoreAPI/ArgumentSets/OrganizationLookup",
               "required": true,
               "array": false,
@@ -1515,11 +2173,19 @@
             },
             {
               "name": "include_universal",
-              "description": null,
+              "description": "Whether or not to include universal templates",
               "type": "Rapid/Scalars/Boolean",
               "required": false,
               "array": false,
               "default": "false"
+            },
+            {
+              "name": "operating_system",
+              "description": "An operating system to use to filter disk templates",
+              "type": "CoreAPI/ArgumentSets/OperatingSystemLookup",
+              "required": false,
+              "array": false,
+              "default": null
             },
             {
               "name": "page",
@@ -1552,7 +2218,7 @@
           {
             "id": "CoreAPI/Controllers/DiskTemplates/ListEndpoint/DiskTemplatesField",
             "name": "disk_templates",
-            "description": null,
+            "description": "The list of disk templates",
             "type": "CoreAPI/Objects/DiskTemplate",
             "null": false,
             "array": true,
@@ -1562,7 +2228,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["disk_templates", "disk_templates:read"]
       }
     },
     {
@@ -1574,7 +2241,7 @@
         "arguments": [
           {
             "name": "organization",
-            "description": null,
+            "description": "The organization to find disk templates for",
             "type": "CoreAPI/ArgumentSets/OrganizationLookup",
             "required": true,
             "array": false,
@@ -1582,11 +2249,19 @@
           },
           {
             "name": "include_universal",
-            "description": null,
+            "description": "Whether or not to include universal templates",
             "type": "Rapid/Scalars/Boolean",
             "required": false,
             "array": false,
             "default": "false"
+          },
+          {
+            "name": "operating_system",
+            "description": "An operating system to use to filter disk templates",
+            "type": "CoreAPI/ArgumentSets/OperatingSystemLookup",
+            "required": false,
+            "array": false,
+            "default": null
           },
           {
             "name": "page",
@@ -1605,6 +2280,38 @@
             "default": "30"
           }
         ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/OperatingSystemLookup",
+        "name": "Operating System Lookup",
+        "description": "Provides for operating systems to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/OperatingSystemLookup/OperatingSystemNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/OperatingSystemLookup/OperatingSystemNotFound",
+        "name": null,
+        "description": "No operating system was found matching any of the criteria provided in the arguments",
+        "code": "operating_system_not_found",
+        "http_status": 404,
+        "fields": []
       }
     },
     {
@@ -1883,6 +2590,306 @@
       }
     },
     {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DiskTemplates/InfoEndpoint",
+        "name": "Get disk template",
+        "description": "Return details for a specific disk template",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DiskTemplates/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "disk_template",
+              "description": "The disk template to return",
+              "type": "CoreAPI/ArgumentSets/DiskTemplateLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DiskTemplates/InfoEndpoint/DiskTemplateField",
+            "name": "disk_template",
+            "description": "The disk template details",
+            "type": "CoreAPI/Objects/DiskTemplate",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["disk_templates", "disk_templates:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DiskTemplates/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "disk_template",
+            "description": "The disk template to return",
+            "type": "CoreAPI/ArgumentSets/DiskTemplateLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DiskTemplateLookup",
+        "name": "Disk Template Lookup",
+        "description": "Provides for disk templates to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/DiskTemplateLookup/DiskTemplateNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DiskTemplateLookup/DiskTemplateNotFound",
+        "name": null,
+        "description": "No disk template was found matching any of the criteria provided in the arguments",
+        "code": "disk_template_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/DiskTemplateVersions",
+        "name": null,
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/DiskTemplateVersions/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/DiskTemplateVersions/InfoEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DiskTemplateVersions/ListEndpoint",
+        "name": "List disk template versions",
+        "description": "Return a list of all disk template versions for a specific disk template",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DiskTemplateVersions/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "disk_template",
+              "description": "The disk template to return the versions for",
+              "type": "CoreAPI/ArgumentSets/DiskTemplateLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DiskTemplateVersions/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Controllers/DiskTemplateVersions/ListEndpoint/DiskTemplateVersionsField",
+            "name": "disk_template_versions",
+            "description": "The disk template versions for the provided template",
+            "type": "CoreAPI/Objects/DiskTemplateVersion",
+            "null": false,
+            "array": true,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["disk_templates", "disk_templates:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DiskTemplateVersions/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "disk_template",
+            "description": "The disk template to return the versions for",
+            "type": "CoreAPI/ArgumentSets/DiskTemplateLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DiskTemplateVersions/InfoEndpoint",
+        "name": "Get disk template version",
+        "description": "Return details for a specific disk template version",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DiskTemplateVersions/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "disk_template_version",
+              "description": "The disk template version to return",
+              "type": "CoreAPI/ArgumentSets/DiskTemplateVersionLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DiskTemplateVersions/InfoEndpoint/DiskTemplateVersionField",
+            "name": "disk_template_version",
+            "description": "The disk template version details",
+            "type": "CoreAPI/Objects/DiskTemplateVersion",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["disk_templates", "disk_templates:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DiskTemplateVersions/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "disk_template_version",
+            "description": "The disk template version to return",
+            "type": "CoreAPI/ArgumentSets/DiskTemplateVersionLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DiskTemplateVersionLookup",
+        "name": "Disk Template Version Lookup",
+        "description": "Provides for disk template versions to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/DiskTemplateVersionLookup/DiskTemplateVersionNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DiskTemplateVersionLookup/DiskTemplateVersionNotFound",
+        "name": null,
+        "description": "No disk template version was found matching any of the criteria provided in the arguments",
+        "code": "disk_template_version_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
       "type": "controller",
       "value": {
         "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines",
@@ -1937,6 +2944,10 @@
           {
             "name": "change_flexible_resources",
             "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/ChangeFlexibleResourcesEndpoint"
+          },
+          {
+            "name": "update",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/UpdateEndpoint"
           }
         ]
       }
@@ -2003,7 +3014,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["virtual_machines", "virtual_machines:read"]
       }
     },
     {
@@ -2084,6 +3096,15 @@
             "spec": { "all": true, "spec": null }
           },
           {
+            "id": "CoreAPI/VirtualMachines/Objects/VirtualMachine/DescriptionField",
+            "name": "description",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
             "id": "CoreAPI/VirtualMachines/Objects/VirtualMachine/CreatedAtField",
             "name": "created_at",
             "description": null,
@@ -2160,6 +3181,15 @@
             "name": "tags",
             "description": null,
             "type": "CoreAPI/Objects/Tag",
+            "null": false,
+            "array": true,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Objects/VirtualMachine/TagNamesField",
+            "name": "tag_names",
+            "description": null,
+            "type": "Rapid/Scalars/String",
             "null": false,
             "array": true,
             "spec": { "all": true, "spec": null }
@@ -2456,7 +3486,7 @@
             "id": "CoreAPI/Objects/Tag/ColorField",
             "name": "color",
             "description": null,
-            "type": "Rapid/Scalars/String",
+            "type": "CoreAPI/Objects/TagColorsEnum",
             "null": false,
             "array": false,
             "spec": { "all": true, "spec": null }
@@ -2470,6 +3500,48 @@
             "array": false,
             "spec": { "all": true, "spec": null }
           }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Objects/TagColorsEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          { "name": "red", "description": "Red" },
+          { "name": "pink", "description": "Pink" },
+          { "name": "purple", "description": "Purple" },
+          { "name": "dark_blue", "description": "Dark blue" },
+          { "name": "green", "description": "Green" },
+          { "name": "teal", "description": "Teal" },
+          { "name": "aqua", "description": "Aqua" },
+          { "name": "light_blue", "description": "Light blue" },
+          { "name": "yellow", "description": "Yellow" },
+          { "name": "orange", "description": "Orange" },
+          { "name": "orange_red", "description": "Orange red" },
+          { "name": "brown", "description": "Brown" },
+          { "name": "black", "description": "Black" },
+          { "name": "dark_gray", "description": "Dark gray" },
+          { "name": "light_gray", "description": "Light gray" },
+          { "name": "light_brown", "description": "Light brown" },
+          { "name": "pastel_red", "description": "Pastel red" },
+          { "name": "pastel_pink", "description": "Pastel pink" },
+          { "name": "pastel_purple", "description": "Pastel purple" },
+          { "name": "pastel_dark_blue", "description": "Pastel dark blue" },
+          { "name": "pastel_green", "description": "Pastel green" },
+          { "name": "pastel_teal", "description": "Pastel teal" },
+          { "name": "pastel_aqua", "description": "Pastel aqua" },
+          { "name": "pastel_light_blue", "description": "Pastel light blue" },
+          { "name": "pastel_yellow", "description": "Pastel yellow" },
+          { "name": "pastel_orange", "description": "Pastel orange" },
+          { "name": "pastel_orange_red", "description": "Pastel orange red" },
+          { "name": "pastel_brown", "description": "Pastel brown" },
+          { "name": "pastel_black", "description": "Pastel black" },
+          { "name": "pastel_dark_gray", "description": "Pastel dark gray" },
+          { "name": "pastel_light_gray", "description": "Pastel light gray" },
+          { "name": "pastel_light_brown", "description": "Pastel light brown" }
         ]
       }
     },
@@ -2517,11 +3589,47 @@
             "spec": { "all": true, "spec": null }
           },
           {
+            "id": "CoreAPI/Objects/IPAddress/LabelField",
+            "name": "label",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
             "id": "CoreAPI/Objects/IPAddress/AddressWithMaskField",
             "name": "address_with_mask",
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/IPAddress/NetworkField",
+            "name": "network",
+            "description": null,
+            "type": "CoreAPI/Objects/Network",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/IPAddress/AllocationIdField",
+            "name": "allocation_id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/IPAddress/AllocationTypeField",
+            "name": "allocation_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
             "array": false,
             "spec": { "all": true, "spec": null }
           }
@@ -2562,7 +3670,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["virtual_machines", "virtual_machines:read"]
       }
     },
     {
@@ -2621,7 +3730,63 @@
         "description": "The object found is in the trash and therefore cannot be manipulated through the API. It should be restored in order to run this operation.",
         "code": "object_in_trash",
         "http_status": 406,
-        "fields": []
+        "fields": [
+          {
+            "id": "CoreAPI/Errors/ObjectInTrash/TrashObjectField",
+            "name": "trash_object",
+            "description": "The trash object for this item",
+            "type": "CoreAPI/Objects/TrashObject",
+            "null": true,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/TrashObject",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/TrashObject/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/TrashObject/KeepUntilField",
+            "name": "keep_until",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/TrashObject/ObjectIdField",
+            "name": "object_id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/TrashObject/ObjectTypeField",
+            "name": "object_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
       }
     },
     {
@@ -2727,6 +3892,15 @@
           {
             "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/BuildEndpoint/BuildField",
             "name": "build",
+            "description": "Deprecated, please use \"virtual_machine_build\" instead",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineBuild",
+            "null": false,
+            "array": false,
+            "spec": { "all": false, "spec": "id,state" }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/BuildEndpoint/VirtualMachineBuildField",
+            "name": "virtual_machine_build",
             "description": null,
             "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineBuild",
             "null": false,
@@ -2745,9 +3919,11 @@
         ],
         "potential_errors": [
           "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ResourceCreationRestricted",
           "CoreAPI/Errors/ValidationError",
           "CoreAPI/VirtualMachines/Controllers/VirtualMachines/BuildEndpoint/LocationRequired"
-        ]
+        ],
+        "scopes": ["virtual_machines"]
       }
     },
     {
@@ -2903,46 +4079,6 @@
       }
     },
     {
-      "type": "lookup_argument_set",
-      "value": {
-        "id": "CoreAPI/ArgumentSets/DiskTemplateLookup",
-        "name": "Disk Template Lookup",
-        "description": "Provides for disk templates to be looked up",
-        "arguments": [
-          {
-            "name": "id",
-            "description": null,
-            "type": "Rapid/Scalars/String",
-            "required": false,
-            "array": false,
-            "default": null
-          },
-          {
-            "name": "permalink",
-            "description": null,
-            "type": "Rapid/Scalars/String",
-            "required": false,
-            "array": false,
-            "default": null
-          }
-        ],
-        "potential_errors": [
-          "CoreAPI/ArgumentSets/DiskTemplateLookup/DiskTemplateNotFound"
-        ]
-      }
-    },
-    {
-      "type": "error",
-      "value": {
-        "id": "CoreAPI/ArgumentSets/DiskTemplateLookup/DiskTemplateNotFound",
-        "name": null,
-        "description": "No disk template was found matching any of the criteria provided in the arguments",
-        "code": "disk_template_not_found",
-        "http_status": 404,
-        "fields": []
-      }
-    },
-    {
       "type": "argument_set",
       "value": {
         "id": "CoreAPI/ArgumentSets/KeyValue",
@@ -3024,6 +4160,27 @@
             "type": "Rapid/Scalars/String",
             "null": true,
             "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Errors/ResourceCreationRestricted",
+        "name": null,
+        "description": "The organization chosen is not permitted to create resources",
+        "code": "resource_creation_restricted",
+        "http_status": 403,
+        "fields": [
+          {
+            "id": "CoreAPI/Errors/ResourceCreationRestricted/ErrorsField",
+            "name": "errors",
+            "description": "The specific details that are restricting this organization",
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
             "spec": { "all": true, "spec": null }
           }
         ]
@@ -3241,6 +4398,15 @@
           {
             "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/BuildFromSpecEndpoint/BuildField",
             "name": "build",
+            "description": "Deprecated, please use \"virtual_machine_build\" instead",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineBuild",
+            "null": false,
+            "array": false,
+            "spec": { "all": false, "spec": "id,state" }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/BuildFromSpecEndpoint/VirtualMachineBuildField",
+            "name": "virtual_machine_build",
             "description": null,
             "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineBuild",
             "null": false,
@@ -3261,7 +4427,8 @@
           "CoreAPI/Errors/PermissionDenied",
           "CoreAPI/Errors/ValidationError",
           "CoreAPI/VirtualMachines/Controllers/VirtualMachines/BuildFromSpecEndpoint/InvalidSpecXML"
-        ]
+        ],
+        "scopes": ["virtual_machines"]
       }
     },
     {
@@ -3348,7 +4515,8 @@
         "potential_errors": [
           "CoreAPI/Errors/PermissionDenied",
           "CoreAPI/Errors/TaskQueueingError"
-        ]
+        ],
+        "scopes": ["virtual_machines", "virtual_machines:power_actions"]
       }
     },
     {
@@ -3427,7 +4595,8 @@
         "potential_errors": [
           "CoreAPI/Errors/PermissionDenied",
           "CoreAPI/Errors/TaskQueueingError"
-        ]
+        ],
+        "scopes": ["virtual_machines", "virtual_machines:power_actions"]
       }
     },
     {
@@ -3485,7 +4654,8 @@
         "potential_errors": [
           "CoreAPI/Errors/PermissionDenied",
           "CoreAPI/Errors/TaskQueueingError"
-        ]
+        ],
+        "scopes": ["virtual_machines", "virtual_machines:power_actions"]
       }
     },
     {
@@ -3543,7 +4713,8 @@
         "potential_errors": [
           "CoreAPI/Errors/PermissionDenied",
           "CoreAPI/Errors/TaskQueueingError"
-        ]
+        ],
+        "scopes": ["virtual_machines", "virtual_machines:power_actions"]
       }
     },
     {
@@ -3605,7 +4776,8 @@
           "CoreAPI/Errors/PermissionDenied",
           "CoreAPI/Errors/ValidationError",
           "CoreAPI/VirtualMachines/Controllers/VirtualMachines/CreateConsoleSessionEndpoint/VirtualMachineMustBeStarted"
-        ]
+        ],
+        "scopes": ["virtual_machines", "virtual_machines:console"]
       }
     },
     {
@@ -3727,7 +4899,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/PermissionDenied"]
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["virtual_machines"]
       }
     },
     {
@@ -3744,34 +4917,6 @@
             "required": false,
             "array": false,
             "default": null
-          }
-        ]
-      }
-    },
-    {
-      "type": "object",
-      "value": {
-        "id": "CoreAPI/Objects/TrashObject",
-        "name": null,
-        "description": null,
-        "fields": [
-          {
-            "id": "CoreAPI/Objects/TrashObject/IdField",
-            "name": "id",
-            "description": null,
-            "type": "Rapid/Scalars/String",
-            "null": false,
-            "array": false,
-            "spec": { "all": true, "spec": null }
-          },
-          {
-            "id": "CoreAPI/Objects/TrashObject/KeepUntilField",
-            "name": "keep_until",
-            "description": null,
-            "type": "Rapid/Scalars/UnixTime",
-            "null": false,
-            "array": false,
-            "spec": { "all": true, "spec": null }
           }
         ]
       }
@@ -3821,7 +4966,8 @@
         "potential_errors": [
           "CoreAPI/Errors/PermissionDenied",
           "CoreAPI/Errors/TaskQueueingError"
-        ]
+        ],
+        "scopes": ["virtual_machines"]
       }
     },
     {
@@ -3896,7 +5042,8 @@
           "CoreAPI/Errors/PermissionDenied",
           "CoreAPI/Errors/TaskQueueingError",
           "CoreAPI/VirtualMachines/Controllers/VirtualMachines/ChangeFlexibleResourcesEndpoint/FlexibleResourcesUnavailableToOrganization"
-        ]
+        ],
+        "scopes": ["virtual_machines"]
       }
     },
     {
@@ -3963,6 +5110,160 @@
       }
     },
     {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/UpdateEndpoint",
+        "name": "Update a Virtual Machine",
+        "description": "Update the properties of a virtual machine",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": "The virtual machine to update",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": "The new details for this virtual machine",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineArguments",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/UpdateEndpoint/VirtualMachineField",
+            "name": "virtual_machine",
+            "description": "The newly updated virtual machine",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachine",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["virtual_machines"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": "The virtual machine to update",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": "The new details for this virtual machine",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineArguments",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "description",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "tag_names",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": true,
+            "default": null
+          },
+          {
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupLookup",
+        "name": "Virtual Machine Group Lookup",
+        "description": "Provides for virtual machine groups to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupLookup/VirtualMachineGroupNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupLookup/VirtualMachineGroupNotFound",
+        "name": null,
+        "description": "No virtual machine group was found matching any of the criteria provided in the arguments",
+        "code": "virtual_machine_group_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
       "type": "controller",
       "value": {
         "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineBuilds",
@@ -4014,7 +5315,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["virtual_machines", "virtual_machines:read"]
       }
     },
     {
@@ -4148,7 +5450,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["virtual_machine_packages:read"]
       }
     },
     {
@@ -4219,7 +5522,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["virtual_machine_packages:read"]
       }
     },
     {
@@ -4337,7 +5641,8 @@
             }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/PermissionDenied"]
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["disk_backup_policies", "disk_backup_policies:read"]
       }
     },
     {
@@ -4592,7 +5897,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["disk_backup_policies", "disk_backup_policies:read"]
       }
     },
     {
@@ -4691,7 +5997,8 @@
         "potential_errors": [
           "CoreAPI/Errors/ValidationError",
           "CoreAPI/Errors/PermissionDenied"
-        ]
+        ],
+        "scopes": ["disk_backup_policies"]
       }
     },
     {
@@ -4833,7 +6140,8 @@
         "potential_errors": [
           "CoreAPI/Errors/ValidationError",
           "CoreAPI/Errors/PermissionDenied"
-        ]
+        ],
+        "scopes": ["disk_backup_policies"]
       }
     },
     {
@@ -4934,7 +6242,11 @@
             "spec": { "all": false, "spec": "id,retention,schedule,target[id]" }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ],
+        "scopes": ["disk_backup_policies"]
       }
     },
     {
@@ -4997,7 +6309,8 @@
             "spec": { "all": false, "spec": "id" }
           }
         ],
-        "potential_errors": []
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["disk_backup_policies"]
       }
     },
     {
@@ -5116,7 +6429,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/PermissionDenied"]
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["dns", "dns:read"]
       }
     },
     {
@@ -5242,7 +6556,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["dns", "dns:read"]
       }
     },
     {
@@ -5355,8 +6670,10 @@
         ],
         "potential_errors": [
           "CoreAPI/Errors/ValidationError",
-          "CoreAPI/Errors/PermissionDenied"
-        ]
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ResourceCreationRestricted"
+        ],
+        "scopes": ["dns"]
       }
     },
     {
@@ -5456,7 +6773,8 @@
         "potential_errors": [
           "CoreAPI/DNS/Controllers/DNSZones/VerifyEndpoint/DNSZoneNotVerified",
           "CoreAPI/DNS/Errors/InfrastructureDNSZoneCannotBeEdited"
-        ]
+        ],
+        "scopes": ["dns"]
       }
     },
     {
@@ -5574,7 +6892,8 @@
         "potential_errors": [
           "CoreAPI/DNS/Controllers/DNSZones/VerificationDetailsEndpoint/DNSZoneAlreadyVerified",
           "CoreAPI/DNS/Errors/InfrastructureDNSZoneCannotBeEdited"
-        ]
+        ],
+        "scopes": ["dns", "dns:read"]
       }
     },
     {
@@ -5651,7 +6970,8 @@
         "potential_errors": [
           "CoreAPI/Errors/ValidationError",
           "CoreAPI/DNS/Errors/InfrastructureDNSZoneCannotBeEdited"
-        ]
+        ],
+        "scopes": ["dns"]
       }
     },
     {
@@ -5714,7 +7034,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": ["CoreAPI/Errors/ValidationError"],
+        "scopes": ["dns"]
       }
     },
     {
@@ -5828,7 +7149,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["dns", "dns:read"]
       }
     },
     {
@@ -6281,7 +7603,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["dns", "dns:read"]
       }
     },
     {
@@ -6383,7 +7706,8 @@
           "CoreAPI/Errors/ValidationError",
           "CoreAPI/Errors/PermissionDenied",
           "CoreAPI/DNS/Errors/InfrastructureDNSZoneCannotBeEdited"
-        ]
+        ],
+        "scopes": ["dns"]
       }
     },
     {
@@ -6632,7 +7956,8 @@
         "potential_errors": [
           "CoreAPI/Errors/ValidationError",
           "CoreAPI/DNS/Errors/InfrastructureDNSZoneCannotBeEdited"
-        ]
+        ],
+        "scopes": ["dns"]
       }
     },
     {
@@ -6701,7 +8026,8 @@
         "potential_errors": [
           "CoreAPI/Errors/ValidationError",
           "CoreAPI/DNS/Errors/InfrastructureDNSZoneCannotBeEdited"
-        ]
+        ],
+        "scopes": ["dns"]
       }
     },
     {
@@ -6783,7 +8109,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/PermissionDenied"]
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["firewalls", "firewalls:read"]
       }
     },
     {
@@ -6904,7 +8231,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": ["CoreAPI/Errors/ValidationError"],
+        "scopes": ["firewalls"]
       }
     },
     {
@@ -7025,7 +8353,8 @@
             "spec": { "all": false, "spec": "id,changes_pending" }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["firewalls"]
       }
     },
     {
@@ -7083,7 +8412,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["firewalls", "firewalls:read"]
       }
     },
     {
@@ -7248,7 +8578,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["firewalls", "firewalls:read"]
       }
     },
     {
@@ -7525,7 +8856,8 @@
         "potential_errors": [
           "CoreAPI/Errors/ValidationError",
           "CoreAPI/Errors/PermissionDenied"
-        ]
+        ],
+        "scopes": ["firewalls"]
       }
     },
     {
@@ -7746,7 +9078,8 @@
             }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": ["CoreAPI/Errors/ValidationError"],
+        "scopes": ["firewalls"]
       }
     },
     {
@@ -7844,7 +9177,8 @@
             }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": ["CoreAPI/Errors/ValidationError"],
+        "scopes": ["firewalls"]
       }
     },
     {
@@ -7876,6 +9210,10 @@
           {
             "name": "available_networks",
             "endpoint": "CoreAPI/Controllers/Networks/AvailableNetworksEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/Networks/InfoEndpoint"
           }
         ]
       }
@@ -7913,7 +9251,7 @@
             "array": true,
             "spec": {
               "all": false,
-              "spec": "id,name,data_center[id,name,permalink]"
+              "spec": "id,name,permalink,data_center[id,name,permalink]"
             }
           },
           {
@@ -7929,7 +9267,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": []
       }
     },
     {
@@ -7946,43 +9285,6 @@
             "required": true,
             "array": false,
             "default": null
-          }
-        ]
-      }
-    },
-    {
-      "type": "object",
-      "value": {
-        "id": "CoreAPI/Objects/Network",
-        "name": null,
-        "description": null,
-        "fields": [
-          {
-            "id": "CoreAPI/Objects/Network/IdField",
-            "name": "id",
-            "description": null,
-            "type": "Rapid/Scalars/String",
-            "null": false,
-            "array": false,
-            "spec": { "all": true, "spec": null }
-          },
-          {
-            "id": "CoreAPI/Objects/Network/NameField",
-            "name": "name",
-            "description": null,
-            "type": "Rapid/Scalars/String",
-            "null": false,
-            "array": false,
-            "spec": { "all": true, "spec": null }
-          },
-          {
-            "id": "CoreAPI/Objects/Network/DataCenterField",
-            "name": "data_center",
-            "description": null,
-            "type": "CoreAPI/Objects/DataCenter",
-            "null": false,
-            "array": false,
-            "spec": { "all": true, "spec": null }
           }
         ]
       }
@@ -8020,6 +9322,62 @@
             "null": false,
             "array": false,
             "spec": { "all": true, "spec": null }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Networks/InfoEndpoint",
+        "name": "Get Network",
+        "description": "Returns details for a specific network",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Networks/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "network",
+              "description": "The network to return",
+              "type": "CoreAPI/ArgumentSets/NetworkLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Networks/InfoEndpoint/NetworkField",
+            "name": "network",
+            "description": "The details for the requested network",
+            "type": "CoreAPI/Objects/Network",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Networks/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "network",
+            "description": "The network to return",
+            "type": "CoreAPI/ArgumentSets/NetworkLookup",
+            "required": true,
+            "array": false,
+            "default": null
           }
         ]
       }
@@ -8105,7 +9463,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["certificates", "certificates:read"]
       }
     },
     {
@@ -8339,7 +9698,8 @@
             "spec": { "all": true, "spec": null }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["certificates", "certificates:read"]
       }
     },
     {
@@ -8482,11 +9842,12 @@
             "array": true,
             "spec": {
               "all": false,
-              "spec": "id,name,resource_type,ip_address[address],resources[name,id]"
+              "spec": "id,name,resource_type,ip_address[address],resources[name,id],data_center[id,name],resource_ids"
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["load_balancers", "load_balancers:read"]
       }
     },
     {
@@ -8567,6 +9928,15 @@
             "spec": { "all": true, "spec": null }
           },
           {
+            "id": "CoreAPI/LoadBalancers/Objects/LoadBalancer/ResourceIdsField",
+            "name": "resource_ids",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": { "all": true, "spec": null }
+          },
+          {
             "id": "CoreAPI/LoadBalancers/Objects/LoadBalancer/IpAddressField",
             "name": "ip_address",
             "description": null,
@@ -8598,6 +9968,15 @@
             "name": "backend_certificate_key",
             "description": null,
             "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/LoadBalancers/Objects/LoadBalancer/DataCenterField",
+            "name": "data_center",
+            "description": null,
+            "type": "CoreAPI/Objects/DataCenter",
             "null": false,
             "array": false,
             "spec": { "all": true, "spec": null }
@@ -8670,11 +10049,12 @@
             "array": false,
             "spec": {
               "all": false,
-              "spec": "id,name,resource_type,ip_address[address],resources[name,id],https_redirect"
+              "spec": "id,name,resource_type,ip_address[address],resources[name,id],https_redirect,data_center[id,name],https_redirect,resource_ids"
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["load_balancers", "load_balancers:read"]
       }
     },
     {
@@ -8768,11 +10148,16 @@
             "array": false,
             "spec": {
               "all": false,
-              "spec": "id,name,ip_address[address],resource_type,resources[name,id]"
+              "spec": "id,name,ip_address[address],resource_type,resources[name,id],data_center[id,name],https_redirect,resource_ids"
             }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ResourceCreationRestricted"
+        ],
+        "scopes": ["load_balancers"]
       }
     },
     {
@@ -8839,6 +10224,14 @@
             "required": false,
             "array": false,
             "default": null
+          },
+          {
+            "name": "https_redirect",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
           }
         ]
       }
@@ -8884,11 +10277,15 @@
             "array": false,
             "spec": {
               "all": false,
-              "spec": "id,name,ip_address[address],resource_type,resources[name,id]"
+              "spec": "id,name,ip_address[address],resource_type,resources[name,id],https_redirect,resource_ids"
             }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ],
+        "scopes": ["load_balancers"]
       }
     },
     {
@@ -8951,7 +10348,11 @@
             "spec": { "all": false, "spec": "id,name" }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ],
+        "scopes": ["load_balancers"]
       }
     },
     {
@@ -9065,7 +10466,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["load_balancers", "load_balancers:read"]
       }
     },
     {
@@ -9331,7 +10733,8 @@
             }
           }
         ],
-        "potential_errors": []
+        "potential_errors": [],
+        "scopes": ["load_balancers", "load_balancers:read"]
       }
     },
     {
@@ -9429,7 +10832,11 @@
             }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ],
+        "scopes": ["load_balancers"]
       }
     },
     {
@@ -9625,7 +11032,11 @@
             }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ],
+        "scopes": ["load_balancers"]
       }
     },
     {
@@ -9688,7 +11099,11 @@
             "spec": { "all": false, "spec": "id" }
           }
         ],
-        "potential_errors": ["CoreAPI/Errors/ValidationError"]
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ],
+        "scopes": ["load_balancers"]
       }
     },
     {
@@ -9707,6 +11122,3414 @@
             "default": null
           }
         ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses",
+        "name": "IP Addresses",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/IPAddresses/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/IPAddresses/InfoEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "CoreAPI/Controllers/IPAddresses/CreateEndpoint"
+          },
+          {
+            "name": "update",
+            "endpoint": "CoreAPI/Controllers/IPAddresses/UpdateEndpoint"
+          },
+          {
+            "name": "unallocate",
+            "endpoint": "CoreAPI/Controllers/IPAddresses/UnallocateEndpoint"
+          },
+          {
+            "name": "release",
+            "endpoint": "CoreAPI/Controllers/IPAddresses/ReleaseEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/ListEndpoint",
+        "name": "List IP addresses",
+        "description": "Returns a list of all IP addresses belonging to an organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/IPAddresses/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to use when looking up IP addresses",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/IPAddresses/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Controllers/IPAddresses/ListEndpoint/IpAddressesField",
+            "name": "ip_addresses",
+            "description": "The IP addresses belonging to this organization",
+            "type": "CoreAPI/Objects/IPAddress",
+            "null": false,
+            "array": true,
+            "spec": { "all": false, "spec": "id,address" }
+          }
+        ],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["ip_addresses", "ip_addresses:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to use when looking up IP addresses",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/InfoEndpoint",
+        "name": "Get IP address",
+        "description": "Returns information about a specific IP address",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/IPAddresses/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "ip_address",
+              "description": "The IP address to find",
+              "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/IPAddresses/InfoEndpoint/IpAddressField",
+            "name": "ip_address",
+            "description": "The IP address that has been located",
+            "type": "CoreAPI/Objects/IPAddress",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Controllers/IPAddresses/InfoEndpoint/AllocationField",
+            "name": "allocation",
+            "description": "The resource this address is allocated to",
+            "type": "CoreAPI/Objects/IPAddressAllocation",
+            "null": true,
+            "array": false,
+            "spec": { "all": false, "spec": "id,name" }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["ip_addresses", "ip_addresses:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "ip_address",
+            "description": "The IP address to find",
+            "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/IPAddressLookup",
+        "name": "IP Address Lookup",
+        "description": "Provides for IP addresss to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "address",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/IPAddressLookup/IPAddressNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/IPAddressLookup/IPAddressNotFound",
+        "name": null,
+        "description": "No IP addresses were found matching any of the criteria provided in the arguments",
+        "code": "ip_address_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "polymorph",
+      "value": {
+        "id": "CoreAPI/Objects/IPAddressAllocation",
+        "name": null,
+        "description": null,
+        "options": [
+          {
+            "name": "VirtualMachine",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachine"
+          },
+          {
+            "name": "LoadBalancer",
+            "type": "CoreAPI/LoadBalancers/Objects/LoadBalancer"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/CreateEndpoint",
+        "name": "Create IP Address",
+        "description": "Creates a new IP address on this organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/IPAddresses/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to create the address for",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "network",
+              "description": "The network to create the IP address on",
+              "type": "CoreAPI/ArgumentSets/NetworkLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "version",
+              "description": "The IP address version to use",
+              "type": "CoreAPI/Objects/IPAddressVersionEnum",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "vip",
+              "description": "Whether or not to set this address as a VIP",
+              "type": "Rapid/Scalars/Boolean",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "label",
+              "description": "The label to give this address if setting it as a VIP",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/IPAddresses/CreateEndpoint/IpAddressField",
+            "name": "ip_address",
+            "description": "The newly allocated IP address",
+            "type": "CoreAPI/Objects/IPAddress",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Controllers/IPAddresses/CreateEndpoint/NoAvailableAddresses",
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": ["ip_addresses"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to create the address for",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "network",
+            "description": "The network to create the IP address on",
+            "type": "CoreAPI/ArgumentSets/NetworkLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "version",
+            "description": "The IP address version to use",
+            "type": "CoreAPI/Objects/IPAddressVersionEnum",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "vip",
+            "description": "Whether or not to set this address as a VIP",
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "label",
+            "description": "The label to give this address if setting it as a VIP",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Objects/IPAddressVersionEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          { "name": "ipv4", "description": null },
+          { "name": "ipv6", "description": null }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/CreateEndpoint/NoAvailableAddresses",
+        "name": null,
+        "description": "We don't have any available IPs for that network and address version at the moment. Please contact support for assistance.",
+        "code": "no_available_addresses",
+        "http_status": 503,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/UpdateEndpoint",
+        "name": "Update IP address",
+        "description": "Updates the details on an IP address",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/IPAddresses/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "ip_address",
+              "description": "The IP address to update",
+              "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "vip",
+              "description": "Whether or not to set this address as a VIP",
+              "type": "Rapid/Scalars/Boolean",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "label",
+              "description": "The label to give this address if setting it as a VIP",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "reverse_dns",
+              "description": "The reverse DNS to set for this IP address",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/IPAddresses/UpdateEndpoint/IpAddressField",
+            "name": "ip_address",
+            "description": "The IP address that has been updated",
+            "type": "CoreAPI/Objects/IPAddress",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ],
+        "scopes": ["ip_addresses"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "ip_address",
+            "description": "The IP address to update",
+            "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "vip",
+            "description": "Whether or not to set this address as a VIP",
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "label",
+            "description": "The label to give this address if setting it as a VIP",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "reverse_dns",
+            "description": "The reverse DNS to set for this IP address",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/UnallocateEndpoint",
+        "name": "Unallocate an IP address",
+        "description": "Unallocate an IP address from its resource",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/IPAddresses/UnallocateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "ip_address",
+              "description": "The IP address to unallocate",
+              "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [],
+        "potential_errors": [
+          "CoreAPI/Controllers/IPAddresses/UnallocateEndpoint/NoAllocation"
+        ],
+        "scopes": ["ip_addresses"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/UnallocateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "ip_address",
+            "description": "The IP address to unallocate",
+            "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/UnallocateEndpoint/NoAllocation",
+        "name": null,
+        "description": "This IP address is not currently allocated to any object, and cannot be unallocated.",
+        "code": "no_allocation",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/ReleaseEndpoint",
+        "name": "Release an IP address",
+        "description": "Release an IP address from its organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/IPAddresses/ReleaseEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "ip_address",
+              "description": "The IP address to unassign",
+              "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["ip_addresses"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/IPAddresses/ReleaseEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "ip_address",
+            "description": "The IP address to unassign",
+            "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces",
+        "name": "Virtual Machine Network Interfaces",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/InfoEndpoint"
+          },
+          {
+            "name": "for_network",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ForNetworkEndpoint"
+          },
+          {
+            "name": "ips_available_for_allocation",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/IpsAvailableForAllocationEndpoint"
+          },
+          {
+            "name": "allocate_ip",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateIpEndpoint"
+          },
+          {
+            "name": "allocate_new_ip",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateNewIpEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ListEndpoint",
+        "name": "List virtual machine network interfaces",
+        "description": "Returns a list of virtual machine network interfaces",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": "The virtual machine to show network interfaces for",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ListEndpoint/VirtualMachineNetworkInterfacesField",
+            "name": "virtual_machine_network_interfaces",
+            "description": "The network interfaces for this virtual machine",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "id,name,ip_addresses[id,address],network[name,id]"
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["virtual_machines", "virtual_machines:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": "The virtual machine to show network interfaces for",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface/VirtualMachineField",
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachine",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface/NetworkField",
+            "name": "network",
+            "description": null,
+            "type": "CoreAPI/Objects/Network",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface/MacAddressField",
+            "name": "mac_address",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface/StateField",
+            "name": "state",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface/IpAddressesField",
+            "name": "ip_addresses",
+            "description": null,
+            "type": "CoreAPI/Objects/IPAddress",
+            "null": false,
+            "array": true,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/InfoEndpoint",
+        "name": "Get virtual machine network interface",
+        "description": "Return information about a given virtual machine network interface",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine_network_interface",
+              "description": "The network interface to show the information for",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/InfoEndpoint/VirtualMachineNetworkInterfaceField",
+            "name": "virtual_machine_network_interface",
+            "description": "The network interface details",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,virtual_machine[id,name],ip_addresses[id,address],mac_address,state,network[name,id]"
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["virtual_machines", "virtual_machines:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine_network_interface",
+            "description": "The network interface to show the information for",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup",
+        "name": "Virtual Machine Network Interface Lookup",
+        "description": "Provides for virtual machine network interfaces to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup/VirtualMachineNetworkInterfaceNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup/VirtualMachineNetworkInterfaceNotFound",
+        "name": null,
+        "description": "No network interface was found matching any of the criteria provided in the arguments",
+        "code": "virtual_machine_network_interface_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ForNetworkEndpoint",
+        "name": "Get virtual machine network interface by network",
+        "description": "Return information about a virtual machine network interface for a specific network",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ForNetworkEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": "The virtual machine to find the network interface for",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "network",
+              "description": "The network to find the network interface for",
+              "type": "CoreAPI/ArgumentSets/NetworkLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ForNetworkEndpoint/VirtualMachineNetworkInterfaceField",
+            "name": "virtual_machine_network_interface",
+            "description": "The network interface details",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,virtual_machine[id,name],ip_addresses[id,address],mac_address,state,network[name,id]"
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ForNetworkEndpoint/InterfaceNotFound"
+        ],
+        "scopes": ["virtual_machines", "virtual_machines:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ForNetworkEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": "The virtual machine to find the network interface for",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "network",
+            "description": "The network to find the network interface for",
+            "type": "CoreAPI/ArgumentSets/NetworkLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/ForNetworkEndpoint/InterfaceNotFound",
+        "name": null,
+        "description": "An interface could not be found for the specified network",
+        "code": "interface_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/IpsAvailableForAllocationEndpoint",
+        "name": "Get addresses available for network interface",
+        "description": "Returns a list of IP addresses that can be allocated to a specific network interface",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/IpsAvailableForAllocationEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine_network_interface",
+              "description": "The network interface to get IP addresses for",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "address_version",
+              "description": "The IP address version to return results for",
+              "type": "CoreAPI/Objects/IPAddressVersionEnum",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/IpsAvailableForAllocationEndpoint/IpAddressesField",
+            "name": "ip_addresses",
+            "description": "The IP addresses available for this network interface",
+            "type": "CoreAPI/Objects/IPAddress",
+            "null": false,
+            "array": true,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["ip_addresses", "ip_addresses:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/IpsAvailableForAllocationEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine_network_interface",
+            "description": "The network interface to get IP addresses for",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "address_version",
+            "description": "The IP address version to return results for",
+            "type": "CoreAPI/Objects/IPAddressVersionEnum",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateIpEndpoint",
+        "name": "Allocate an IP address",
+        "description": "Allocate a specific IP address to a given network interface",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateIpEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine_network_interface",
+              "description": "The network interface to allocate the IP to",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "ip_address",
+              "description": "The IP address to allocate to this network interface",
+              "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateIpEndpoint/VirtualMachineNetworkInterfaceField",
+            "name": "virtual_machine_network_interface",
+            "description": "The network interface details",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineNetworkInterface",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,virtual_machine[id,name],ip_addresses[id,address],mac_address,state,network[name,id]"
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateIpEndpoint/IPAlreadyAllocated",
+          "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateIpEndpoint/InvalidIP"
+        ],
+        "scopes": ["ip_addresses"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateIpEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine_network_interface",
+            "description": "The network interface to allocate the IP to",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ip_address",
+            "description": "The IP address to allocate to this network interface",
+            "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateIpEndpoint/IPAlreadyAllocated",
+        "name": null,
+        "description": "This IP address has already been allocated to another virtual machine.",
+        "code": "ip_already_allocated",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateIpEndpoint/InvalidIP",
+        "name": null,
+        "description": "This IP address is not valid for this network interface.",
+        "code": "invalid_ip",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateNewIpEndpoint",
+        "name": "Allocate a new IP address",
+        "description": "Add a new IP address to this organization and allocate it to a virtual machine network interface",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateNewIpEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine_network_interface",
+              "description": "The network interface to allocate the new IP to",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "address_version",
+              "description": "The IP address version to use for the new IP",
+              "type": "CoreAPI/Objects/IPAddressVersionEnum",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateNewIpEndpoint/IpAddressField",
+            "name": "ip_address",
+            "description": "The newly allocated IP address",
+            "type": "CoreAPI/Objects/IPAddress",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateNewIpEndpoint/NoAvailableAddresses",
+          "CoreAPI/Errors/PermissionDenied"
+        ],
+        "scopes": ["ip_addresses"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateNewIpEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine_network_interface",
+            "description": "The network interface to allocate the new IP to",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineNetworkInterfaceLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "address_version",
+            "description": "The IP address version to use for the new IP",
+            "type": "CoreAPI/Objects/IPAddressVersionEnum",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineNetworkInterfaces/AllocateNewIpEndpoint/NoAvailableAddresses",
+        "name": null,
+        "description": "Our pool of addresses for that version seems to have run dry. If this issue continues, please contact support.",
+        "code": "no_available_addresses",
+        "http_status": 503,
+        "fields": []
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags",
+        "name": "Tags",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/Tags/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/Tags/InfoEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "CoreAPI/Controllers/Tags/CreateEndpoint"
+          },
+          {
+            "name": "update",
+            "endpoint": "CoreAPI/Controllers/Tags/UpdateEndpoint"
+          },
+          {
+            "name": "delete",
+            "endpoint": "CoreAPI/Controllers/Tags/DeleteEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags/ListEndpoint",
+        "name": "List tags",
+        "description": "Returns a list of all tags for an organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Tags/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to list the tags for",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Tags/ListEndpoint/TagsField",
+            "name": "tags",
+            "description": "The details for the tags on the organization",
+            "type": "CoreAPI/Objects/Tag",
+            "null": false,
+            "array": true,
+            "spec": { "all": false, "spec": "id,name" }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["tags", "tags:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to list the tags for",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags/InfoEndpoint",
+        "name": "Get tag",
+        "description": "Returns details about a specific tag",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Tags/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "tag",
+              "description": "The tag to load the details for",
+              "type": "CoreAPI/ArgumentSets/TagLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Tags/InfoEndpoint/TagField",
+            "name": "tag",
+            "description": "The details for the requested tag",
+            "type": "CoreAPI/Objects/Tag",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["tags", "tags:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "tag",
+            "description": "The tag to load the details for",
+            "type": "CoreAPI/ArgumentSets/TagLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/TagLookup",
+        "name": "Tag Lookup",
+        "description": "Provides for tags to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": ["CoreAPI/ArgumentSets/TagLookup/TagNotFound"]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/TagLookup/TagNotFound",
+        "name": null,
+        "description": "No tags was found matching any of the criteria provided in the arguments",
+        "code": "tag_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags/CreateEndpoint",
+        "name": "Create a tag",
+        "description": "Creates a new tag with the provided properties",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Tags/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to create the new tag for",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": "The details for the new tag to be created",
+              "type": "CoreAPI/ArgumentSets/TagArguments",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Tags/CreateEndpoint/TagField",
+            "name": "tag",
+            "description": "The newly created tag",
+            "type": "CoreAPI/Objects/Tag",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": ["tags"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to create the new tag for",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": "The details for the new tag to be created",
+            "type": "CoreAPI/ArgumentSets/TagArguments",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/TagArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "color",
+            "description": null,
+            "type": "CoreAPI/Objects/TagColorsEnum",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags/UpdateEndpoint",
+        "name": "Update a tag",
+        "description": "Updates a tag with the provided properties",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Tags/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "tag",
+              "description": "The tag to update",
+              "type": "CoreAPI/ArgumentSets/TagLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": "The new details for the tag",
+              "type": "CoreAPI/ArgumentSets/TagArguments",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Tags/UpdateEndpoint/TagField",
+            "name": "tag",
+            "description": "The newly updated tag",
+            "type": "CoreAPI/Objects/Tag",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": ["tags"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "tag",
+            "description": "The tag to update",
+            "type": "CoreAPI/ArgumentSets/TagLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": "The new details for the tag",
+            "type": "CoreAPI/ArgumentSets/TagArguments",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags/DeleteEndpoint",
+        "name": "Delete a tag",
+        "description": "Deletes a tag",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Tags/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "tag",
+              "description": "The tag to delete",
+              "type": "CoreAPI/ArgumentSets/TagLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Tags/DeleteEndpoint/TagField",
+            "name": "tag",
+            "description": "The newly deleted tag",
+            "type": "CoreAPI/Objects/Tag",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["tags"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Tags/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "tag",
+            "description": "The tag to delete",
+            "type": "CoreAPI/ArgumentSets/TagLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups",
+        "name": null,
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/InfoEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/CreateEndpoint"
+          },
+          {
+            "name": "update",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/UpdateEndpoint"
+          },
+          {
+            "name": "delete",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/DeleteEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/ListEndpoint",
+        "name": "List virtual machine groups",
+        "description": "Return a list of all virtual machine groups for an organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to return groups for",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/ListEndpoint/VirtualMachineGroupsField",
+            "name": "virtual_machine_groups",
+            "description": "The virtual machine groups for the provided organization",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineGroup",
+            "null": false,
+            "array": true,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["virtual_machine_groups", "virtual_machine_groups:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to return groups for",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/InfoEndpoint",
+        "name": "Get virtual machine group",
+        "description": "Return detailed information about a virtual machine group",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine_group",
+              "description": "The virtual machine group to retrieve",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupLookup",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/InfoEndpoint/VirtualMachineGroupField",
+            "name": "virtual_machine_group",
+            "description": "The virtual machine group details",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineGroup",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["virtual_machine_groups", "virtual_machine_groups:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine_group",
+            "description": "The virtual machine group to retrieve",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/CreateEndpoint",
+        "name": "Create a virtual machine group",
+        "description": "Create a new virtual machine group with the provided details",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization in which to create the new group",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": "The details for the new group",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupArguments",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/CreateEndpoint/VirtualMachineGroupField",
+            "name": "virtual_machine_group",
+            "description": "The new virtual machine group details",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineGroup",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": ["virtual_machine_groups"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization in which to create the new group",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": "The details for the new group",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupArguments",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "segregate",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/UpdateEndpoint",
+        "name": "Update a virtual machine group",
+        "description": "Update a virtual machine group with the provided details",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine_group",
+              "description": "The virtual machine group to update",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupLookup",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": "The new details for the group",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupArguments",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/UpdateEndpoint/VirtualMachineGroupField",
+            "name": "virtual_machine_group",
+            "description": "The updated virtual machine group details",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineGroup",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/PermissionDenied",
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": ["virtual_machine_groups"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine_group",
+            "description": "The virtual machine group to update",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": "The new details for the group",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupArguments",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/DeleteEndpoint",
+        "name": "Delete a virtual machine group",
+        "description": null,
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine_group",
+              "description": "The virtual machine group to delete",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupLookup",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/DeleteEndpoint/VirtualMachineGroupField",
+            "name": "virtual_machine_group",
+            "description": "The details for the deleted virtual machine group",
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachineGroup",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["virtual_machine_groups"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachineGroups/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine_group",
+            "description": "The virtual machine group to delete",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineGroupLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/OperatingSystems",
+        "name": null,
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/OperatingSystems/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/OperatingSystems/InfoEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/OperatingSystems/ListEndpoint",
+        "name": "List operating systems",
+        "description": "Return a list of all operating systems",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/OperatingSystems/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/OperatingSystems/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Controllers/OperatingSystems/ListEndpoint/OperatingSystemsField",
+            "name": "operating_systems",
+            "description": "The list of available operating systems",
+            "type": "CoreAPI/Objects/DiskTemplate",
+            "null": false,
+            "array": true,
+            "spec": { "all": false, "spec": "id,name" }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/OperatingSystems/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/OperatingSystems/InfoEndpoint",
+        "name": "Get operating system",
+        "description": "Return details for a specific operating system",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/OperatingSystems/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "operating_system",
+              "description": "The operating system to return",
+              "type": "CoreAPI/ArgumentSets/OperatingSystemLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/OperatingSystems/InfoEndpoint/OperatingSystemField",
+            "name": "operating_system",
+            "description": "The operating system details",
+            "type": "CoreAPI/Objects/OperatingSystem",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/OperatingSystems/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "operating_system",
+            "description": "The operating system to return",
+            "type": "CoreAPI/ArgumentSets/OperatingSystemLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects",
+        "name": "Trash Objects",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/TrashObjects/ListEndpoint"
+          },
+          {
+            "name": "purge_all",
+            "endpoint": "CoreAPI/Controllers/TrashObjects/PurgeAllEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/TrashObjects/InfoEndpoint"
+          },
+          {
+            "name": "purge",
+            "endpoint": "CoreAPI/Controllers/TrashObjects/PurgeEndpoint"
+          },
+          {
+            "name": "restore",
+            "endpoint": "CoreAPI/Controllers/TrashObjects/RestoreEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects/ListEndpoint",
+        "name": "List trash objects",
+        "description": "Provides a full list of all trash objects for a specific organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/TrashObjects/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to find all trash objects for",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/TrashObjects/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Controllers/TrashObjects/ListEndpoint/TrashObjectsField",
+            "name": "trash_objects",
+            "description": "The trash objects that belong to this organization",
+            "type": "CoreAPI/Objects/TrashObject",
+            "null": false,
+            "array": true,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["trash_objects:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to find all trash objects for",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects/PurgeAllEndpoint",
+        "name": "Purge all trash objects",
+        "description": "Purge all trash objects for an organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/TrashObjects/PurgeAllEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to find all trash objects for",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/TrashObjects/PurgeAllEndpoint/TaskField",
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/Objects/Task",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["trash_objects:purge"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects/PurgeAllEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to find all trash objects for",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects/InfoEndpoint",
+        "name": "Get trash object",
+        "description": "Provides information on a specific trash object",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/TrashObjects/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "trash_object",
+              "description": "The trash object to find",
+              "type": "CoreAPI/ArgumentSets/TrashObjectLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/TrashObjects/InfoEndpoint/TrashObjectField",
+            "name": "trash_object",
+            "description": "The requested trash object",
+            "type": "CoreAPI/Objects/TrashObject",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["trash_objects:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "trash_object",
+            "description": "The trash object to find",
+            "type": "CoreAPI/ArgumentSets/TrashObjectLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/TrashObjectLookup",
+        "name": "Trash Object Lookup",
+        "description": "Provides for trash objects to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "object_id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/TrashObjectLookup/TrashObjectNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/TrashObjectLookup/TrashObjectNotFound",
+        "name": null,
+        "description": "No trash object was found matching any of the criteria provided in the arguments",
+        "code": "trash_object_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects/PurgeEndpoint",
+        "name": "Purge a trash object",
+        "description": "Purge a specific trash object",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/TrashObjects/PurgeEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "trash_object",
+              "description": "The trash object to purge",
+              "type": "CoreAPI/ArgumentSets/TrashObjectLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/TrashObjects/PurgeEndpoint/TaskField",
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/Objects/Task",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["trash_objects:purge"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects/PurgeEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "trash_object",
+            "description": "The trash object to purge",
+            "type": "CoreAPI/ArgumentSets/TrashObjectLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects/RestoreEndpoint",
+        "name": "Restore a trash object",
+        "description": "Restore a trashed object to its original location",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/TrashObjects/RestoreEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "trash_object",
+              "description": "The trash object to restore",
+              "type": "CoreAPI/ArgumentSets/TrashObjectLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/TrashObjects/RestoreEndpoint/TrashObjectField",
+            "name": "trash_object",
+            "description": "The requested trash object",
+            "type": "CoreAPI/Objects/TrashObject",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
+        "scopes": ["trash_objects:restore"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/TrashObjects/RestoreEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "trash_object",
+            "description": "The trash object to restore",
+            "type": "CoreAPI/ArgumentSets/TrashObjectLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/Zones",
+        "name": "Zones",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/Zones/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/Zones/InfoEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Zones/ListEndpoint",
+        "name": "List zones",
+        "description": "Returns a list of all zones on the system for the current identity",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Zones/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Zones/ListEndpoint/ZonesField",
+            "name": "zones",
+            "description": "The zones available to the current identity",
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "id,name,permalink,data_center[id,name,permalink]"
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Zones/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Zones/InfoEndpoint",
+        "name": "Get zone",
+        "description": "Returns the details for a specific zone",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Zones/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "zone",
+              "description": "The zone to find",
+              "type": "CoreAPI/ArgumentSets/ZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Zones/InfoEndpoint/ZoneField",
+            "name": "zone",
+            "description": "The zone details",
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Zones/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "zone",
+            "description": "The zone to find",
+            "type": "CoreAPI/ArgumentSets/ZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/Countries",
+        "name": null,
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/Countries/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/Countries/InfoEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Countries/ListEndpoint",
+        "name": "List countries",
+        "description": "Return a list of all countries available in Katapult",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Countries/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Countries/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Controllers/Countries/ListEndpoint/CountriesField",
+            "name": "countries",
+            "description": "The list of countries",
+            "type": "CoreAPI/Objects/Country",
+            "null": false,
+            "array": true,
+            "spec": { "all": false, "spec": "id,name" }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Countries/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Countries/InfoEndpoint",
+        "name": "Get country",
+        "description": "Return details for a specific country",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Countries/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "country",
+              "description": "The country to return",
+              "type": "CoreAPI/ArgumentSets/CountryLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Countries/InfoEndpoint/CountryField",
+            "name": "country",
+            "description": "The country details",
+            "type": "CoreAPI/Objects/Country",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Countries/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "country",
+            "description": "The country to return",
+            "type": "CoreAPI/ArgumentSets/CountryLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/CountryLookup",
+        "name": "Country Lookup",
+        "description": "Provides for countries to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "iso_code2",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "iso_code3",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/CountryLookup/CountryNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/CountryLookup/CountryNotFound",
+        "name": null,
+        "description": "No countries was found matching any of the criteria provided in the arguments",
+        "code": "country_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/CountryStates",
+        "name": null,
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/CountryStates/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/CountryStates/InfoEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/CountryStates/ListEndpoint",
+        "name": "List country states",
+        "description": "Return a list of all country states for a specific country",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/CountryStates/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "country",
+              "description": "The country to return states for",
+              "type": "CoreAPI/ArgumentSets/CountryLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/CountryStates/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Controllers/CountryStates/ListEndpoint/CountryStatesField",
+            "name": "country_states",
+            "description": "The list of country states for the given country",
+            "type": "CoreAPI/Objects/CountryState",
+            "null": false,
+            "array": true,
+            "spec": { "all": false, "spec": "id,name" }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/CountryStates/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "country",
+            "description": "The country to return states for",
+            "type": "CoreAPI/ArgumentSets/CountryLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/CountryStates/InfoEndpoint",
+        "name": "Get country state",
+        "description": "Return details for a specific country state",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/CountryStates/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "country_state",
+              "description": "The country state to return",
+              "type": "CoreAPI/ArgumentSets/CountryStateLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/CountryStates/InfoEndpoint/CountryStateField",
+            "name": "country_state",
+            "description": "The country state details",
+            "type": "CoreAPI/Objects/CountryState",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/CountryStates/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "country_state",
+            "description": "The country state to return",
+            "type": "CoreAPI/ArgumentSets/CountryStateLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/CountryStateLookup",
+        "name": "Country State Lookup",
+        "description": "Provides for country states to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/CountryStateLookup/CountryStateNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/CountryStateLookup/CountryStateNotFound",
+        "name": null,
+        "description": "No country state was found matching any of the criteria provided in the arguments",
+        "code": "country_state_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/Currencies",
+        "name": null,
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/Currencies/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/Currencies/InfoEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Currencies/ListEndpoint",
+        "name": "List currencies",
+        "description": "Return a list of all currencies available in Katapult",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Currencies/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Currencies/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Controllers/Currencies/ListEndpoint/CurrenciesField",
+            "name": "currencies",
+            "description": "The list of currencies",
+            "type": "CoreAPI/Objects/Currency",
+            "null": false,
+            "array": true,
+            "spec": { "all": false, "spec": "id,name" }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Currencies/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Currencies/InfoEndpoint",
+        "name": "Get currency",
+        "description": "Return details for a specific currency",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Currencies/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "currency",
+              "description": "The currency to return",
+              "type": "CoreAPI/ArgumentSets/CurrencyLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Currencies/InfoEndpoint/CurrencyField",
+            "name": "currency",
+            "description": "The currency details",
+            "type": "CoreAPI/Objects/Currency",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Currencies/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "currency",
+            "description": "The currency to return",
+            "type": "CoreAPI/ArgumentSets/CurrencyLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/CurrencyLookup",
+        "name": "Currency Lookup",
+        "description": "Provides for currencies to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "iso_code",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/CurrencyLookup/CurrencyNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/CurrencyLookup/CurrencyNotFound",
+        "name": null,
+        "description": "No currencies was found matching any of the criteria provided in the arguments",
+        "code": "currency_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/Tasks",
+        "name": "Tasks",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/Tasks/InfoEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Tasks/InfoEndpoint",
+        "name": "Get Task",
+        "description": "Returns details about a specific task",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Tasks/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "task",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/TaskLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Tasks/InfoEndpoint/TaskField",
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/Objects/Task",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": ["tasks", "tasks:read"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Tasks/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "task",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/TaskLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/TaskLookup",
+        "name": "Task Lookup",
+        "description": "Provides for tasks to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": ["CoreAPI/ArgumentSets/TaskLookup/TaskNotFound"]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/TaskLookup/TaskNotFound",
+        "name": null,
+        "description": "No task was found matching any of the criteria provided in the arguments",
+        "code": "task_not_found",
+        "http_status": 404,
+        "fields": []
       }
     }
   ]

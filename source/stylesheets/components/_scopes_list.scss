@@ -1,0 +1,16 @@
+.scopesList {
+  display: flex;
+  font-family: $monoFamily;
+  font-size: 14px;
+}
+
+.scopesList li {
+  background: var(--accentColor);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 30px;
+}
+
+.scopesList li + li {
+  margin-left: 10px;
+}

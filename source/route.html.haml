@@ -15,6 +15,14 @@
   .routeURLBox__url= url_tag route.path, full: true
 %p.page__subTitleText If successful, this endpoint will return a #{http_status_tag route.endpoint.http_status} status.
 
+- unless route.endpoint.scopes.empty?
+  %h2.page__subTitle Scopes
+  %p.page__subTitleText One of the following scopes are required to use this endpoint.
+  %ul.scopesList
+    - for scope in route.endpoint.scopes
+      - details = schema.api.scopes.find { |c| c.name == scope }
+      %li{title: details&.description }= scope
+
 - unless route.endpoint.argument_set.arguments.empty?
   %h2.page__subTitle Arguments
   %p.page__subTitleText The following arguments are supported for this endpoint.
