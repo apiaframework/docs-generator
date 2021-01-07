@@ -37,7 +37,8 @@
   li {
     a {
       display: block;
-      padding: 7px 25px;
+      padding: 5px 25px;
+      line-height: 1.4;
 
       &.is-active {
         background-color: var(--sidebarActiveBackgroundColor);
