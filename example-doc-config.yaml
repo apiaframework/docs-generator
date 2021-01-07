@@ -1,5 +1,5 @@
 support_address: support@katapult.io
-
+scope_prefix: "core:"
 authentication:
   bearer:
     obtaining_api_token: |
