@@ -1,4 +1,4 @@
-- auth_config = config.dig('authentication', 'bearer')
+- auth_config = config.dig('authentication', 'bearer') || {}
 - if auth_config && text = auth_config['obtaining_api_token']
   %h2.page__subTitle Obtaining an API token
   %p.page__subTitleText= text

@@ -82,10 +82,10 @@ GEM
     parallel (1.19.1)
     public_suffix (4.0.5)
     rack (2.2.3)
-    rapid (1.1.1)
+    rapid (1.1.2)
       json
       rack
-    rapid-schema-parser (0.1.9)
+    rapid-schema-parser (0.1.10)
       json
       rapid
     rb-fsevent (0.10.4)

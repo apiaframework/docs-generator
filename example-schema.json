@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "host": "katapult-api.dev.adam.ac",
-  "namespace": "/core/v1",
+  "host": "katapult.dev.adam.ac",
+  "namespace": "/_api/core/v1",
   "api": "CoreAPI/Base",
   "objects": [
     {
@@ -13,13 +13,6 @@
         "authenticator": "CoreAPI/Authenticator",
         "route_set": {
           "routes": [
-            {
-              "path": "schema",
-              "request_method": "GET",
-              "controller": "Rapid/Schema/Controller",
-              "endpoint": "Rapid/Schema/Controller/SchemaEndpoint",
-              "group": null
-            },
             {
               "path": "data_centers",
               "request_method": "GET",
@@ -130,6 +123,13 @@
               "request_method": "PUT",
               "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachines",
               "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/ChangeFlexibleResourcesEndpoint",
+              "group": "virtual_machines"
+            },
+            {
+              "path": "virtual_machines/:virtual_machine/allocate_ip",
+              "request_method": "POST",
+              "controller": "CoreAPI/VirtualMachines/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/AllocateIpEndpoint",
               "group": "virtual_machines"
             },
             {
@@ -747,12 +747,26 @@
               "controller": "CoreAPI/Controllers/Tasks",
               "endpoint": "CoreAPI/Controllers/Tasks/InfoEndpoint",
               "group": "tasks"
+            },
+            {
+              "path": "users/current",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/Users",
+              "endpoint": "CoreAPI/Controllers/Users/CurrentEndpoint",
+              "group": "users"
+            },
+            {
+              "path": "invalidate_linked_web_session",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/Users",
+              "endpoint": "CoreAPI/Controllers/Users/InvalidateLinkedWebSessionEndpoint",
+              "group": "users"
             }
           ],
           "groups": [
             {
               "id": "data_centers",
-              "name": "Data Centers",
+              "name": "Data centers",
               "description": null,
               "groups": []
             },
@@ -794,7 +808,7 @@
                 },
                 {
                   "id": "virtual_machines.power",
-                  "name": "Power Functions",
+                  "name": "Power functions",
                   "description": "Endpoints for performing power functions (i.e. start, stop etc...) on a virtual machine",
                   "groups": []
                 },
@@ -877,13 +891,13 @@
             },
             {
               "id": "ip_addresses",
-              "name": "IP Addresses",
+              "name": "IP addresses",
               "description": null,
               "groups": []
             },
             {
               "id": "virtual_machine_network_interfaces",
-              "name": "Virtual Machine Network Interfaces",
+              "name": "Virtual machine network interfaces",
               "description": null,
               "groups": []
             },
@@ -896,7 +910,7 @@
             },
             {
               "id": "operating_systems",
-              "name": "Operating Systems",
+              "name": "Operating systems",
               "description": null,
               "groups": []
             },
@@ -920,7 +934,7 @@
             },
             {
               "id": "country_states",
-              "name": "Country States",
+              "name": "Country states",
               "description": null,
               "groups": []
             },
@@ -933,6 +947,12 @@
             {
               "id": "tasks",
               "name": "Tasks",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "users",
+              "name": "Users",
               "description": null,
               "groups": []
             }
@@ -1034,6 +1054,7 @@
           "CoreAPI/Authenticator/MissingAPIToken",
           "CoreAPI/Authenticator/UnauthorizedNetworkForAPIToken",
           "CoreAPI/Authenticator/InvalidAPIToken",
+          "CoreAPI/Authenticator/InternalAuthError",
           "CoreAPI/Errors/RateLimitReached",
           "Rapid/ScopeNotGrantedError"
         ]
@@ -1090,6 +1111,27 @@
         "fields": [
           {
             "id": "CoreAPI/Authenticator/InvalidAPIToken/DetailsField",
+            "name": "details",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Authenticator/InternalAuthError",
+        "name": null,
+        "description": null,
+        "code": "internal_auth_error",
+        "http_status": 403,
+        "fields": [
+          {
+            "id": "CoreAPI/Authenticator/InternalAuthError/DetailsField",
             "name": "details",
             "description": null,
             "type": "Rapid/Scalars/String",
@@ -2948,6 +2990,10 @@
           {
             "name": "update",
             "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/UpdateEndpoint"
+          },
+          {
+            "name": "allocate_ip",
+            "endpoint": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/AllocateIpEndpoint"
           }
         ]
       }
@@ -4897,6 +4943,15 @@
             "null": false,
             "array": false,
             "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/DeleteEndpoint/VirtualMachineField",
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/VirtualMachines/Objects/VirtualMachine",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
           }
         ],
         "potential_errors": ["CoreAPI/Errors/PermissionDenied"],
@@ -5260,6 +5315,143 @@
         "description": "No virtual machine group was found matching any of the criteria provided in the arguments",
         "code": "virtual_machine_group_not_found",
         "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/AllocateIpEndpoint",
+        "name": "Allocate an IP Address",
+        "description": "Allocate an IP address to a virtual machine, automatically determining the network interface",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/AllocateIpEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "virtual_machine",
+              "description": "The virtual machine to allocate the IP address to",
+              "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "ip_address",
+              "description": "The IP address to allocate",
+              "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/AllocateIpEndpoint/IpAddressField",
+            "name": "ip_address",
+            "description": "The newly allocated IP address",
+            "type": "CoreAPI/Objects/IPAddress",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/VirtualMachines/Controllers/VirtualMachines/AllocateIpEndpoint/NoInterfaceAvailable",
+          "CoreAPI/VirtualMachines/Controllers/VirtualMachines/AllocateIpEndpoint/IPAlreadyAllocated"
+        ],
+        "scopes": ["ip_addresses"]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/AllocateIpEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "virtual_machine",
+            "description": "The virtual machine to allocate the IP address to",
+            "type": "CoreAPI/VirtualMachines/ArgumentSets/VirtualMachineLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ip_address",
+            "description": "The IP address to allocate",
+            "type": "CoreAPI/ArgumentSets/IPAddressLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/IPAddressLookup",
+        "name": "IP Address Lookup",
+        "description": "Provides for IP addresss to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "address",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/IPAddressLookup/IPAddressNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/IPAddressLookup/IPAddressNotFound",
+        "name": null,
+        "description": "No IP addresses were found matching any of the criteria provided in the arguments",
+        "code": "ip_address_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/AllocateIpEndpoint/NoInterfaceAvailable",
+        "name": null,
+        "description": "This virtual machine does not have a network interface that is compatible with the provided IP address",
+        "code": "no_interface_available",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/VirtualMachines/Controllers/VirtualMachines/AllocateIpEndpoint/IPAlreadyAllocated",
+        "name": null,
+        "description": "This IP address has already been allocated to another virtual machine.",
+        "code": "ip_already_allocated",
+        "http_status": 422,
         "fields": []
       }
     },
@@ -11322,46 +11514,6 @@
       }
     },
     {
-      "type": "lookup_argument_set",
-      "value": {
-        "id": "CoreAPI/ArgumentSets/IPAddressLookup",
-        "name": "IP Address Lookup",
-        "description": "Provides for IP addresss to be looked up",
-        "arguments": [
-          {
-            "name": "id",
-            "description": null,
-            "type": "Rapid/Scalars/String",
-            "required": false,
-            "array": false,
-            "default": null
-          },
-          {
-            "name": "address",
-            "description": null,
-            "type": "Rapid/Scalars/String",
-            "required": false,
-            "array": false,
-            "default": null
-          }
-        ],
-        "potential_errors": [
-          "CoreAPI/ArgumentSets/IPAddressLookup/IPAddressNotFound"
-        ]
-      }
-    },
-    {
-      "type": "error",
-      "value": {
-        "id": "CoreAPI/ArgumentSets/IPAddressLookup/IPAddressNotFound",
-        "name": null,
-        "description": "No IP addresses were found matching any of the criteria provided in the arguments",
-        "code": "ip_address_not_found",
-        "http_status": 404,
-        "fields": []
-      }
-    },
-    {
       "type": "polymorph",
       "value": {
         "id": "CoreAPI/Objects/IPAddressAllocation",
@@ -14530,6 +14682,191 @@
         "code": "task_not_found",
         "http_status": 404,
         "fields": []
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/Users",
+        "name": null,
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "invalidate_linked_web_session",
+            "endpoint": "CoreAPI/Controllers/Users/InvalidateLinkedWebSessionEndpoint"
+          },
+          {
+            "name": "current",
+            "endpoint": "CoreAPI/Controllers/Users/CurrentEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Users/InvalidateLinkedWebSessionEndpoint",
+        "name": "Invalidate linked web session",
+        "description": "This endpoint allows you to invalidate the web session which is associated with your authenticated\nidentity. This will only work for API identities (most likely API tokens) that were generated using the first-party application\nlogin flow.\n",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Users/InvalidateLinkedWebSessionEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Users/InvalidateLinkedWebSessionEndpoint/StatusField",
+            "name": "status",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Controllers/Users/InvalidateLinkedWebSessionEndpoint/IdentityNotLinkedToWebSession"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Users/InvalidateLinkedWebSessionEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/Users/InvalidateLinkedWebSessionEndpoint/IdentityNotLinkedToWebSession",
+        "name": null,
+        "description": "The authenticated identity is not linked to a web session",
+        "code": "identity_not_linked_to_web_session",
+        "http_status": 400,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/Users/CurrentEndpoint",
+        "name": "Get current user details",
+        "description": "This endpoint returns details for the currently authenticated user. If the API token used to\nauthenticate to the API is not associated with a user, this method will return an error.\n",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/Users/CurrentEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/Users/CurrentEndpoint/UserField",
+            "name": "user",
+            "description": null,
+            "type": "CoreAPI/Objects/User",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Controllers/Users/CurrentEndpoint/OrganizationsField",
+            "name": "organizations",
+            "description": null,
+            "type": "CoreAPI/Objects/Organization",
+            "null": false,
+            "array": true,
+            "spec": { "all": false, "spec": "id,name,sub_domain" }
+          },
+          {
+            "id": "CoreAPI/Controllers/Users/CurrentEndpoint/ApiTokenIdField",
+            "name": "api_token_id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Controllers/Users/CurrentEndpoint/NoUserAssociatedWithIdentity"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/Users/CurrentEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/Users/CurrentEndpoint/NoUserAssociatedWithIdentity",
+        "name": null,
+        "description": "There is no user associated with this API token",
+        "code": "no_user_associated_with_identity",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/User",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/User/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/User/FirstNameField",
+            "name": "first_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/User/LastNameField",
+            "name": "last_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          },
+          {
+            "id": "CoreAPI/Objects/User/AvatarUrlField",
+            "name": "avatar_url",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": { "all": true, "spec": null }
+          }
+        ]
       }
     }
   ]
