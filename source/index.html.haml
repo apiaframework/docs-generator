@@ -8,10 +8,11 @@
   know about interacting with this API.
 
 %ul.concepts
-  %li
-    = link_to '/authentication.html', class: 'concepts__link concepts__link--authentication' do
-      %p.concepts__title Authentication
-      %p.concepts__text How to authenticate requests to the API.
+  - if schema.api.authenticator
+    %li
+      = link_to config.dig('authentication', 'external_link') || '/authentication.html', class: 'concepts__link concepts__link--authentication' do
+        %p.concepts__title Authentication
+        %p.concepts__text How to authenticate requests to the API.
   %li
     = link_to '/arguments.html', class: 'concepts__link concepts__link--arguments' do
       %p.concepts__title Passing Arguments

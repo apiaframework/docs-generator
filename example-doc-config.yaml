@@ -1,6 +1,7 @@
 support_address: support@katapult.io
 scope_prefix: "core:"
 authentication:
+  external_link: https://developers.katapult.io/api/authenticating
   bearer:
     placeholder: api-token
     obtaining_api_token: |

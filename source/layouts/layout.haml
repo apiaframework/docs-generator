@@ -17,7 +17,7 @@
 
         %ul.sidebar__nav
           %li= link_to "Welcome", "/index.html", class: @active_nav == :welcome ? 'is-active' : nil
-          %li= link_to "Authenticating", "/authentication.html", class: @active_nav == :authentication ? 'is-active' : nil
+          %li= link_to "Authenticating", config.dig('authentication', 'external_link') || '/authentication.html', class: @active_nav == :authentication ? 'is-active' : nil
           %li= link_to "Passing Arguments", "/arguments.html", class: @active_nav == :arguments ? 'is-active' : nil
           %li= link_to "Receiving Data", "/fields.html", class: @active_nav == :fields ? 'is-active' : nil
           %li= link_to "Handling Errors", "/errors.html", class: @active_nav == :errors ? 'is-active' : nil
