@@ -6,4 +6,5 @@
   with any requests.
 
 - authenticator = schema.api.authenticator
-= partial "partials/authenticators/#{authenticator.type}", locals: {authenticator: authenticator}
+- if authenticator && authenticator.type
+  = partial "partials/authenticators/#{authenticator.type}", locals: {authenticator: authenticator}
