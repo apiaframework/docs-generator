@@ -12,7 +12,10 @@ The best way to generate some docs is to use the Docker image.
 
 ## Building the image
 
-The actual Docker image is configured to automatically build to the `latest` tag whenever this repository is pushed to therefore you shouldn't need to do much assuming Buddy is running.
+To build the image, you can simply use these commands:
+
+- `make docker-image` - builds the image locally
+- `make docker-release` - builds and releases the image
 
 ## Developing
 
