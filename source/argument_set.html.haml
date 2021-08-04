@@ -1,7 +1,7 @@
 - @page_title = argument_set.name
 
 %p.page__preTitle
-  - if argument_set.is_a?(RapidSchemaParser::LookupArgumentSet)
+  - if argument_set.is_a?(ApiaSchemaParser::LookupArgumentSet)
     Lookup
   Argument Set
 %h1.page__title= argument_set.name
@@ -10,7 +10,7 @@
 
 %h2.page__subTitle Arguments
 %p.page__subTitleText
-  - if argument_set.is_a?(RapidSchemaParser::LookupArgumentSet)
+  - if argument_set.is_a?(ApiaSchemaParser::LookupArgumentSet)
     Any one of the following arguments can be provided for this lookup argument set. An error will be raised
     if none or more than one argument value is provided.
   - else
@@ -18,7 +18,7 @@
 
 .u-margin= partial 'partials/argument_list', locals: { argument_set: argument_set }
 
-- if argument_set.is_a?(RapidSchemaParser::LookupArgumentSet)
+- if argument_set.is_a?(ApiaSchemaParser::LookupArgumentSet)
   %h2.page__subTitle Potential errors
   %p.page__subTitleText
     Any of the following errors may be encountered when looking up the object.

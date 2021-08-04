@@ -1,6 +1,6 @@
-# Rapid Doc Generator
+![Welcome](https://share.adam.ac/21/Artboard-Copy-2-hxZwwCclScJjGppfkN.png)
 
-This is a middleman site that accepts a Rapid schema JSON file and an, optional, config YAML file and generates documentation as appropriate.
+This is a middleman site that accepts a Apia schema JSON file and an, optional, config YAML file and generates documentation as appropriate.
 
 ## Using
 

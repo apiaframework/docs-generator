@@ -5,12 +5,7 @@
 # Configuration
 # ==============================================================================
 
-GITHUB_PACKAGE_KEY ?= $(shell \
-	bundle config get --parseable rubygems.pkg.github.com | \
-	cut -d'=' -f2 \
-)
-DOCKER_BUILD_ARGS = --build-arg "github_package_key=$(GITHUB_PACKAGE_KEY)"
-DOCKER_IMAGE := registry.katapult.dev/apps/rapid-docs-builder
+DOCKER_IMAGE := ghcr.io/krystal/apia-docs-generator
 DOCKER_BUILD_CMD = docker build $(DOCKER_BUILD_ARGS) .
 
 # ==============================================================================

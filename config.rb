@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-if ENV['RAPID_SCHEMA_PATH'].nil?
-  warn 'You need to specify a path to a Rapid Schema file in RAPID_SCHEMA_PATH'
+if ENV['APIA_SCHEMA_PATH'].nil?
+  warn 'You need to specify a path to a Apia Schema file in APIA_SCHEMA_PATH'
   exit 1
 end
 
@@ -17,11 +17,12 @@ else
   $config = {}
 end
 
-unless File.file?(ENV['RAPID_SCHEMA_PATH'])
-  warn "No schema found at #{ENV['RAPID_SCHEMA_PATH']}"
+unless File.file?(ENV['APIA_SCHEMA_PATH'])
+  warn "No schema found at #{ENV['APIA_SCHEMA_PATH']}"
 end
 
-$schema = RapidSchemaParser.load_from_file(ENV['RAPID_SCHEMA_PATH'])
+require 'apia_schema_parser'
+$schema = ApiaSchemaParser.load_from_file(ENV['APIA_SCHEMA_PATH'])
 
 activate :autoprefixer do |prefix|
   prefix.browsers = 'last 2 versions'
@@ -62,17 +63,17 @@ ignore 'partials/*'
 $schema.objects.values.each do |object|
   id = Digest::MD5.hexdigest(object.id)[0, 10]
   case object
-  when RapidSchemaParser::Scalar
+  when ApiaSchemaParser::Scalar
     proxy "/scalars/#{id}.html", 'scalar.html', locals: {scalar: object}, layout: 'layout'
-  when RapidSchemaParser::Enum
+  when ApiaSchemaParser::Enum
     proxy "/enums/#{id}.html", 'enum.html', locals: {enum: object}, layout: 'layout'
-  when RapidSchemaParser::Object
+  when ApiaSchemaParser::Object
     proxy "/objects/#{id}.html", 'object.html', locals: {object: object}, layout: 'layout'
-  when RapidSchemaParser::Polymorph
+  when ApiaSchemaParser::Polymorph
     proxy "/polymorphs/#{id}.html", 'polymorph.html', locals: {polymorph: object}, layout: 'layout'
-  when RapidSchemaParser::ArgumentSet
+  when ApiaSchemaParser::ArgumentSet
     proxy "/argument_sets/#{id}.html", 'argument_set.html', locals: {argument_set: object}, layout: 'layout'
-  when RapidSchemaParser::Error
+  when ApiaSchemaParser::Error
     proxy "/errors/#{id}.html", 'error.html', locals: {error: object}, layout: 'layout'
   end
 end
@@ -97,17 +98,17 @@ helpers do
   def link_to_type(type)
     name = type.name || type.id.split('/').last
     case type
-    when RapidSchemaParser::LookupArgumentSet
+    when ApiaSchemaParser::LookupArgumentSet
       link_to name, "/argument_sets/#{id_for_url(type.id)}.html", class: 'typeLink typeLink--lookupArgumentSet'
-    when RapidSchemaParser::ArgumentSet
+    when ApiaSchemaParser::ArgumentSet
       link_to name, "/argument_sets/#{id_for_url(type.id)}.html", class: 'typeLink typeLink--argumentSet'
-    when RapidSchemaParser::Object
+    when ApiaSchemaParser::Object
       link_to name, "/objects/#{id_for_url(type.id)}.html", class: 'typeLink typeLink--object'
-    when RapidSchemaParser::Enum
+    when ApiaSchemaParser::Enum
       link_to name, "/enums/#{id_for_url(type.id)}.html", class: 'typeLink typeLink--enum'
-    when RapidSchemaParser::Polymorph
+    when ApiaSchemaParser::Polymorph
       link_to name, "/polymorphs/#{id_for_url(type.id)}.html", class: 'typeLink typeLink--polymorph'
-    when RapidSchemaParser::Scalar
+    when ApiaSchemaParser::Scalar
       link_to name, "/scalars/#{id_for_url(type.id)}.html", class: "typeLink typeLink--scalar typeLink--#{type.id.split('/').last.underscore}'"
     else
       name
@@ -180,8 +181,8 @@ helpers do
 
     include = false
     include = true if spec == :all
-    include = true if !include && spec.is_a?(Rapid::FieldSpec) && path.size == 1
-    include = true if !include && spec.is_a?(Rapid::FieldSpec) && spec.include_field?(ids[1..].join('.'))
+    include = true if !include && spec.is_a?(Apia::FieldSpec) && path.size == 1
+    include = true if !include && spec.is_a?(Apia::FieldSpec) && spec.include_field?(ids[1..].join('.'))
 
     return '' unless include
 
@@ -198,7 +199,7 @@ helpers do
     end
     string << '</span>'
 
-    if field.type.is_a?(RapidSchemaParser::Object)
+    if field.type.is_a?(ApiaSchemaParser::Object)
       string << " <span class='fields__bracket'>{</span>"
       string << "\n"
       field.type.fields.each_with_index do |f, i|
