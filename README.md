@@ -4,11 +4,26 @@ This is a middleman site that accepts a Apia schema JSON file and an, optional, 
 
 ## Using
 
-The best way to generate some docs is to use the Docker image.
+The best way to generate some docs is to use the Docker image. By default, it will:
 
-- Mount a directory containing a `schema.json` and a `config.yaml` file into `/config`
-- Mount `/output` to a directory on your local machine
-- Run the image and the output will be created in the `/output` directory for you to do with what you please.
+- Export generated document to the `/output` directory
+- Read the schema from `/config/schema.json`
+- Read configuration from `/config/config.yaml`
+
+### Environment variables
+
+You can specify the following environment variables to configure how docs are generated.
+
+* `APIA_SCHEMA_URL` - download the schema from the given URL rather than reading it from `/config/schema.json`.
+
+The following options can be used to upload the generated output to a remote SSH/SFTP server.
+
+* `UPLOAD_HOST` - hostname to upload to
+* `UPLOAD_PORT` - SSH port (defaults to 22)
+* `UPLOAD_USERNAME` - the username to connect with (defaults to root)
+* `UPLOAD_PASSWORD` - the password to autheticate with
+* `UPLOAD_KEY_PATH` - a path to an passphrase-less SSH key within the container (you'll need to mount it)
+* `UPLOAD_PATH` - the directory to upload the files to on the remote server
 
 ## Building the image
 
