@@ -5,15 +5,11 @@ if ENV['APIA_SCHEMA_PATH'].nil?
   exit 1
 end
 
-if ENV['CONFIG_PATH']
-  if File.file?(ENV['CONFIG_PATH'])
-    require 'yaml'
-    $config = YAML.load_file(ENV['CONFIG_PATH'])
-  else
-    warn "No config file found at #{ENV['CONFIG_PATH']}"
-    exit 1
-  end
+if File.file?(ENV['CONFIG_PATH'])
+  require 'yaml'
+  $config = YAML.load_file(ENV['CONFIG_PATH'])
 else
+  warn "No config file found at #{ENV['CONFIG_PATH']}. Using no config."
   $config = {}
 end
 
