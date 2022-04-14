@@ -71,7 +71,8 @@ if ENV['UPLOAD_HOST']
 
   # Move uploaded files into live location and make a backup of the previous files
   puts "Moving new files into place"
-  ssh.execute("mv #{upload_path}/ #{upload_path}.old")
+  ssh.execute("rm -rf #{upload_path}.old")
+  ssh.execute("mv #{upload_path} #{upload_path}.old")
   ssh.execute("mv #{temp_upload_path} #{upload_path}", raise_on_error: true)
 
   # All done!
