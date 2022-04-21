@@ -1,9 +1,0 @@
-app_name: apia-docs
-log_root: log/processes
-log_path: log/procodile.log
-pid_root: tmp/pids
-exec_prefix: bundle exec
-env:
-  APIA_SCHEMA_PATH: example-schema.json
-  CONFIG_PATH: example-doc-config.yaml
-  PORT: 5050

@@ -34,8 +34,8 @@ To build the image, you can simply use these commands:
 
 ## Developing
 
-To develop locally, you can just run up the middleman server via. Procodile which will use the example data. You might want to replace `example-schema.json` with a newer/different schema.
+To develop locally, you can just run up the middleman server using the command below.
 
 ```
-procodile start -f
+APIA_SCHEMA_PATH=examples/schemas/katapult.yaml bundle exec middleman server
 ```
