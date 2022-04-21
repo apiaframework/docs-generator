@@ -1,7 +1,6 @@
 - @page_title = route.endpoint.name
 - @active_group = route.group&.id&.split('.')&.first
 
-
 - if route.group
   = partial 'partials/group_breadcrumbs', locals: {groups: route.group.group_path, last: route.endpoint.name}
 
@@ -15,7 +14,7 @@
   .routeURLBox__url= url_tag route.path, full: true
 %p.page__subTitleText If successful, this endpoint will return a #{http_status_tag route.endpoint.http_status} status.
 
-- unless route.endpoint.scopes.empty?
+- if route.endpoint.scopes && !route.endpoint.scopes.empty?
   %h2.page__subTitle Scopes
   %p.page__subTitleText One of the following scopes are required to use this endpoint.
   %ul.scopesList
