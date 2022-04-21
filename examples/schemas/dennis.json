@@ -1,0 +1,4395 @@
+{
+  "schema_version": 1,
+  "host": "dennis.example.com",
+  "namespace": "/api/v1",
+  "api": "CoreAPI/Base",
+  "objects": [
+    {
+      "type": "api",
+      "value": {
+        "id": "CoreAPI/Base",
+        "name": "Dennis API",
+        "description": null,
+        "authenticator": "CoreAPI/Authenticator",
+        "route_set": {
+          "routes": [
+            {
+              "path": "nameservers",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Nameservers/ListEndpoint",
+              "group": "nameservers"
+            },
+            {
+              "path": "nameservers",
+              "request_method": "POST",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Nameservers/CreateEndpoint",
+              "group": "nameservers"
+            },
+            {
+              "path": "nameservers/:nameserver",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Nameservers/InfoEndpoint",
+              "group": "nameservers"
+            },
+            {
+              "path": "nameservers/:nameserver",
+              "request_method": "PATCH",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Nameservers/UpdateEndpoint",
+              "group": "nameservers"
+            },
+            {
+              "path": "nameservers/:nameserver",
+              "request_method": "DELETE",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Nameservers/DeleteEndpoint",
+              "group": "nameservers"
+            },
+            {
+              "path": "groups",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Groups/ListEndpoint",
+              "group": "groups"
+            },
+            {
+              "path": "groups",
+              "request_method": "POST",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Groups/CreateEndpoint",
+              "group": "groups"
+            },
+            {
+              "path": "groups/:group",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Groups/InfoEndpoint",
+              "group": "groups"
+            },
+            {
+              "path": "groups/:group",
+              "request_method": "PATCH",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Groups/UpdateEndpoint",
+              "group": "groups"
+            },
+            {
+              "path": "groups/:group",
+              "request_method": "DELETE",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Groups/DeleteEndpoint",
+              "group": "groups"
+            },
+            {
+              "path": "zones",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Zones/ListEndpoint",
+              "group": "zones"
+            },
+            {
+              "path": "groups/:group/zones",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Zones/ListForGroupEndpoint",
+              "group": "zones"
+            },
+            {
+              "path": "zones",
+              "request_method": "POST",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Zones/CreateEndpoint",
+              "group": "zones"
+            },
+            {
+              "path": "zones/:zone",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Zones/InfoEndpoint",
+              "group": "zones"
+            },
+            {
+              "path": "zones/:zone",
+              "request_method": "PATCH",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Zones/UpdateEndpoint",
+              "group": "zones"
+            },
+            {
+              "path": "zones/:zone",
+              "request_method": "DELETE",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Zones/DeleteEndpoint",
+              "group": "zones"
+            },
+            {
+              "path": "zones/:zone/verify_nameservers",
+              "request_method": "POST",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Zones/VerifyNameserversEndpoint",
+              "group": "zones"
+            },
+            {
+              "path": "records/tagged",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Records/ListWithTagsEndpoint",
+              "group": "records"
+            },
+            {
+              "path": "zones/:zone/records",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Records/ListForZoneEndpoint",
+              "group": "records"
+            },
+            {
+              "path": "records/:record",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Records/InfoEndpoint",
+              "group": "records"
+            },
+            {
+              "path": "records",
+              "request_method": "POST",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Records/CreateEndpoint",
+              "group": "records"
+            },
+            {
+              "path": "records/:record",
+              "request_method": "PATCH",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Records/UpdateEndpoint",
+              "group": "records"
+            },
+            {
+              "path": "records/:record",
+              "request_method": "DELETE",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/Records/DeleteEndpoint",
+              "group": "records"
+            },
+            {
+              "path": "record_types",
+              "request_method": "GET",
+              "controller": null,
+              "endpoint": "CoreAPI/Endpoints/RecordTypes/ListEndpoint",
+              "group": "record_types"
+            }
+          ],
+          "groups": [
+            {
+              "id": "nameservers",
+              "name": "Nameservers",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "groups",
+              "name": "Groups",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "zones",
+              "name": "Zones",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "records",
+              "name": "Records",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "record_types",
+              "name": "Record Types",
+              "description": null,
+              "groups": []
+            }
+          ]
+        },
+        "scopes": []
+      }
+    },
+    {
+      "type": "authenticator",
+      "value": {
+        "id": "CoreAPI/Authenticator",
+        "name": "API Token Authenticator",
+        "description": null,
+        "type": "bearer",
+        "potential_errors": [
+          "CoreAPI/Authenticator/MissingAPIToken",
+          "CoreAPI/Authenticator/InvalidAPIToken"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Authenticator/MissingAPIToken",
+        "name": null,
+        "description": "No API token was provided in the Authorization header. Ensure a token is provided prefixed with Bearer",
+        "code": "missing_api_token",
+        "http_status": 400,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Authenticator/InvalidAPIToken",
+        "name": null,
+        "description": "The API token provided was not valid (it may not exist or have expired)",
+        "code": "invalid_api_token",
+        "http_status": 403,
+        "fields": [
+          {
+            "id": "CoreAPI/Authenticator/InvalidAPIToken/DetailsField",
+            "name": "details",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/String",
+        "name": "String",
+        "description": null
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/Integer",
+        "name": "Integer",
+        "description": null
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/Boolean",
+        "name": "Boolean",
+        "description": null
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "Rapid/Schema/ScopeType",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "Rapid/Schema/ScopeType/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "Rapid/Schema/ScopeType/DescriptionField",
+            "name": "description",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Nameservers/ListEndpoint",
+        "name": "List nameservers",
+        "description": "Lists all the nameservers that are available and can be assigned to new groups\nwhen they are created.\n",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Nameservers/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Nameservers/ListEndpoint/NameserversField",
+            "name": "nameservers",
+            "description": null,
+            "type": "CoreAPI/Objects/Nameserver",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Nameservers/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Nameserver",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Nameserver/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Nameserver/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Nameserver/ServerField",
+            "name": "server",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Nameserver/AvailableField",
+            "name": "available",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Nameserver/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Nameserver/UpdatedAtField",
+            "name": "updated_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/UnixTime",
+        "name": "Unix Timestamp",
+        "description": null
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Nameservers/CreateEndpoint",
+        "name": "Create nameserver",
+        "description": null,
+        "http_status": 201,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Nameservers/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "properties",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/NameserverPropertiesSet",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Nameservers/CreateEndpoint/NameserverField",
+            "name": "nameserver",
+            "description": null,
+            "type": "CoreAPI/Objects/Nameserver",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Nameservers/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/NameserverPropertiesSet",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/NameserverPropertiesSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "server",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "available",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Errors/ValidationError",
+        "name": null,
+        "description": "A validation error occurred when saving the object",
+        "code": "validation_error",
+        "http_status": 422,
+        "fields": [
+          {
+            "id": "CoreAPI/Errors/ValidationError/ErrorsField",
+            "name": "errors",
+            "description": "An array of the validation errors which were encountered",
+            "type": "CoreAPI/Objects/ValidationErrorDetail",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/ValidationErrorDetail",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/ValidationErrorDetail/AttributeField",
+            "name": "attribute",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/ValidationErrorDetail/TypeField",
+            "name": "type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/ValidationErrorDetail/MessageField",
+            "name": "message",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Nameservers/InfoEndpoint",
+        "name": "Nameserver details",
+        "description": "Provides details about a given nameserver",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Nameservers/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "nameserver",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/NameserverLookupSet",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Nameservers/InfoEndpoint/NameserverField",
+            "name": "nameserver",
+            "description": null,
+            "type": "CoreAPI/Objects/Nameserver",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Nameservers/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "nameserver",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/NameserverLookupSet",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/NameserverLookupSet",
+        "name": "Nameserver Lookup",
+        "description": null,
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/NameserverLookupSet/NameserverNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/NameserverLookupSet/NameserverNotFound",
+        "name": null,
+        "description": "No nameserver could be found using the given arguments",
+        "code": "nameserver_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Nameservers/UpdateEndpoint",
+        "name": "Update nameserver",
+        "description": null,
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Nameservers/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "nameserver",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/NameserverLookupSet",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/NameserverPropertiesSet",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Nameservers/UpdateEndpoint/NameserverField",
+            "name": "nameserver",
+            "description": null,
+            "type": "CoreAPI/Objects/Nameserver",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Nameservers/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "nameserver",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/NameserverLookupSet",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/NameserverPropertiesSet",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Nameservers/DeleteEndpoint",
+        "name": "Delete nameserver",
+        "description": null,
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Nameservers/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "nameserver",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/NameserverLookupSet",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Nameservers/DeleteEndpoint/NameserverField",
+            "name": "nameserver",
+            "description": null,
+            "type": "CoreAPI/Objects/Nameserver",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/DeletionRestrictedError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Nameservers/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "nameserver",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/NameserverLookupSet",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Errors/DeletionRestrictedError",
+        "name": null,
+        "description": "The object cannot be deleted at this time",
+        "code": "deletion_restricted",
+        "http_status": 409,
+        "fields": [
+          {
+            "id": "CoreAPI/Errors/DeletionRestrictedError/DetailsField",
+            "name": "details",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Groups/ListEndpoint",
+        "name": "List groups",
+        "description": "Lists all the groups that have been created.",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Groups/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Groups/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Endpoints/Groups/ListEndpoint/GroupsField",
+            "name": "groups",
+            "description": null,
+            "type": "CoreAPI/Objects/Group",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Groups/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "Rapid/PaginationObject",
+        "name": "Pagination Details",
+        "description": "Provides information about how data has been paginated",
+        "fields": [
+          {
+            "id": "Rapid/PaginationObject/CurrentPageField",
+            "name": "current_page",
+            "description": "The current page",
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "Rapid/PaginationObject/TotalPagesField",
+            "name": "total_pages",
+            "description": "The total number of pages",
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "Rapid/PaginationObject/TotalField",
+            "name": "total",
+            "description": "The total number of items across all pages",
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "Rapid/PaginationObject/PerPageField",
+            "name": "per_page",
+            "description": "The number of items per page",
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "Rapid/PaginationObject/LargeSetField",
+            "name": "large_set",
+            "description": "Is this a large set and therefore the total number of records cannot be returned?",
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Group",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Group/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Group/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Group/ExternalReferenceField",
+            "name": "external_reference",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Group/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Group/UpdatedAtField",
+            "name": "updated_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Group/NameserversField",
+            "name": "nameservers",
+            "description": null,
+            "type": "CoreAPI/Objects/Nameserver",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Groups/CreateEndpoint",
+        "name": "Create group",
+        "description": null,
+        "http_status": 201,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Groups/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "properties",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/GroupPropertiesSet",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Groups/CreateEndpoint/GroupField",
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/Objects/Group",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Groups/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/GroupPropertiesSet",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/GroupPropertiesSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "external_reference",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Groups/InfoEndpoint",
+        "name": "Group details",
+        "description": "Provides details about a given group",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Groups/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "group",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Groups/InfoEndpoint/GroupField",
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/Objects/Group",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Groups/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/GroupLookupSet",
+        "name": "Group Lookup",
+        "description": null,
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "external_reference",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/GroupLookupSet/GroupNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/GroupLookupSet/GroupNotFound",
+        "name": null,
+        "description": "No group could be found using the given arguments",
+        "code": "group_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Groups/UpdateEndpoint",
+        "name": "Update group",
+        "description": null,
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Groups/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "group",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/GroupPropertiesSet",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Groups/UpdateEndpoint/GroupField",
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/Objects/Group",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Groups/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/GroupPropertiesSet",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Groups/DeleteEndpoint",
+        "name": "Delete group",
+        "description": null,
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Groups/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "group",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Groups/DeleteEndpoint/GroupField",
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/Objects/Group",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/DeletionRestrictedError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Groups/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/ListEndpoint",
+        "name": "List zones",
+        "description": "Lists all the zones that have been created.",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Zones/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "query",
+              "description": "Filter zones by their name  (partial matching)",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "view",
+              "description": null,
+              "type": "CoreAPI/Enums/ZoneViewsEnum",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "tags",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": true,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Zones/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Endpoints/Zones/ListEndpoint/ZonesField",
+            "name": "zones",
+            "description": null,
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "*,group[id,name]"
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "query",
+            "description": "Filter zones by their name  (partial matching)",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "view",
+            "description": null,
+            "type": "CoreAPI/Enums/ZoneViewsEnum",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "tags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": true,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Enums/ZoneViewsEnum",
+        "name": "Zone views",
+        "description": "These are views that can be used when listing zones.",
+        "values": [
+          {
+            "name": "verified",
+            "description": "Lists all verified zones only."
+          },
+          {
+            "name": "unverified",
+            "description": "Lists all unverified zones only."
+          },
+          {
+            "name": "with_no_verification",
+            "description": "Lists all zones that have not been verified within 30 days of creation."
+          },
+          {
+            "name": "with_stale_verification",
+            "description": "Lists all zones that have been verified at one point but we have now detected the nameservers to have been changed more than 30 days ago."
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Zone",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Zone/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/GroupField",
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/Objects/Group",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/UpdatedAtField",
+            "name": "updated_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/SerialField",
+            "name": "serial",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/DefaultTtlField",
+            "name": "default_ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/ExternalReferenceField",
+            "name": "external_reference",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/VerifiedField",
+            "name": "verified",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/NameserversVerifiedAtField",
+            "name": "nameservers_verified_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/NameserversCheckedAtField",
+            "name": "nameservers_checked_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/AlwaysVerifiedField",
+            "name": "always_verified",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/NameserversVerifiedField",
+            "name": "nameservers_verified",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/ReverseDnsField",
+            "name": "reverse_dns",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/StaleVerificationField",
+            "name": "stale_verification",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Zone/TagsField",
+            "name": "tags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/ListForGroupEndpoint",
+        "name": "List zones for group",
+        "description": "Lists all the zones for a given group.",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Zones/ListForGroupEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "group",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "query",
+              "description": "Filter zones by their name (partial matching)",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "view",
+              "description": null,
+              "type": "CoreAPI/Enums/ZoneViewsEnum",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "tags",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": true,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "30"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Zones/ListForGroupEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Endpoints/Zones/ListForGroupEndpoint/ZonesField",
+            "name": "zones",
+            "description": null,
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "*,-group"
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/ListForGroupEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "query",
+            "description": "Filter zones by their name (partial matching)",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "view",
+            "description": null,
+            "type": "CoreAPI/Enums/ZoneViewsEnum",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "tags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": true,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "30"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/CreateEndpoint",
+        "name": "Create zone",
+        "description": null,
+        "http_status": 201,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Zones/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "group",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/ZonePropertiesSet",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "allow_sub_domains_of_zones_in_other_groups",
+              "description": null,
+              "type": "Rapid/Scalars/Boolean",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Zones/CreateEndpoint/ZoneField",
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/ZonePropertiesSet",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "allow_sub_domains_of_zones_in_other_groups",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/ZonePropertiesSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "external_reference",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "default_ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "always_verified",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "tags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": true,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/InfoEndpoint",
+        "name": "Zone details",
+        "description": "Provides details about a given zone",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Zones/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "zone",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Zones/InfoEndpoint/ZoneField",
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/ZoneLookupSet",
+        "name": "Zone Lookup",
+        "description": null,
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "external_reference",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/ZoneLookupSet/ZoneNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/ZoneLookupSet/ZoneNotFound",
+        "name": null,
+        "description": "No zone could be found using the given arguments",
+        "code": "zone_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/UpdateEndpoint",
+        "name": "Update zone",
+        "description": null,
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Zones/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "zone",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/ZonePropertiesSet",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Zones/UpdateEndpoint/ZoneField",
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/ZonePropertiesSet",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/DeleteEndpoint",
+        "name": "Delete zone",
+        "description": null,
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Zones/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "zone",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Zones/DeleteEndpoint/ZoneField",
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/DeletionRestrictedError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/VerifyNameserversEndpoint",
+        "name": "Verify nameservers",
+        "description": null,
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Zones/VerifyNameserversEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "zone",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Zones/VerifyNameserversEndpoint/ZoneField",
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Endpoints/Zones/VerifyNameserversEndpoint/NameserversAlreadyVerified"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/VerifyNameserversEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Endpoints/Zones/VerifyNameserversEndpoint/NameserversAlreadyVerified",
+        "name": null,
+        "description": null,
+        "code": "nameservers_already_verified",
+        "http_status": 409,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/ListWithTagsEndpoint",
+        "name": "List records",
+        "description": "Lists all the records that match given tags across all zones or within a specific group.",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Records/ListWithTagsEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "tags",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": true,
+              "default": null
+            },
+            {
+              "name": "group",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Records/ListWithTagsEndpoint/RecordsField",
+            "name": "records",
+            "description": null,
+            "type": "CoreAPI/Objects/Record",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "*,zone[id,name,verified,-group]"
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/ListWithTagsEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "tags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": true,
+            "default": null
+          },
+          {
+            "name": "group",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/GroupLookupSet",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Record",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Record/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/ExternalReferenceField",
+            "name": "external_reference",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/TypeField",
+            "name": "type",
+            "description": null,
+            "type": "CoreAPI/Enums/RecordTypesEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/FullNameField",
+            "name": "full_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/TtlField",
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/PriorityField",
+            "name": "priority",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/ManagedField",
+            "name": "managed",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/UpdatedAtField",
+            "name": "updated_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/TagsField",
+            "name": "tags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/RawContentField",
+            "name": "raw_content",
+            "description": "The content that will be served by the DNS server.",
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/DisplayContentField",
+            "name": "display_content",
+            "description": "A single string that can be displayed",
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/ContentField",
+            "name": "content",
+            "description": "The attributes which make up the content that will be served by the DNS server.",
+            "type": "CoreAPI/Objects/RecordContentAttributes",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Record/ZoneField",
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/Objects/Zone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Enums/RecordTypesEnum",
+        "name": "Record types",
+        "description": "These are the options that are available as a type for any records.",
+        "values": [
+          {
+            "name": "A",
+            "description": "An A record"
+          },
+          {
+            "name": "AAAA",
+            "description": "An AAAA record"
+          },
+          {
+            "name": "ALIAS",
+            "description": "An ALIAS record"
+          },
+          {
+            "name": "CAA",
+            "description": "A CAA record"
+          },
+          {
+            "name": "CNAME",
+            "description": "A CNAME record"
+          },
+          {
+            "name": "MX",
+            "description": "A MX record"
+          },
+          {
+            "name": "NS",
+            "description": "A NS record"
+          },
+          {
+            "name": "PTR",
+            "description": "A PTR record"
+          },
+          {
+            "name": "SOA",
+            "description": "A SOA record"
+          },
+          {
+            "name": "SRV",
+            "description": "A SRV record"
+          },
+          {
+            "name": "SSHFP",
+            "description": "A SSHFP record"
+          },
+          {
+            "name": "TXT",
+            "description": "A TXT record"
+          },
+          {
+            "name": "IPS",
+            "description": "An IPS record"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/RecordContentAttributes",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/AField",
+            "name": "A",
+            "description": null,
+            "type": "RecordContentAttributesForA",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/AAAAField",
+            "name": "AAAA",
+            "description": null,
+            "type": "RecordContentAttributesForAAAA",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/ALIASField",
+            "name": "ALIAS",
+            "description": null,
+            "type": "RecordContentAttributesForALIAS",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/CAAField",
+            "name": "CAA",
+            "description": null,
+            "type": "RecordContentAttributesForCAA",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/CNAMEField",
+            "name": "CNAME",
+            "description": null,
+            "type": "RecordContentAttributesForCNAME",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/MXField",
+            "name": "MX",
+            "description": null,
+            "type": "RecordContentAttributesForMX",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/NSField",
+            "name": "NS",
+            "description": null,
+            "type": "RecordContentAttributesForNS",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/PTRField",
+            "name": "PTR",
+            "description": null,
+            "type": "RecordContentAttributesForPTR",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/SOAField",
+            "name": "SOA",
+            "description": null,
+            "type": "RecordContentAttributesForSOA",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/SRVField",
+            "name": "SRV",
+            "description": null,
+            "type": "RecordContentAttributesForSRV",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/SSHFPField",
+            "name": "SSHFP",
+            "description": null,
+            "type": "RecordContentAttributesForSSHFP",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/TXTField",
+            "name": "TXT",
+            "description": null,
+            "type": "RecordContentAttributesForTXT",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributes/IPSField",
+            "name": "IPS",
+            "description": null,
+            "type": "RecordContentAttributesForIPS",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForA",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForA/IpAddressField",
+            "name": "ip_address",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForAAAA",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForAAAA/IpAddressField",
+            "name": "ip_address",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForALIAS",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForALIAS/HostnameField",
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForCAA",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForCAA/FlagField",
+            "name": "flag",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "RecordContentAttributesForCAA/TagField",
+            "name": "tag",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "RecordContentAttributesForCAA/ValueField",
+            "name": "value",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForCNAME",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForCNAME/HostnameField",
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForMX",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForMX/HostnameField",
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForNS",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForNS/HostnameField",
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForPTR",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForPTR/HostnameField",
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForSOA",
+        "name": null,
+        "description": null,
+        "fields": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForSRV",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForSRV/WeightField",
+            "name": "weight",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "RecordContentAttributesForSRV/PortField",
+            "name": "port",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "RecordContentAttributesForSRV/TargetField",
+            "name": "target",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForSSHFP",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForSSHFP/AlgorithmField",
+            "name": "algorithm",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "RecordContentAttributesForSSHFP/FingerprintTypeField",
+            "name": "fingerprint_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "RecordContentAttributesForSSHFP/FingerprintField",
+            "name": "fingerprint",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForTXT",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForTXT/ContentField",
+            "name": "content",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "RecordContentAttributesForIPS",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "RecordContentAttributesForIPS/IpAddressesField",
+            "name": "ip_addresses",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/ListForZoneEndpoint",
+        "name": "List zone records",
+        "description": "Lists all the records for a given zone.",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Records/ListForZoneEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "zone",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "name",
+              "description": "Filter records by name)",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "type",
+              "description": "Filter records by type",
+              "type": "CoreAPI/Enums/RecordTypesEnum",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "query",
+              "description": "Filter records by their name or content (partial matching)",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "exclude_managed",
+              "description": "Exclude returning any records that are managed by Dennis",
+              "type": "Rapid/Scalars/Boolean",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "tags",
+              "description": "Filter records to include all records with any of the given tags",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": true,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Records/ListForZoneEndpoint/RecordsField",
+            "name": "records",
+            "description": null,
+            "type": "CoreAPI/Objects/Record",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "*,-zone"
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/ListForZoneEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "name",
+            "description": "Filter records by name)",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "type",
+            "description": "Filter records by type",
+            "type": "CoreAPI/Enums/RecordTypesEnum",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "query",
+            "description": "Filter records by their name or content (partial matching)",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "exclude_managed",
+            "description": "Exclude returning any records that are managed by Dennis",
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "tags",
+            "description": "Filter records to include all records with any of the given tags",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": true,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/InfoEndpoint",
+        "name": "Record details",
+        "description": "Provides details about a given record",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Records/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "record",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/RecordLookupSet",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Records/InfoEndpoint/RecordField",
+            "name": "record",
+            "description": null,
+            "type": "CoreAPI/Objects/Record",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "record",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/RecordLookupSet",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/RecordLookupSet",
+        "name": "Record Lookup",
+        "description": null,
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "external_reference",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/RecordLookupSet/RecordNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/RecordLookupSet/RecordNotFound",
+        "name": null,
+        "description": "No record could be found using the given arguments",
+        "code": "record_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/CreateEndpoint",
+        "name": "Create record",
+        "description": null,
+        "http_status": 201,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Records/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "zone",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/RecordPropertiesSet",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Records/CreateEndpoint/RecordField",
+            "name": "record",
+            "description": null,
+            "type": "CoreAPI/Objects/Record",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "zone",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/ZoneLookupSet",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/RecordPropertiesSet",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/RecordPropertiesSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "type",
+            "description": null,
+            "type": "CoreAPI/Enums/RecordTypesEnum",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "priority",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "content",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/RecordContentArguments",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "external_reference",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "tags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": true,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/RecordContentArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "A",
+            "description": null,
+            "type": "RecordContentArgumentsForA",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "AAAA",
+            "description": null,
+            "type": "RecordContentArgumentsForAAAA",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ALIAS",
+            "description": null,
+            "type": "RecordContentArgumentsForALIAS",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "CAA",
+            "description": null,
+            "type": "RecordContentArgumentsForCAA",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "CNAME",
+            "description": null,
+            "type": "RecordContentArgumentsForCNAME",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "MX",
+            "description": null,
+            "type": "RecordContentArgumentsForMX",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "NS",
+            "description": null,
+            "type": "RecordContentArgumentsForNS",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "PTR",
+            "description": null,
+            "type": "RecordContentArgumentsForPTR",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "SOA",
+            "description": null,
+            "type": "RecordContentArgumentsForSOA",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "SRV",
+            "description": null,
+            "type": "RecordContentArgumentsForSRV",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "SSHFP",
+            "description": null,
+            "type": "RecordContentArgumentsForSSHFP",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "TXT",
+            "description": null,
+            "type": "RecordContentArgumentsForTXT",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "IPS",
+            "description": null,
+            "type": "RecordContentArgumentsForIPS",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForA",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "ip_address",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForAAAA",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "ip_address",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForALIAS",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForCAA",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "flag",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "tag",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "value",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForCNAME",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForMX",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForNS",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForPTR",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForSOA",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForSRV",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "weight",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "port",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "target",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForSSHFP",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "algorithm",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "fingerprint_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "fingerprint",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForTXT",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "content",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "RecordContentArgumentsForIPS",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "ip_addresses",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/UpdateEndpoint",
+        "name": "Update record",
+        "description": null,
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Records/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "record",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/RecordLookupSet",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "properties",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/RecordPropertiesSet",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Records/UpdateEndpoint/RecordField",
+            "name": "record",
+            "description": null,
+            "type": "CoreAPI/Objects/Record",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "record",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/RecordLookupSet",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/RecordPropertiesSet",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/DeleteEndpoint",
+        "name": "Delete record",
+        "description": null,
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/Records/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "record",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/RecordLookupSet",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/Records/DeleteEndpoint/RecordField",
+            "name": "record",
+            "description": null,
+            "type": "CoreAPI/Objects/Record",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/DeletionRestrictedError",
+          "CoreAPI/Endpoints/Records/DeleteEndpoint/ManagedRecordsCannotBeDeleted"
+        ],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "record",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/RecordLookupSet",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Endpoints/Records/DeleteEndpoint/ManagedRecordsCannotBeDeleted",
+        "name": null,
+        "description": null,
+        "code": "managed_records_cannot_be_deleted",
+        "http_status": 409,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Endpoints/RecordTypes/ListEndpoint",
+        "name": "Available record types",
+        "description": "Lists all the record types that are available along with any additional data needed for them.",
+        "http_status": 200,
+        "authenticator": "CoreAPI/AnonymousAuthenticator",
+        "argument_set": {
+          "id": "CoreAPI/Endpoints/RecordTypes/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Endpoints/RecordTypes/ListEndpoint/RecordTypesField",
+            "name": "record_types",
+            "description": null,
+            "type": "CoreAPI/Objects/RecordType",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [],
+        "scopes": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Endpoints/RecordTypes/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/RecordType",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/RecordType/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordType/RequiresPriorityField",
+            "name": "requires_priority",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordType/ManagedOnlyField",
+            "name": "managed_only",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordType/ExposedField",
+            "name": "exposed",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordType/ContentAttributesField",
+            "name": "content_attributes",
+            "description": null,
+            "type": "CoreAPI/Objects/RecordContentAttribute",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/RecordContentAttribute",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/RecordContentAttribute/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttribute/LabelField",
+            "name": "label",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttribute/TypeField",
+            "name": "type",
+            "description": null,
+            "type": "CoreAPI/Enums/RecordContentAttributeTypeEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttribute/OptionsField",
+            "name": "options",
+            "description": null,
+            "type": "CoreAPI/Objects/RecordContentAttributeOption",
+            "null": true,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Enums/RecordContentAttributeTypeEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "text",
+            "description": null
+          },
+          {
+            "name": "long_text",
+            "description": null
+          },
+          {
+            "name": "options",
+            "description": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/RecordContentAttributeOption",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributeOption/LabelField",
+            "name": "label",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/RecordContentAttributeOption/ValueField",
+            "name": "value",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

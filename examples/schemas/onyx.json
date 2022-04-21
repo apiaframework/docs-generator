@@ -1,0 +1,4026 @@
+{
+  "schema_version": 1,
+  "host": "portal.onyx.io",
+  "namespace": "/api/v2",
+  "api": "V2/Base",
+  "objects": [
+    {
+      "type": "api",
+      "value": {
+        "id": "V2/Base",
+        "name": "Onyx Core API",
+        "description": null,
+        "authenticator": "V2/Authenticator",
+        "route_set": {
+          "routes": [
+            {
+              "path": "schema",
+              "request_method": "GET",
+              "controller": "Rapid/Schema/Controller",
+              "endpoint": "Rapid/Schema/Controller/SchemaEndpoint",
+              "group": null
+            },
+            {
+              "path": "identity",
+              "request_method": "GET",
+              "controller": "V2/Controllers/Services",
+              "endpoint": "V2/Controllers/Services/InfoEndpoint",
+              "group": "identity"
+            },
+            {
+              "path": "sites",
+              "request_method": "GET",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/ListEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites",
+              "request_method": "POST",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/CreateEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites/:site",
+              "request_method": "GET",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/InfoEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites/:site",
+              "request_method": "PATCH",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/UpdateEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites/:site",
+              "request_method": "DELETE",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/DeleteEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites/:site/clone",
+              "request_method": "POST",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/CloneEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites/php_versions",
+              "request_method": "GET",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/PhpVersionsEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites/:site/toggle_cdn",
+              "request_method": "POST",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/ToggleCdnEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites/:site/purge_cdn",
+              "request_method": "POST",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/PurgeCdnEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites/:site/ssh_credentials",
+              "request_method": "GET",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/GetSshCredentialsEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites/:site/toggle_ssh",
+              "request_method": "POST",
+              "controller": "V2/Controllers/Sites",
+              "endpoint": "V2/Controllers/Sites/ToggleSshEndpoint",
+              "group": "sites"
+            },
+            {
+              "path": "sites/:site/backups",
+              "request_method": "GET",
+              "controller": "V2/Controllers/SiteBackups",
+              "endpoint": "V2/Controllers/SiteBackups/ListEndpoint",
+              "group": "sites.backups"
+            },
+            {
+              "path": "sites/:site/backups/:backup",
+              "request_method": "GET",
+              "controller": "V2/Controllers/SiteBackups",
+              "endpoint": "V2/Controllers/SiteBackups/InfoEndpoint",
+              "group": "sites.backups"
+            },
+            {
+              "path": "sites/:site/backups",
+              "request_method": "POST",
+              "controller": "V2/Controllers/SiteBackups",
+              "endpoint": "V2/Controllers/SiteBackups/CreateEndpoint",
+              "group": "sites.backups"
+            },
+            {
+              "path": "sites/:site/backups/:backup/restore",
+              "request_method": "POST",
+              "controller": "V2/Controllers/SiteBackups",
+              "endpoint": "V2/Controllers/SiteBackups/RestoreEndpoint",
+              "group": "sites.backups"
+            },
+            {
+              "path": "sites/:site/backups/:backup/running_restores",
+              "request_method": "GET",
+              "controller": "V2/Controllers/SiteBackups",
+              "endpoint": "V2/Controllers/SiteBackups/ListRunningRestoresEndpoint",
+              "group": "sites.backups"
+            },
+            {
+              "path": "sites/:site/domains",
+              "request_method": "GET",
+              "controller": "V2/Controllers/SiteDomains",
+              "endpoint": "V2/Controllers/SiteDomains/ListEndpoint",
+              "group": "sites.domains"
+            },
+            {
+              "path": "sites/:site/domains",
+              "request_method": "POST",
+              "controller": "V2/Controllers/SiteDomains",
+              "endpoint": "V2/Controllers/SiteDomains/CreateEndpoint",
+              "group": "sites.domains"
+            },
+            {
+              "path": "sites/:site/domains/:domain",
+              "request_method": "GET",
+              "controller": "V2/Controllers/SiteDomains",
+              "endpoint": "V2/Controllers/SiteDomains/InfoEndpoint",
+              "group": "sites.domains"
+            },
+            {
+              "path": "sites/:site/domains/:domain",
+              "request_method": "DELETE",
+              "controller": "V2/Controllers/SiteDomains",
+              "endpoint": "V2/Controllers/SiteDomains/DeleteEndpoint",
+              "group": "sites.domains"
+            },
+            {
+              "path": "dns_domains",
+              "request_method": "GET",
+              "controller": "V2/Controllers/DNSDomains",
+              "endpoint": "V2/Controllers/DNSDomains/ListEndpoint",
+              "group": "dns_domains"
+            },
+            {
+              "path": "dns_domains",
+              "request_method": "POST",
+              "controller": "V2/Controllers/DNSDomains",
+              "endpoint": "V2/Controllers/DNSDomains/CreateEndpoint",
+              "group": "dns_domains"
+            },
+            {
+              "path": "dns_domains/:dns_domain",
+              "request_method": "GET",
+              "controller": "V2/Controllers/DNSDomains",
+              "endpoint": "V2/Controllers/DNSDomains/InfoEndpoint",
+              "group": "dns_domains"
+            },
+            {
+              "path": "dns_domains/:dns_domain",
+              "request_method": "DELETE",
+              "controller": "V2/Controllers/DNSDomains",
+              "endpoint": "V2/Controllers/DNSDomains/DeleteEndpoint",
+              "group": "dns_domains"
+            },
+            {
+              "path": "dns_domains/:dns_domain/records",
+              "request_method": "GET",
+              "controller": "V2/Controllers/DNSDomains",
+              "endpoint": "V2/Controllers/DNSDomains/ListRecordsEndpoint",
+              "group": "dns_domains.records"
+            },
+            {
+              "path": "dns_domains/:dns_domain/records",
+              "request_method": "POST",
+              "controller": "V2/Controllers/DNSDomains",
+              "endpoint": "V2/Controllers/DNSDomains/CreateRecordEndpoint",
+              "group": "dns_domains.records"
+            },
+            {
+              "path": "dns_domains/:dns_domain/records/:record",
+              "request_method": "DELETE",
+              "controller": "V2/Controllers/DNSDomains",
+              "endpoint": "V2/Controllers/DNSDomains/DeleteRecordEndpoint",
+              "group": "dns_domains.records"
+            }
+          ],
+          "groups": [
+            {
+              "id": "identity",
+              "name": "Identity",
+              "description": null,
+              "groups": []
+            },
+            {
+              "id": "sites",
+              "name": "Sites",
+              "description": null,
+              "groups": [
+                {
+                  "id": "sites.backups",
+                  "name": "Site Backups",
+                  "description": null,
+                  "groups": []
+                },
+                {
+                  "id": "sites.domains",
+                  "name": "Site Domains",
+                  "description": null,
+                  "groups": []
+                }
+              ]
+            },
+            {
+              "id": "dns_domains",
+              "name": "DNS Domains",
+              "description": null,
+              "groups": [
+                {
+                  "id": "dns_domains.records",
+                  "name": "DNS Domain records",
+                  "description": null,
+                  "groups": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "authenticator",
+      "value": {
+        "id": "V2/Authenticator",
+        "name": "API Token Authenticator",
+        "description": null,
+        "type": "bearer",
+        "potential_errors": [
+          "V2/Authenticator/MissingAPIToken",
+          "V2/Authenticator/InvalidAPIToken"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Authenticator/MissingAPIToken",
+        "name": null,
+        "description": "No API token was provided in the Authorization header. Ensure a token is provided prefixed with Bearer",
+        "code": "missing_api_token",
+        "http_status": 400,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Authenticator/InvalidAPIToken",
+        "name": null,
+        "description": "The API token provided was not valid (it may not exist or have expired)",
+        "code": "invalid_api_token",
+        "http_status": 403,
+        "fields": []
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/Integer",
+        "name": "Integer",
+        "description": null
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/String",
+        "name": "String",
+        "description": null
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/Boolean",
+        "name": "Boolean",
+        "description": null
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "V2/Controllers/Services",
+        "name": "Service",
+        "description": "Shows information about a service",
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "info",
+            "endpoint": "V2/Controllers/Services/InfoEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Services/InfoEndpoint",
+        "name": "Current service",
+        "description": "Returns information for a given service",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Services/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Services/InfoEndpoint/ServiceField",
+            "name": "service",
+            "description": null,
+            "type": "V2/Objects/Service",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Services/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "V2/Objects/Service",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "V2/Objects/Service/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Service/LabelField",
+            "name": "label",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Service/EmailAddressField",
+            "name": "email_address",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Service/OwnerFirstNameField",
+            "name": "owner_first_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Service/OwnerLastNameField",
+            "name": "owner_last_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Service/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Service/SuspendedAtField",
+            "name": "suspended_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Service/MaximumSitesField",
+            "name": "maximum_sites",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Service/VisitorsLimitField",
+            "name": "visitors_limit",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/UnixTime",
+        "name": "Unix Timestamp",
+        "description": null
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "V2/Controllers/Sites",
+        "name": "Sites",
+        "description": "Allows you to list \u0026 manage sites in the database",
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "V2/Controllers/Sites/ListEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "V2/Controllers/Sites/CreateEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "V2/Controllers/Sites/InfoEndpoint"
+          },
+          {
+            "name": "update",
+            "endpoint": "V2/Controllers/Sites/UpdateEndpoint"
+          },
+          {
+            "name": "delete",
+            "endpoint": "V2/Controllers/Sites/DeleteEndpoint"
+          },
+          {
+            "name": "clone",
+            "endpoint": "V2/Controllers/Sites/CloneEndpoint"
+          },
+          {
+            "name": "toggle_cdn",
+            "endpoint": "V2/Controllers/Sites/ToggleCdnEndpoint"
+          },
+          {
+            "name": "purge_cdn",
+            "endpoint": "V2/Controllers/Sites/PurgeCdnEndpoint"
+          },
+          {
+            "name": "php_versions",
+            "endpoint": "V2/Controllers/Sites/PhpVersionsEndpoint"
+          },
+          {
+            "name": "toggle_ssh",
+            "endpoint": "V2/Controllers/Sites/ToggleSshEndpoint"
+          },
+          {
+            "name": "get_ssh_credentials",
+            "endpoint": "V2/Controllers/Sites/GetSshCredentialsEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/ListEndpoint",
+        "name": "List sites",
+        "description": "Returns a full list of sites",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/ListEndpoint/SitesField",
+            "name": "sites",
+            "description": null,
+            "type": "V2/Objects/Site",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "V2/Objects/Site",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "V2/Objects/Site/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/SubdomainField",
+            "name": "subdomain",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/ParentIdField",
+            "name": "parent_id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/SshEnabledField",
+            "name": "ssh_enabled",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/CdnEnabledField",
+            "name": "cdn_enabled",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/CdnActiveDomainField",
+            "name": "cdn_active_domain",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/OnyxDomainField",
+            "name": "onyx_domain",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/VersionField",
+            "name": "version",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/PhpVersionField",
+            "name": "php_version",
+            "description": null,
+            "type": "V2/Objects/SitePHPVersionEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/DebugModeField",
+            "name": "debug_mode",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Site/ProvisionStatusField",
+            "name": "provision_status",
+            "description": null,
+            "type": "V2/Objects/SiteProvisioningStatusEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "V2/Objects/SitePHPVersionEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "8.0",
+            "description": null
+          },
+          {
+            "name": "7.4",
+            "description": null
+          },
+          {
+            "name": "7.3",
+            "description": null
+          },
+          {
+            "name": "7.2",
+            "description": null
+          },
+          {
+            "name": "7.1",
+            "description": null
+          },
+          {
+            "name": "7.0",
+            "description": null
+          },
+          {
+            "name": "5.6",
+            "description": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "V2/Objects/SiteProvisioningStatusEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "Pending",
+            "description": null
+          },
+          {
+            "name": "Running",
+            "description": null
+          },
+          {
+            "name": "Failed",
+            "description": null
+          },
+          {
+            "name": "Complete",
+            "description": null
+          },
+          {
+            "name": "UnprovisionPending",
+            "description": null
+          },
+          {
+            "name": "Unprovisioning",
+            "description": null
+          },
+          {
+            "name": "UnprovisionFailed",
+            "description": null
+          },
+          {
+            "name": "Unprovisioned",
+            "description": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/CreateEndpoint",
+        "name": "Create Site",
+        "description": "Create a new site within a service",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "name",
+              "description": "The name for the new site",
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "subdomain",
+              "description": "The subdomain for the new site",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "php_version",
+              "description": "The PHP version for the new site",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/CreateEndpoint/SiteField",
+            "name": "site",
+            "description": null,
+            "type": "V2/Objects/Site",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Errors/ValidationError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": "The name for the new site",
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "subdomain",
+            "description": "The subdomain for the new site",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "php_version",
+            "description": "The PHP version for the new site",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Errors/ValidationError",
+        "name": null,
+        "description": "A validation error occurred with the object that was being created/updated/deleted",
+        "code": "validation_error",
+        "http_status": 422,
+        "fields": [
+          {
+            "id": "V2/Errors/ValidationError/ErrorsField",
+            "name": "errors",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/InfoEndpoint",
+        "name": "Show site",
+        "description": "Returns information about a site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/InfoEndpoint/SiteField",
+            "name": "site",
+            "description": null,
+            "type": "V2/Objects/Site",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "V2/ArgumentSets/SiteLookup",
+        "name": "Site Lookup",
+        "description": "Provides for site to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "subdomain",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "V2/ArgumentSets/SiteLookup/SiteNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/ArgumentSets/SiteLookup/SiteNotFound",
+        "name": null,
+        "description": "No site was found matching any of the criteria provided in the arguments",
+        "code": "site_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/UpdateEndpoint",
+        "name": "Update site",
+        "description": "Updates a site with new properties",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "name",
+              "description": "The name for the new site",
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "subdomain",
+              "description": "The subdomain for the new site",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "debug_mode",
+              "description": "WordPress debug mode",
+              "type": "Rapid/Scalars/Boolean",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "php_version",
+              "description": "The PHP version for the new site",
+              "type": "V2/Objects/SitePHPVersionEnum",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/UpdateEndpoint/SiteField",
+            "name": "site",
+            "description": null,
+            "type": "V2/Objects/Site",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Errors/ValidationError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "name",
+            "description": "The name for the new site",
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "subdomain",
+            "description": "The subdomain for the new site",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "debug_mode",
+            "description": "WordPress debug mode",
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "php_version",
+            "description": "The PHP version for the new site",
+            "type": "V2/Objects/SitePHPVersionEnum",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/DeleteEndpoint",
+        "name": "Delete site",
+        "description": "Delete a site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/DeleteEndpoint/SiteField",
+            "name": "site",
+            "description": null,
+            "type": "V2/Objects/Site",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Errors/ValidationError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/CloneEndpoint",
+        "name": "Clone site",
+        "description": "Clone a specific site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/CloneEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "name",
+              "description": "The name for the new site",
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "subdomain",
+              "description": "The subdomain for the new site",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "standalone",
+              "description": "The type of the cloned site",
+              "type": "Rapid/Scalars/Boolean",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "htpasswd_enabled",
+              "description": "Whether onr not htpasswd should be enabled",
+              "type": "Rapid/Scalars/Boolean",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/CloneEndpoint/SiteField",
+            "name": "site",
+            "description": null,
+            "type": "V2/Objects/Site",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Errors/ValidationError",
+          "V2/Controllers/Sites/CloneEndpoint/SiteLimitReached"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/CloneEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": "The name for the new site",
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "subdomain",
+            "description": "The subdomain for the new site",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "standalone",
+            "description": "The type of the cloned site",
+            "type": "Rapid/Scalars/Boolean",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "htpasswd_enabled",
+            "description": "Whether onr not htpasswd should be enabled",
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/Sites/CloneEndpoint/SiteLimitReached",
+        "name": null,
+        "description": "You have reached your maximum number of sites. Please upgrade your package to add new sites.",
+        "code": "site_limit_reached",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/ToggleCdnEndpoint",
+        "name": "Toggle CDN",
+        "description": "Toggles CDN for a specific site and returns the site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/ToggleCdnEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/ToggleCdnEndpoint/SiteField",
+            "name": "site",
+            "description": null,
+            "type": "V2/Objects/Site",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Controllers/Sites/ToggleCdnEndpoint/CdnNotAllowed",
+          "V2/Controllers/Sites/ToggleCdnEndpoint/CdnOverLimit",
+          "V2/Controllers/Sites/ToggleCdnEndpoint/CdnTogglingInProgress"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/ToggleCdnEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/Sites/ToggleCdnEndpoint/CdnNotAllowed",
+        "name": null,
+        "description": "Your current plan does not allow CDN usage, upgrade to use CDN functionality.",
+        "code": "cdn_not_allowed",
+        "http_status": 403,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/Sites/ToggleCdnEndpoint/CdnOverLimit",
+        "name": null,
+        "description": "Unable to enable CDN, bandwidth limit exceeded.",
+        "code": "cdn_over_limit",
+        "http_status": 403,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/Sites/ToggleCdnEndpoint/CdnTogglingInProgress",
+        "name": null,
+        "description": "Error changing CDN state. There's already a task running.",
+        "code": "cdn_not_allowed",
+        "http_status": 409,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/PurgeCdnEndpoint",
+        "name": "Show site status",
+        "description": "Toggles CDN for a site and returns the site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/PurgeCdnEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/PurgeCdnEndpoint/SiteField",
+            "name": "site",
+            "description": null,
+            "type": "V2/Objects/Site",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Controllers/Sites/PurgeCdnEndpoint/PurgeCdnNotAllowed",
+          "V2/Controllers/Sites/PurgeCdnEndpoint/PurgeCdnError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/PurgeCdnEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/Sites/PurgeCdnEndpoint/PurgeCdnNotAllowed",
+        "name": null,
+        "description": "Error purging CDN, make sure CDN is enabled.",
+        "code": "cdn_not_allowed",
+        "http_status": 403,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/Sites/PurgeCdnEndpoint/PurgeCdnError",
+        "name": null,
+        "description": "An error occurred while purging the cache, please try again or contact support for assistance.",
+        "code": "cdn_not_allowed",
+        "http_status": 500,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/PhpVersionsEndpoint",
+        "name": "List PHP versions",
+        "description": "Returns a list with all available PHP versions",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/PhpVersionsEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/PhpVersionsEndpoint/PhpVersionsField",
+            "name": "php_versions",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/PhpVersionsEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/ToggleSshEndpoint",
+        "name": "Enable Site SSH",
+        "description": "Enables SSH connection for a specific site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/ToggleSshEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/ToggleSshEndpoint/SiteField",
+            "name": "site",
+            "description": null,
+            "type": "V2/Objects/Site",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Controllers/Sites/ToggleSshEndpoint/ToggleSshInProgress"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/ToggleSshEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/Sites/ToggleSshEndpoint/ToggleSshInProgress",
+        "name": null,
+        "description": "There's currently a job in progress for this request.",
+        "code": "toggle_ssh_in_progress",
+        "http_status": 409,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/Sites/GetSshCredentialsEndpoint",
+        "name": "Site SSH credentials",
+        "description": "Returns SSH credentials for a specific site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/Sites/GetSshCredentialsEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/Sites/GetSshCredentialsEndpoint/HostnameField",
+            "name": "hostname",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Controllers/Sites/GetSshCredentialsEndpoint/PortField",
+            "name": "port",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Controllers/Sites/GetSshCredentialsEndpoint/UsernameField",
+            "name": "username",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Controllers/Sites/GetSshCredentialsEndpoint/PasswordField",
+            "name": "password",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Controllers/Sites/GetSshCredentialsEndpoint/SshNotEnabled"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/Sites/GetSshCredentialsEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/Sites/GetSshCredentialsEndpoint/SshNotEnabled",
+        "name": null,
+        "description": "The site SSH connection is disabled.",
+        "code": "ssh_not_enabled",
+        "http_status": 409,
+        "fields": []
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "V2/Controllers/SiteBackups",
+        "name": "Site Backups",
+        "description": "Allows you to list \u0026 manage backups for sites in the database",
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "V2/Controllers/SiteBackups/ListEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "V2/Controllers/SiteBackups/CreateEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "V2/Controllers/SiteBackups/InfoEndpoint"
+          },
+          {
+            "name": "restore",
+            "endpoint": "V2/Controllers/SiteBackups/RestoreEndpoint"
+          },
+          {
+            "name": "list_running_restores",
+            "endpoint": "V2/Controllers/SiteBackups/ListRunningRestoresEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/ListEndpoint",
+        "name": "List site backups",
+        "description": "Returns a full list of site backups",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/SiteBackups/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/SiteBackups/ListEndpoint/BackupsField",
+            "name": "backups",
+            "description": null,
+            "type": "V2/Objects/Backup",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "V2/Objects/Backup",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "V2/Objects/Backup/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Backup/StatusField",
+            "name": "status",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Backup/ManualField",
+            "name": "manual",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Backup/NoteField",
+            "name": "note",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Backup/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Backup/DatabaseBackupsField",
+            "name": "database_backups",
+            "description": null,
+            "type": "V2/Objects/DatabaseBackup",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "V2/Objects/DatabaseBackup",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "V2/Objects/DatabaseBackup/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DatabaseBackup/BackupIdField",
+            "name": "backup_id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DatabaseBackup/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DatabaseBackup/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/CreateEndpoint",
+        "name": "Create a backup",
+        "description": "Creates a backup for a site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/SiteBackups/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "note",
+              "description": "A note for the new backup",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/SiteBackups/CreateEndpoint/BackupField",
+            "name": "backup",
+            "description": null,
+            "type": "V2/Objects/Backup",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Errors/ValidationError",
+          "V2/Controllers/SiteBackups/CreateEndpoint/BackupLimitReached"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "note",
+            "description": "A note for the new backup",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/CreateEndpoint/BackupLimitReached",
+        "name": null,
+        "description": "You have reached your maximum number of sites. Please upgrade your package to add new sites.",
+        "code": "backup_limit_reached",
+        "http_status": 402,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/InfoEndpoint",
+        "name": "Show Backup",
+        "description": "Shows information about a backup",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/SiteBackups/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "backup",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteBackupLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/SiteBackups/InfoEndpoint/BackupField",
+            "name": "backup",
+            "description": null,
+            "type": "V2/Objects/Backup",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "backup",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteBackupLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "V2/ArgumentSets/SiteBackupLookup",
+        "name": "Site Backup Lookup",
+        "description": "Provides for site backups to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "V2/ArgumentSets/SiteBackupLookup/BackupNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/ArgumentSets/SiteBackupLookup/BackupNotFound",
+        "name": null,
+        "description": "No backup was found matching any of the criteria provided in the arguments",
+        "code": "backup_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/RestoreEndpoint",
+        "name": "Restore backup",
+        "description": "Restores a backup for a site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/SiteBackups/RestoreEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "backup",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteBackupLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "restore_type",
+              "description": "The type of a restore",
+              "type": "V2/Objects/RestoreTypeEnum",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "database_name",
+              "description": "The name of the database to restore",
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/SiteBackups/RestoreEndpoint/RestoreField",
+            "name": "restore",
+            "description": null,
+            "type": "V2/Objects/Restore",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Errors/ValidationError",
+          "V2/Controllers/SiteBackups/RestoreEndpoint/RestoreInProgress",
+          "V2/Controllers/SiteBackups/RestoreEndpoint/InvalidRestoreType",
+          "V2/Controllers/SiteBackups/RestoreEndpoint/InvalidDatabaseName"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/RestoreEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "backup",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteBackupLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "restore_type",
+            "description": "The type of a restore",
+            "type": "V2/Objects/RestoreTypeEnum",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "database_name",
+            "description": "The name of the database to restore",
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "V2/Objects/RestoreTypeEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "all_files",
+            "description": null
+          },
+          {
+            "name": "database",
+            "description": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/RestoreEndpoint/RestoreInProgress",
+        "name": null,
+        "description": "There's currently a restore in progress for this site.",
+        "code": "restore_in_progress",
+        "http_status": 409,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/RestoreEndpoint/InvalidRestoreType",
+        "name": null,
+        "description": "The provided restore type is not valid",
+        "code": "invalid_restore_type",
+        "http_status": 400,
+        "fields": [
+          {
+            "id": "V2/Controllers/SiteBackups/RestoreEndpoint/InvalidRestoreType/RestoreTypeField",
+            "name": "restore_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/RestoreEndpoint/InvalidDatabaseName",
+        "name": null,
+        "description": "The provided database name to restore is not valid",
+        "code": "invalid_database_name",
+        "http_status": 400,
+        "fields": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "V2/Objects/Restore",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "V2/Objects/Restore/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Restore/BackupIdField",
+            "name": "backup_id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Restore/StatusField",
+            "name": "status",
+            "description": null,
+            "type": "V2/Objects/RestoreStatusEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Restore/CompletedField",
+            "name": "completed",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Restore/ObjectNameField",
+            "name": "object_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Restore/RestoreTypeField",
+            "name": "restore_type",
+            "description": null,
+            "type": "V2/Objects/RestoreTypeEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Restore/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "V2/Objects/RestoreStatusEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "Pending",
+            "description": null
+          },
+          {
+            "name": "Restoring",
+            "description": null
+          },
+          {
+            "name": "Failed",
+            "description": null
+          },
+          {
+            "name": "Success",
+            "description": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/ListRunningRestoresEndpoint",
+        "name": "List Running Restores",
+        "description": "List all running site restores for a backup",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/SiteBackups/ListRunningRestoresEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "backup",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteBackupLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/SiteBackups/ListRunningRestoresEndpoint/RunningRestoresField",
+            "name": "running_restores",
+            "description": null,
+            "type": "V2/Objects/Restore",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/SiteBackups/ListRunningRestoresEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "backup",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteBackupLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "V2/Controllers/SiteDomains",
+        "name": "Site Domains",
+        "description": "Allows you to list \u0026 manage domains for sites in the database",
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "V2/Controllers/SiteDomains/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "V2/Controllers/SiteDomains/InfoEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "V2/Controllers/SiteDomains/CreateEndpoint"
+          },
+          {
+            "name": "delete",
+            "endpoint": "V2/Controllers/SiteDomains/DeleteEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/SiteDomains/ListEndpoint",
+        "name": "List domains",
+        "description": "Returns a full list of domains for a site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/SiteDomains/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/SiteDomains/ListEndpoint/DomainsField",
+            "name": "domains",
+            "description": null,
+            "type": "V2/Objects/Domain",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/SiteDomains/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "V2/Objects/Domain",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "V2/Objects/Domain/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Domain/SiteIdField",
+            "name": "site_id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Domain/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Domain/RedirectField",
+            "name": "redirect",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Domain/RequireSslField",
+            "name": "require_ssl",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Domain/PrimaryField",
+            "name": "primary",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/Domain/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/SiteDomains/InfoEndpoint",
+        "name": "Show Domain",
+        "description": "Shows information about a domain",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/SiteDomains/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "domain",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteDomainLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/SiteDomains/InfoEndpoint/DomainField",
+            "name": "domain",
+            "description": null,
+            "type": "V2/Objects/Domain",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/SiteDomains/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "domain",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteDomainLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "V2/ArgumentSets/SiteDomainLookup",
+        "name": "Site Domain Lookup",
+        "description": "Provides for site domains to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "V2/ArgumentSets/SiteDomainLookup/DomainNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/ArgumentSets/SiteDomainLookup/DomainNotFound",
+        "name": null,
+        "description": "No domain was found matching any of the criteria provided in the arguments",
+        "code": "domain_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/SiteDomains/CreateEndpoint",
+        "name": "Create a domain",
+        "description": "Creates a backup for a site",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/SiteDomains/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "name",
+              "description": "The name of the domain",
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "redirect",
+              "description": "Would you like to redirect all requests to this domain to your primary domain?",
+              "type": "Rapid/Scalars/Boolean",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "create_alternative",
+              "description": "Create www and bare domain versions?",
+              "type": "Rapid/Scalars/Boolean",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/SiteDomains/CreateEndpoint/DomainField",
+            "name": "domain",
+            "description": null,
+            "type": "V2/Objects/Domain",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Errors/ValidationError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/SiteDomains/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "name",
+            "description": "The name of the domain",
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "redirect",
+            "description": "Would you like to redirect all requests to this domain to your primary domain?",
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "create_alternative",
+            "description": "Create www and bare domain versions?",
+            "type": "Rapid/Scalars/Boolean",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/SiteDomains/DeleteEndpoint",
+        "name": "Delete a domain",
+        "description": "Delete domain",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/SiteDomains/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "site",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "domain",
+              "description": null,
+              "type": "V2/ArgumentSets/SiteDomainLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/SiteDomains/DeleteEndpoint/DomainField",
+            "name": "domain",
+            "description": null,
+            "type": "V2/Objects/Domain",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Errors/ValidationError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/SiteDomains/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "site",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "domain",
+            "description": null,
+            "type": "V2/ArgumentSets/SiteDomainLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "V2/Controllers/DNSDomains",
+        "name": "DNS Domains",
+        "description": "Allows you to list \u0026 manage domains for sites in the database",
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "V2/Controllers/DNSDomains/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "V2/Controllers/DNSDomains/InfoEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "V2/Controllers/DNSDomains/CreateEndpoint"
+          },
+          {
+            "name": "delete",
+            "endpoint": "V2/Controllers/DNSDomains/DeleteEndpoint"
+          },
+          {
+            "name": "list_records",
+            "endpoint": "V2/Controllers/DNSDomains/ListRecordsEndpoint"
+          },
+          {
+            "name": "create_record",
+            "endpoint": "V2/Controllers/DNSDomains/CreateRecordEndpoint"
+          },
+          {
+            "name": "delete_record",
+            "endpoint": "V2/Controllers/DNSDomains/DeleteRecordEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/ListEndpoint",
+        "name": "List DNS Domains",
+        "description": "Returns a full list of dns domains",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/DNSDomains/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": []
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/DNSDomains/ListEndpoint/DnsDomainsField",
+            "name": "dns_domains",
+            "description": null,
+            "type": "V2/Objects/DNSDomain",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "V2/Objects/DNSDomain",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "V2/Objects/DNSDomain/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomain/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomain/ServiceIdField",
+            "name": "service_id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/InfoEndpoint",
+        "name": "Show DNS Domain",
+        "description": "Returns information about a dns domain",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/DNSDomains/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_domain",
+              "description": null,
+              "type": "V2/ArgumentSets/DNSDomainLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/DNSDomains/InfoEndpoint/DnsDomainField",
+            "name": "dns_domain",
+            "description": null,
+            "type": "V2/Objects/DNSDomain",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_domain",
+            "description": null,
+            "type": "V2/ArgumentSets/DNSDomainLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "V2/ArgumentSets/DNSDomainLookup",
+        "name": "DNS Domain Lookup",
+        "description": "Provides for dns domains to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "V2/ArgumentSets/DNSDomainLookup/DNSDomainNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/ArgumentSets/DNSDomainLookup/DNSDomainNotFound",
+        "name": null,
+        "description": "No DNS Domain was found matching any of the criteria provided in the arguments",
+        "code": "dns_domain_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/CreateEndpoint",
+        "name": "Create DNS Domain",
+        "description": "Create a new DNS Domain within a service",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/DNSDomains/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "name",
+              "description": "The name for the new site",
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/DNSDomains/CreateEndpoint/DnsDomainField",
+            "name": "dns_domain",
+            "description": null,
+            "type": "V2/Objects/DNSDomain",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Errors/ValidationError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": "The name for the new site",
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/DeleteEndpoint",
+        "name": "Delete DNS domain",
+        "description": "Deletes a DNS domain",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/DNSDomains/DeleteEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_domain",
+              "description": null,
+              "type": "V2/ArgumentSets/DNSDomainLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/DNSDomains/DeleteEndpoint/DnsDomainField",
+            "name": "dns_domain",
+            "description": null,
+            "type": "V2/Objects/DNSDomain",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/DeleteEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_domain",
+            "description": null,
+            "type": "V2/ArgumentSets/DNSDomainLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/ListRecordsEndpoint",
+        "name": "List records for a DNS Domain",
+        "description": "Returns a full list of DNS Domain records",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/DNSDomains/ListRecordsEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_domain",
+              "description": null,
+              "type": "V2/ArgumentSets/DNSDomainLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/DNSDomains/ListRecordsEndpoint/DnsDomainRecordsField",
+            "name": "dns_domain_records",
+            "description": null,
+            "type": "V2/Objects/DNSDomainRecord",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/ListRecordsEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_domain",
+            "description": null,
+            "type": "V2/ArgumentSets/DNSDomainLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "V2/Objects/DNSDomainRecord",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "V2/Objects/DNSDomainRecord/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecord/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecord/FullNameField",
+            "name": "full_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecord/TtlField",
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecord/DataField",
+            "name": "data",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecord/FormDataField",
+            "name": "form_data",
+            "description": null,
+            "type": "V2/Objects/DNSDomainRecordFormData",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecord/TypeField",
+            "name": "type",
+            "description": null,
+            "type": "V2/Objects/DNSDomainRecordType",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "V2/Objects/DNSDomainRecordFormData",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "V2/Objects/DNSDomainRecordFormData/IpField",
+            "name": "ip",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecordFormData/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecordFormData/HostField",
+            "name": "host",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecordFormData/PriorityField",
+            "name": "priority",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecordFormData/DataField",
+            "name": "data",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecordFormData/WeightField",
+            "name": "weight",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecordFormData/PortField",
+            "name": "port",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecordFormData/TargetField",
+            "name": "target",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "V2/Objects/DNSDomainRecordType",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "V2/Objects/DNSDomainRecordType/ClassField",
+            "name": "class",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecordType/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "V2/Objects/DNSDomainRecordType/ColorField",
+            "name": "color",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/CreateRecordEndpoint",
+        "name": "Create DNS Domain record",
+        "description": "Create a new DNS Domain record within a service",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/DNSDomains/CreateRecordEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_domain",
+              "description": null,
+              "type": "V2/ArgumentSets/DNSDomainLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "record_name",
+              "description": "The name of the DNS Domain record",
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "type",
+              "description": "The type of the DNS Domain record",
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "ttl",
+              "description": "The TTL value of the DNS Domain record",
+              "type": "Rapid/Scalars/Integer",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "record_fields",
+              "description": null,
+              "type": "V2/ArgumentSets/DNSDomainRecordArguments",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/DNSDomains/CreateRecordEndpoint/RecordCreatedField",
+            "name": "record_created",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Controllers/DNSDomains/CreateRecordEndpoint/InvalidRecordType",
+          "V2/Controllers/DNSDomains/CreateRecordEndpoint/InvalidRecordFieldArgument",
+          "V2/Controllers/DNSDomains/CreateRecordEndpoint/DNSServiceError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/CreateRecordEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_domain",
+            "description": null,
+            "type": "V2/ArgumentSets/DNSDomainLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "record_name",
+            "description": "The name of the DNS Domain record",
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "type",
+            "description": "The type of the DNS Domain record",
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ttl",
+            "description": "The TTL value of the DNS Domain record",
+            "type": "Rapid/Scalars/Integer",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "record_fields",
+            "description": null,
+            "type": "V2/ArgumentSets/DNSDomainRecordArguments",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/ArgumentSets/DNSDomainRecordArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "ip",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "host",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "priority",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "data",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "weight",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "port",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "target",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/CreateRecordEndpoint/InvalidRecordType",
+        "name": null,
+        "description": "The provided record type is not valid",
+        "code": "invalid_record_type",
+        "http_status": 400,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/CreateRecordEndpoint/InvalidRecordFieldArgument",
+        "name": null,
+        "description": "One or more fields are invalid or empty",
+        "code": "invalid_record_field_argument",
+        "http_status": 400,
+        "fields": [
+          {
+            "id": "V2/Controllers/DNSDomains/CreateRecordEndpoint/InvalidRecordFieldArgument/FieldsField",
+            "name": "fields",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/CreateRecordEndpoint/DNSServiceError",
+        "name": null,
+        "description": "There was an error with your request",
+        "code": "dns_service_error",
+        "http_status": 500,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/DeleteRecordEndpoint",
+        "name": "Delete DNS Domain record",
+        "description": "Deletes a DNS Domain record within a service",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "V2/Controllers/DNSDomains/DeleteRecordEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_domain",
+              "description": null,
+              "type": "V2/ArgumentSets/DNSDomainLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "record",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "V2/Controllers/DNSDomains/DeleteRecordEndpoint/RecordDeletedField",
+            "name": "record_deleted",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "V2/Controllers/DNSDomains/DeleteRecordEndpoint/InvalidRecordId",
+          "V2/Controllers/DNSDomains/DeleteRecordEndpoint/DNSServiceError"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/DeleteRecordEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_domain",
+            "description": null,
+            "type": "V2/ArgumentSets/DNSDomainLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "record",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/DeleteRecordEndpoint/InvalidRecordId",
+        "name": null,
+        "description": "The provided record id is invalid",
+        "code": "invalid_record_id",
+        "http_status": 400,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "V2/Controllers/DNSDomains/DeleteRecordEndpoint/DNSServiceError",
+        "name": null,
+        "description": "There was an error with your request",
+        "code": "dns_service_error",
+        "http_status": 500,
+        "fields": []
+      }
+    }
+  ]
+}

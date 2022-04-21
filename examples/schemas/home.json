@@ -1,0 +1,573 @@
+{
+  "schema_version": 1,
+  "host": "home.k.io",
+  "namespace": "/api/v1",
+  "api": "CoreAPI/Base",
+  "objects": [
+    {
+      "type": "api",
+      "value": {
+        "id": "CoreAPI/Base",
+        "name": "Krystal Home API",
+        "description": "The full functionality of the Krystal Home API.",
+        "authenticator": "CoreAPI/Authenticator",
+        "route_set": {
+          "routes": [
+            {
+              "path": "schema",
+              "request_method": "GET",
+              "controller": "Rapid/Schema/Controller",
+              "endpoint": "Rapid/Schema/Controller/SchemaEndpoint",
+              "group": null
+            },
+            {
+              "path": "karats",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/KaratsController",
+              "endpoint": "CoreAPI/Controllers/KaratsController/TransactEndpoint",
+              "group": "karats"
+            }
+          ],
+          "groups": [
+            {
+              "id": "karats",
+              "name": "Karats",
+              "description": null,
+              "groups": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "authenticator",
+      "value": {
+        "id": "CoreAPI/Authenticator",
+        "name": "API Token Authenticator",
+        "description": null,
+        "type": "bearer",
+        "potential_errors": [
+          "CoreAPI/Authenticator/MissingAPIToken",
+          "CoreAPI/Authenticator/InvalidAPIToken"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Authenticator/MissingAPIToken",
+        "name": null,
+        "description": "No API token was provided in the Authorization header. Ensure a token is provided prefixed with Bearer",
+        "code": "missing_api_token",
+        "http_status": 400,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Authenticator/InvalidAPIToken",
+        "name": null,
+        "description": "The API token provided was not valid (it may not exist or have expired)",
+        "code": "invalid_api_token",
+        "http_status": 403,
+        "fields": []
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/Integer",
+        "name": "Integer",
+        "description": null
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/String",
+        "name": "String",
+        "description": null
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/Boolean",
+        "name": "Boolean",
+        "description": null
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/KaratsController",
+        "name": null,
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "transact",
+            "endpoint": "CoreAPI/Controllers/KaratsController/TransactEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/KaratsController/TransactEndpoint",
+        "name": "Transact Karats",
+        "description": "Add or remove Karats to/from a given person",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/KaratsController/TransactEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "person",
+              "description": null,
+              "type": "CoreAPI/ArgumentSets/PersonLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "quantity",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "url",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "category",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": "other"
+            },
+            {
+              "name": "source",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "anti_replay_token",
+              "description": null,
+              "type": "Rapid/Scalars/String",
+              "required": false,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/KaratsController/TransactEndpoint/KaratField",
+            "name": "karat",
+            "description": null,
+            "type": "CoreAPI/Objects/Karat",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Controllers/KaratsController/TransactEndpoint/ValidationError",
+          "CoreAPI/Controllers/KaratsController/TransactEndpoint/CannotReplay"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/KaratsController/TransactEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "person",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/PersonLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "quantity",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "description",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "url",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "category",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": "other"
+          },
+          {
+            "name": "source",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "anti_replay_token",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/PersonLookup",
+        "name": "Person Lookup",
+        "description": "Looks up a person",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "permalink",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "email_address",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "slack_id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/PersonLookup/PersonNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/PersonLookup/PersonNotFound",
+        "name": null,
+        "description": "No person was found matching any of the criteria provided in the arguments",
+        "code": "person_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/KaratsController/TransactEndpoint/ValidationError",
+        "name": null,
+        "description": "A validation error occurred with the object that was being created/updated/deleted",
+        "code": "validation_error",
+        "http_status": 422,
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/KaratsController/TransactEndpoint/ValidationError/ErrorsField",
+            "name": "errors",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/KaratsController/TransactEndpoint/CannotReplay",
+        "name": null,
+        "description": "The anti-replay token has already been used for this person",
+        "code": "replay_detected",
+        "http_status": 409,
+        "fields": []
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Karat",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Karat/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Karat/QuantityField",
+            "name": "quantity",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Karat/BalanceField",
+            "name": "balance",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Karat/DescriptionField",
+            "name": "description",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Karat/CreatedAtField",
+            "name": "created_at",
+            "description": null,
+            "type": "Rapid/Scalars/UnixTime",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Karat/TypeField",
+            "name": "type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Karat/CategoryField",
+            "name": "category",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Karat/UrlField",
+            "name": "url",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Karat/SourceField",
+            "name": "source",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Karat/PersonField",
+            "name": "person",
+            "description": null,
+            "type": "CoreAPI/Objects/Person",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "scalar",
+      "value": {
+        "id": "Rapid/Scalars/UnixTime",
+        "name": "Unix Timestamp",
+        "description": null
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/Person",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/Person/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Person/FirstNameField",
+            "name": "first_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Person/LastNameField",
+            "name": "last_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Person/FullNameField",
+            "name": "full_name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/Person/JobTitleField",
+            "name": "job_title",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
