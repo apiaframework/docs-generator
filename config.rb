@@ -34,6 +34,8 @@ page '/index.html', locals: {}
 end
 
 $schema.api.route_set.routes.each do |route|
+  next if route.endpoint.nil?
+
   proxy "/routes/#{route.path}/#{route.request_method.downcase}.html", 'route.html', locals: { route: route }
 end
 ignore 'route.html'
